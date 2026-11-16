@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050403">
+  <title>Linger — Your agents. Your machine. Your rules.</title>
+  <meta name="description" content="Linger is an open-source framework for personal agent teams. Run it locally, connect your tools, share memory and build your own workflows.">
+  <meta property="og:title" content="Linger — Your agents. Your machine. Your rules.">
+  <meta property="og:description" content="Your agents. On your computer. An open-source, extensible platform for agent teams, shared memory and local AI.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="./media/linger-mark.svg">
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/barlow-400.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/barlow-500.woff2" crossorigin>
+  <link rel="stylesheet" href="./base.css?v=8e2aa83bb7b2">
+  <link rel="stylesheet" href="./hero.css?v=b587ba323a91">
+  <link rel="stylesheet" href="./panels.css?v=d45ed9f5b150">
+  <link rel="stylesheet" href="./platform.css?v=6e0a93d6b8c9">
+  <link rel="stylesheet" href="./feature-depth.css?v=f2113082fa54">
+  <link rel="stylesheet" href="./lower.css?v=9aee949cd409">
+  <link rel="stylesheet" href="./motion.css?v=25687fb59c63">
+  <link rel="stylesheet" href="./cursor.css?v=3a12741a5920">
+  <link rel="stylesheet" href="./technology.css?v=767a16ff7cfd">
+  <link rel="stylesheet" href="./tech-context.css?v=b6cf9120407b">
+  <script defer src="./main.js?v=22863abaacd6"></script>
+  <script defer src="./product.js?v=b4252bceffa2"></script>
+  <script defer src="./cursor.js?v=65a4176f20f5"></script>
+  <script defer src="./tech-context.js?v=b9488d8e5b74"></script>
+  <script defer src="./tech-engine.js?v=0b8c7260e023"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-surface">
+      <a class="brand" href="#top" aria-label="Linger home">
+        <img src="./media/linger-wordmark-ink.svg" width="1218" height="378" alt="Linger">
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#product">Platform</a>
+        <a href="#technology">Technology</a>
+        <a href="https://docs.heylinger.com">Docs</a>
+        <a class="nav-source" href="https://github.com/simplexai-labs/linger">GitHub <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+      </nav>
+      <a class="nav-download" href="#download">Get Linger <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 2v12m-4-4 4 4 4-4"></path></svg></span></a>
+      <button type="button" class="menu-trigger" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+
+<section class="hero" id="top" aria-labelledby="hero-heading">
+  <svg class="hero-art" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Original narrow monoline alphabet, reused by both optical passes. -->
+      <g id="hero-letterforms" fill="none" stroke="currentColor" stroke-width="6.05" stroke-linecap="butt" stroke-linejoin="round">
+        <path id="hero-letter-a" d="M0 74L21 0H23L44 74M7 49H37"/>
+        <path id="hero-letter-c" d="M36 3C30 1.5 24 0 19 0C5 0 0 6 0 20V54C0 68 6 74 19 74C25 74 31 73 36 71"/>
+        <path id="hero-letter-dot" d="M0 68V74"/>
+        <path id="hero-letter-e" d="M36 2.5H0V71.5H37M0 35H32"/>
+        <path id="hero-letter-g" d="M39 4C33 1.5 26 0 21 0C5 0 0 6 0 21V52C0 68 5 74 21 74C28 74 35 72 40 69V39H22"/>
+        <path id="hero-letter-l" d="M0 0V71.5H35"/>
+        <path id="hero-letter-m" d="M0 74V0H2L27 43L52 0H54V74"/>
+        <path id="hero-letter-n" d="M0 74V2H2L41 73H42V0"/>
+        <path id="hero-letter-o" d="M21 0C5 0 0 6 0 21V52C0 68 5 74 21 74C37 74 42 68 42 52V21C42 6 37 0 21 0Z"/>
+        <path id="hero-letter-p" d="M0 74V2.5H19C32 2.5 37 6 37 22C37 38 31 41 19 41H0"/>
+        <path id="hero-letter-r" d="M0 74V2.5H19C32 2.5 37 6 37 21C37 34 32 38.5 20 38.5H0M20 38.5L41 74"/>
+        <path id="hero-letter-s" d="M35 3.5C29 1.1 23 .3 17 .3C4 .3 0 6 0 19C0 31 3 34 18 38C32 42 36 45 36 57C36 68 33 73.6 19 73.6C12 73.6 5 72 -1 69"/>
+        <path id="hero-letter-t" d="M0 2.5H44M22 2.5V74"/>
+        <path id="hero-letter-u" d="M0 0V52C0 68 5 74 21 74C37 74 42 68 42 52V0"/>
+        <path id="hero-letter-y" d="M0 0L22 37L44 0M22 37V74"/>
+      </g>
+      <g id="hero-line-agent" fill="none" stroke="currentColor" stroke-width="6.05" stroke-linecap="butt" stroke-linejoin="round">
+        <use href="#hero-letter-y" x="4"/>
+        <use href="#hero-letter-o" x="73"/>
+        <use href="#hero-letter-u" x="140"/>
+        <use href="#hero-letter-r" x="207"/>
+        <use href="#hero-letter-a" x="295"/>
+        <use href="#hero-letter-g" x="364"/>
+        <use href="#hero-letter-e" x="431"/>
+        <use href="#hero-letter-n" x="493"/>
+        <use href="#hero-letter-t" x="560"/>
+        <use href="#hero-letter-s" x="629"/>
+        <use href="#hero-letter-dot" x="690"/>
+      </g>
+      <g id="hero-line-location" fill="none" stroke="currentColor" stroke-width="6.05" stroke-linecap="butt" stroke-linejoin="round">
+        <use href="#hero-letter-o" x="4"/>
+        <use href="#hero-letter-n" x="71"/>
+        <use href="#hero-letter-y" x="160"/>
+        <use href="#hero-letter-o" x="229"/>
+        <use href="#hero-letter-u" x="296"/>
+        <use href="#hero-letter-r" x="363"/>
+      </g>
+      <g id="hero-line-computer" fill="none" stroke="currentColor" stroke-width="6.05" stroke-linecap="butt" stroke-linejoin="round">
+        <use href="#hero-letter-c" x="4"/>
+        <use href="#hero-letter-o" x="65"/>
+        <use href="#hero-letter-m" x="132"/>
+        <use href="#hero-letter-p" x="211"/>
+        <use href="#hero-letter-u" x="273"/>
+        <use href="#hero-letter-t" x="340"/>
+        <use href="#hero-letter-e" x="409"/>
+        <use href="#hero-letter-r" x="471"/>
+        <use href="#hero-letter-dot" x="537"/>
+      </g>
+
+      <path id="hero-upper-shape" d="M488 -100H1380V282L910 335C670 364 500 314 462 184C440 111 469 19 488 -100Z"/>
+      <path id="hero-upper-edge" d="M488 -100C469 19 440 111 462 184C500 314 670 364 910 335L1380 282"/>
+      <path id="hero-lower-shape" d="M-110 456L142 425C298 402 441 446 498 567L553 690H-110Z"/>
+      <linearGradient id="hero-laminate" x1="0" y1=".66" x2="1" y2=".23"><stop stop-color="#7a512b" stop-opacity=".35"/><stop offset=".35" stop-color="#ffbb79" stop-opacity=".82"/><stop offset=".71" stop-color="#d98b44" stop-opacity=".69"/><stop offset="1" stop-color="#f6a34f" stop-opacity=".25"/></linearGradient>
+      <clipPath id="hero-upper-clip"><use href="#hero-upper-shape" class="hero-upper-rim"/></clipPath>
+      <clipPath id="hero-lower-clip"><use href="#hero-lower-shape" class="hero-lower-rim"/></clipPath>
+      <linearGradient id="hero-upper-amber" x1="0" x2="0" y1="65" y2="352" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#000"/><stop offset=".16" stop-color="#060301"/>
+        <stop offset=".41" stop-color="#261909"/><stop offset=".75" stop-color="#70481b"/>
+        <stop offset="1" stop-color="#a8682a"/>
+      </linearGradient>
+      <linearGradient id="hero-edge-light" x1="444" x2="872" y1="70" y2="344" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FDA947" stop-opacity=".96"/><stop offset=".63" stop-color="#FDA947" stop-opacity=".67"/>
+        <stop offset="1" stop-color="#FDA947" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="hero-lower-amber" x1="0" x2="0" y1="422" y2="600" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#825027"/><stop offset=".55" stop-color="#201406"/><stop offset="1" stop-color="#010100"/>
+      </linearGradient>
+      <radialGradient id="hero-lower-light" cx="489" cy="547" r="365" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#80502a"/><stop offset=".37" stop-color="#63401f" stop-opacity=".88"/>
+        <stop offset="1" stop-color="#77501f" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="hero-top-wire" x1="0" x2="225" y1="40" y2="315" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#251a0d"/><stop offset=".55" stop-color="#5a3d1b"/><stop offset="1" stop-color="#aa7437"/>
+      </linearGradient>
+      <linearGradient id="hero-lower-wire" x1="733" x2="1157" y1="436" y2="710" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#805626"/><stop offset=".56" stop-color="#4b3214"/><stop offset="1" stop-color="#241809"/>
+      </linearGradient>
+      <linearGradient id="hero-sheen" gradientUnits="userSpaceOnUse" x1="0" x2="185" y1="0" y2="54">
+        <stop stop-color="#FDA947" stop-opacity="0"/><stop offset=".52" stop-color="#FDA947" stop-opacity=".27"/><stop offset="1" stop-color="#FDA947" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="hero-pointer-amber">
+        <stop stop-color="#ffda9c" stop-opacity=".48"/>
+        <stop offset=".28" stop-color="#ffc579" stop-opacity=".30"/>
+        <stop offset=".64" stop-color="#FDA947" stop-opacity=".11"/>
+        <stop offset="1" stop-color="#FDA947" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="hero-wideglow" x="-55%" y="-50%" width="210%" height="220%"><feGaussianBlur stdDeviation="33"/></filter>
+      <g id="hero-upper-wires" fill="none">
+        <path id="hero-corner-track" d="M-90 253L16 241C110 231 167 174 177 77L188 -33"/>
+        <use href="#hero-corner-track" transform="translate(-63 -57)" opacity=".31"/>
+        <use href="#hero-corner-track" transform="translate(-37 -35)" opacity=".54"/>
+        <use href="#hero-corner-track" transform="translate(-19 -18)" opacity=".72"/>
+        <use href="#hero-corner-track" transform="translate(-8 -8)" opacity=".86"/>
+        <use href="#hero-corner-track" transform="translate(6 6)" opacity=".66"/>
+      </g>
+      <g id="hero-lower-wires" fill="none">
+        <path id="hero-rise-track" d="M663 646C748 505 836 450 1029 431L1291 400"/>
+        <use href="#hero-rise-track" transform="translate(23 12)" opacity=".93"/>
+        <use href="#hero-rise-track" transform="translate(65 25)" opacity=".77"/>
+        <use href="#hero-rise-track" transform="translate(123 38)" opacity=".56"/>
+        <use href="#hero-rise-track" transform="translate(202 52)" opacity=".37"/>
+      </g>
+      <!-- SVG and HTML titles share the pane coordinates, including its pointer offset. -->
+      <clipPath id="hero-title-clear" clipPathUnits="objectBoundingBox" transform="scale(.0008333333 .0016666667)">
+        <path class="hero-upper-rim" clip-rule="evenodd" d="M-1000 -800H2200V1600H-1000Z M488 -100H1380V282L910 335C670 364 500 314 462 184C440 111 469 19 488 -100Z"/>
+      </clipPath>
+      <clipPath id="hero-title-glass" clipPathUnits="objectBoundingBox" transform="scale(.0008333333 .0016666667)">
+        <use class="hero-upper-rim" href="#hero-upper-shape"/>
+      </clipPath>
+    </defs>
+
+    <use class="hero-upper-trace" href="#hero-upper-wires" stroke="url(#hero-top-wire)" stroke-width="2.35"/>
+    <use class="hero-lower-trace" href="#hero-lower-wires" stroke="url(#hero-lower-wire)" stroke-width="2.25"/>
+    <g class="hero-current" fill="none" stroke="#ffc078" stroke-width="2.1">
+      <path class="hero-current-top hero-upper-trace" pathLength="100" d="M-90 253L16 241C110 231 167 174 177 77L188 -33"/>
+      <path class="hero-current-bottom hero-lower-trace" pathLength="100" d="M686 658C771 517 859 462 1052 443L1314 412"/>
+    </g>
+    <!-- Two offset cut edges give the main pane a thin, visible thickness. -->
+    <g class="hero-upper-rim" fill="none" stroke="url(#hero-laminate)">
+      <use href="#hero-upper-edge" transform="translate(-7 12)" stroke-width="1.4" opacity=".78"/>
+      <use href="#hero-upper-edge" transform="translate(-11 18)" stroke-width=".85" opacity=".45"/>
+    </g>
+
+    <g clip-path="url(#hero-upper-clip)">
+      <rect class="hero-upper-light" x="220" y="-90" width="1280" height="600" fill="url(#hero-upper-amber)"/>
+      <use href="#hero-upper-edge" class="hero-upper-rim" stroke="url(#hero-edge-light)" stroke-width="87" fill="none" filter="url(#hero-wideglow)"/>
+      <rect class="hero-caustic" x="-180" y="-120" width="390" height="620" fill="url(#hero-sheen)"/>
+      <ellipse class="hero-pointer-light" cx="600" cy="300" rx="285" ry="185" fill="url(#hero-pointer-amber)"/>
+      <use href="#hero-upper-edge" class="hero-upper-rim" fill="none" stroke="url(#hero-laminate)" stroke-width="2.3"/>
+    </g>
+    <g clip-path="url(#hero-lower-clip)" opacity=".70">
+      <g class="hero-lower-light">
+        <rect x="-130" y="320" width="840" height="440" fill="url(#hero-lower-amber)"/>
+        <rect x="-130" y="320" width="840" height="440" fill="url(#hero-lower-light)"/>
+      </g>
+    </g>
+  </svg>
+  <svg class="hero-pointer-reveal pointer-reveal" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <use class="hero-upper-trace" href="#hero-upper-wires"/>
+    <use class="hero-lower-trace" href="#hero-lower-wires"/>
+    <use class="hero-upper-rim" href="#hero-upper-edge"/>
+  </svg>
+  <div class="hero-type-layer hero-type-clear">
+    <h1 class="hero-heading" id="hero-heading">
+      <span class="hero-title-text">Your agents. On your computer.</span>
+      <svg class="hero-letter-line hero-letter-line-agent" viewBox="0 -5 694 84" aria-hidden="true" focusable="false"><use href="#hero-line-agent"/></svg>
+      <svg class="hero-letter-line hero-letter-line-location" viewBox="0 -5 408 84" aria-hidden="true" focusable="false"><use href="#hero-line-location"/></svg>
+      <svg class="hero-letter-line hero-letter-line-computer" viewBox="0 -5 541 84" aria-hidden="true" focusable="false"><use href="#hero-line-computer"/></svg>
+    </h1>
+  </div>
+  <div class="hero-type-layer hero-type-glass" aria-hidden="true">
+    <div class="hero-heading">
+      <svg class="hero-letter-line hero-letter-line-agent" viewBox="0 -5 694 84" aria-hidden="true" focusable="false"><use href="#hero-line-agent"/></svg>
+      <svg class="hero-letter-line hero-letter-line-location" viewBox="0 -5 408 84" aria-hidden="true" focusable="false"><use href="#hero-line-location"/></svg>
+      <svg class="hero-letter-line hero-letter-line-computer" viewBox="0 -5 541 84" aria-hidden="true" focusable="false"><use href="#hero-line-computer"/></svg>
+    </div>
+  </div>
+  <div class="hero-detail">
+    <p>An open-source framework for your personal agent team. Run it locally, connect your tools, and make it your own.</p>
+    <div class="hero-actions">
+      <a class="hero-primary" href="#download">Get Linger <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 2v12m-4-4 4 4 4-4"></path></svg></span></a>
+      <a class="hero-secondary" href="#product">Explore the platform <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 3l10 10M3 13h10V3"></path></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<section id="product" class="agent-spread" aria-labelledby="product-title">
+  <svg class="product-continuity" viewBox="0 0 1400 220" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M-80 0C280 160 970 -110 1490 155"/><path d="M-80 13C280 173 970 -97 1490 168"/><path d="M-80 26C280 186 970 -84 1490 181"/></svg>
+  <div class="agent-spread__copy">
+    <p class="platform-eyebrow">A platform, made personal.</p>
+    <h2 id="product-title">One home.<br><em>Many agents.</em></h2>
+    <p>Meet Another Me, your coordinator. Bring specialist agents together, give them shared context, and build workflows around the way you work.</p>
+    <div class="platform-principles" aria-label="Platform capabilities"><span>Self-host</span><span>Connect</span><span>Extend</span></div>
+    <a class="overview-link" id="open-overview" href="./media/platform-teams.mp4" data-demo="teams">
+      <span class="play-disc" aria-hidden="true"><i></i></span>
+      See the team in action <small>12 sec</small>
+    </a>
+  </div>
+  <figure class="team-stage" aria-labelledby="team-stage-caption">
+    <div class="team-stage__top"><span>YOUR AGENT WORKSPACE</span><span class="team-stage__status">On your machine</span></div>
+    <div class="team-coordinator"><img src="./media/agent-capybara.svg" alt="" width="72" height="72"><div><strong>Another Me</strong><span>Your coordinator</span></div></div>
+    <div class="team-branches" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="team-members">
+      <div><img src="./media/agent-penguin.svg" alt="" width="56" height="56"><strong>Research</strong><span>Find the signal</span></div>
+      <div><img src="./media/agent-bear.svg" alt="" width="56" height="56"><strong>Analyze</strong><span>Work the details</span></div>
+      <div><img src="./media/agent-cat.svg" alt="" width="56" height="56"><strong>Create</strong><span>Shape the result</span></div>
+    </div>
+    <figcaption id="team-stage-caption"><svg class="workspace-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h5"/></svg><span>Different roles. One shared plan.</span></figcaption>
+    <p class="team-stage__note">An example team · Local server configuration</p>
+  </figure>
+  <dialog id="overview-dialog" class="overview-dialog" aria-labelledby="overview-title">
+    <div class="overview-dialog__bar">
+      <div class="overview-dialog__heading">
+        <h3 id="overview-title">Your agents, working together</h3>
+        <span id="demo-duration">12 seconds</span>
+      </div>
+      <button id="close-overview" type="button" aria-label="Close product demos">Close <svg class="ui-arrow" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8"/></svg></button>
+    </div>
+    <div class="demo-selector" role="group" aria-label="Choose a product demo">
+      <button type="button" data-demo-select="teams" aria-pressed="true">Agent teams</button>
+      <button type="button" data-demo-select="tasks" aria-pressed="false">Delegation</button>
+      <button type="button" data-demo-select="memory" aria-pressed="false">Memory</button>
+      <button type="button" data-demo-select="inference" aria-pressed="false">Local inference</button>
+    </div>
+    <video id="demo-video" controls playsinline preload="none" poster="./media/platform-teams.webp" aria-label="Linger agent team workflow" aria-describedby="demo-description">
+      <a href="./media/platform-teams.mp4">Open the agent team animation</a>
+    </video>
+    <div class="overview-description">
+      <p id="demo-description">Another Me creates a shared team.md plan and brings in specialist agents. Each agent has a role and a clear handoff.</p>
+      <p id="demo-error" class="demo-error" role="status" hidden></p>
+      <div class="demo-meta"><span>Official project animation · No audio</span><a id="demo-source" href="./media/platform-teams.mp4" target="_blank" rel="noopener">Open video <svg class="ui-arrow" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M3.5 12.5 12.5 3.5M4 3.5h8.5V12"/></svg></a></div>
+    </div>
+  </dialog>
+</section>
+
+<section id="features" class="feature-spread" aria-label="Linger features">
+  <div class="feature-reader" data-feature-reader>
+    <div class="feature-controls" role="tablist" aria-label="Explore Linger features">
+      <button id="feature-tab-context" type="button" role="tab" aria-selected="true" aria-controls="feature-context">Context</button>
+      <button id="feature-tab-memory" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-memory">Memory</button>
+      <button id="feature-tab-followup" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-followup">Teams</button>
+    </div>
+    <article class="feature-pane" id="feature-context" role="tabpanel" aria-labelledby="feature-tab-context" tabindex="0">
+      <div class="feature-pane__copy">
+        <h2>Your tools.<br>Shared context.</h2>
+        <p>Connect your files and apps to a shared wiki. Give your agents the context they need, without starting from scratch.</p>
+        <a class="feature-demo-link" href="https://docs.heylinger.com/knowledge/personal-memory" aria-label="Explore shared knowledge in the wiki"><svg class="ui-arrow" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><path d="M4 16 16 4M4 4h12v12"/></svg>Explore shared knowledge</a>
+      </div>
+      <figure class="feature-art feature-art--context" aria-hidden="true">
+        <div class="feature-deck">
+          <div class="feature-leaf feature-leaf--far"><b>Email</b></div>
+          <div class="feature-leaf feature-leaf--near"><b>Slack</b></div>
+          <div class="feature-paper">
+            <div class="paper-top"><span class="paper-glyph paper-glyph--brief"></span>Project brief</div>
+            <strong>Acme<br>rollout</strong>
+            <div class="paper-bottom"><span>Proposal</span><span>Meeting notes</span></div>
+          </div>
+        </div>
+      </figure>
+    </article>
+    <article class="feature-pane" id="feature-memory" role="tabpanel" aria-labelledby="feature-tab-memory" tabindex="0" hidden>
+      <div class="feature-pane__copy">
+        <h2>Pick up where<br>you left off.</h2>
+        <p>A shared wiki holds what your team knows. Each agent also learns from its own conversations, so useful context carries forward.</p>
+        <a class="feature-demo-link" href="./media/platform-memory.mp4" data-demo="memory" aria-label="Watch demo: shared knowledge"><svg class="demo-play-icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.1"/><path d="m8 6.5 5 3.5-5 3.5z"/></svg>Watch demo</a>
+      </div>
+      <figure class="feature-art feature-art--memory" aria-hidden="true">
+        <div class="feature-deck">
+          <div class="feature-leaf feature-leaf--far"><b>Decisions</b></div>
+          <div class="feature-leaf feature-leaf--near"><b>Conversations</b></div>
+          <div class="feature-paper">
+            <div class="paper-top"><span class="paper-glyph paper-glyph--wiki"></span>Shared knowledge</div>
+            <strong>Project<br>memory</strong>
+            <div class="paper-bottom"><span>Connected facts</span><span>In context</span></div>
+          </div>
+        </div>
+      </figure>
+    </article>
+    <article class="feature-pane" id="feature-followup" role="tabpanel" aria-labelledby="feature-tab-followup" tabindex="0" hidden>
+      <div class="feature-pane__copy">
+        <h2>One goal.<br>A whole team.</h2>
+        <p>Define roles, share a plan, and let specialist agents work together. Add your own tools and skills as your workflow grows.</p>
+        <a class="feature-demo-link" href="./media/platform-tasks.mp4" data-demo="tasks" aria-label="Watch demo: task delegation"><svg class="demo-play-icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.1"/><path d="m8 6.5 5 3.5-5 3.5z"/></svg>Watch demo</a>
+      </div>
+      <figure class="feature-art feature-art--followup" aria-hidden="true">
+        <div class="feature-deck">
+          <div class="feature-leaf feature-leaf--far"><b>Researcher</b></div>
+          <div class="feature-leaf feature-leaf--near"><b>Analyst</b></div>
+          <div class="feature-paper">
+            <div class="paper-top"><span class="paper-glyph paper-glyph--clock"></span>Team workspace</div>
+            <strong>One shared<br>plan</strong>
+            <div class="paper-bottom"><span>Defined roles</span><span>Clear handoffs</span></div>
+          </div>
+        </div>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<section class="technology-section" id="technology" aria-labelledby="technology-title">
+  <header class="technology-heading">
+    <div>
+      <p class="technology-eyebrow"><span></span>Under the hood</p>
+      <h2 id="technology-title">Powerful inside.<br><em>Personal outside.</em></h2>
+    </div>
+    <p>12 open models, accelerated by PolyStrata. Local intelligence for everyday Macs and PCs.</p>
+  </header>
+
+<section class="context-system" aria-labelledby="context-system-title" data-context-system data-context-stage="connect">
+  <div class="context-system__heading">
+    <div>
+      <p class="technology-eyebrow">Connected context</p>
+      <h3 id="context-system-title">Context connected.<br>On your computer.</h3>
+    </div>
+    <div class="context-steps" role="group" aria-label="Explore how local context works">
+      <button type="button" data-context-step="connect" aria-pressed="true" aria-controls="context-diagram context-caption">Connect</button>
+      <button type="button" data-context-step="remember" aria-pressed="false" aria-controls="context-diagram context-caption">Remember</button>
+      <button type="button" data-context-step="act" aria-pressed="false" aria-controls="context-diagram context-caption">Act</button>
+    </div>
+  </div>
+
+  <div class="context-diagram" id="context-diagram" role="group" aria-label="Sources you authorize feed Linger inside your computer. With a local server and model, inference, a shared wiki and separate agent memories stay within this local setup. Your agents use that context to plan and run tasks.">
+    <svg class="context-wires" aria-hidden="true" preserveAspectRatio="none">
+      <defs><clipPath id="context-device-clip" clipPathUnits="userSpaceOnUse"><rect data-context-clip rx="17"></rect></clipPath></defs>
+      <g class="context-wire-group" data-context-route="connect">
+        <path data-wire="files"></path><path data-wire="mail"></path><path data-wire="calendar"></path><path data-wire="chat"></path><path data-wire="model"></path>
+      </g>
+      <g class="context-wire-group" data-context-route="remember" clip-path="url(#context-device-clip)"><path data-wire="wiki"></path><path data-wire="memory"></path></g>
+      <g class="context-wire-group" data-context-route="act" clip-path="url(#context-device-clip)"><path data-wire="agents"></path></g>
+      <g class="context-packets">
+        <path data-packet="files" data-context-route="connect" pathLength="1"></path><path data-packet="mail" data-context-route="connect" pathLength="1"></path><path data-packet="calendar" data-context-route="connect" pathLength="1"></path><path data-packet="chat" data-context-route="connect" pathLength="1"></path><path data-packet="model" data-context-route="connect" pathLength="1" clip-path="url(#context-device-clip)"></path>
+        <path data-packet="wiki" data-context-route="remember" pathLength="1" clip-path="url(#context-device-clip)"></path><path data-packet="memory" data-context-route="remember" pathLength="1" clip-path="url(#context-device-clip)"></path><path data-packet="agents" data-context-route="act" pathLength="1" clip-path="url(#context-device-clip)"></path>
+      </g>
+    </svg>
+
+    <div class="context-sources">
+      <p>You authorize</p>
+      <ul>
+        <li data-context-node="files"><svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 7h7l2-3h8a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M3 9h18"/></svg><span>Files</span><i aria-hidden="true"></i></li>
+        <li data-context-node="mail"><svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Mail</span><i aria-hidden="true"></i></li>
+        <li data-context-node="calendar"><svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 10h16m-11 5h6"/></svg><span>Calendar</span><i aria-hidden="true"></i></li>
+        <li data-context-node="chat"><svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-6 3v-3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M7 9h10M7 13h6"/></svg><span>Chat</span><i aria-hidden="true"></i></li>
+      </ul>
+    </div>
+
+    <div class="context-device" data-context-node="device">
+      <div class="context-device__heading">
+        <h4><svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="13" rx="1.5"/><path d="m4 16-2 5h20l-2-5M9 19h6"/></svg>Your computer</h4>
+        <p>With a local server and model</p>
+      </div>
+
+      <div class="context-model" data-context-node="model">
+        <svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><path d="M10 10h4v4h-4Z"/></svg><span>Local model</span>
+      </div>
+
+      <div class="context-core" data-context-node="core">
+        <div class="context-core__ring" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="./media/linger-mark.svg" width="34" height="34" alt="">
+        <strong>Linger</strong>
+      </div>
+
+      <div class="context-result" data-context-node="agents">
+        <svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg>
+        <h4>Your agents</h4>
+        <p>Plan · Run · Review</p>
+      </div>
+
+      <div class="context-storage">
+        <div class="context-storage__nodes">
+          <div class="context-knowledge" data-context-node="wiki">
+            <svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h4v16H3Zm7 0h4v16h-4Zm6 1 4-1 3 15-4 1Z"/></svg><h4>Shared wiki</h4>
+          </div>
+          <div class="context-knowledge context-knowledge--memory" data-context-node="memory">
+            <svg class="context-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a2 2 0 0 1 2 2v16H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M8 3v18m4-13h4m-4 4h4"/></svg><h4>Agent memory</h4>
+          </div>
+        </div>
+        <p>Stored locally</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="context-system__notes">
+    <p class="context-caption" id="context-caption" aria-live="polite" aria-atomic="true">Bring authorized context to your local agent.</p>
+    <details class="context-details">
+      <summary>How it works<span aria-hidden="true"></span></summary>
+      <div class="context-details__body">
+        <p><strong>Your local setup.</strong> With a local server and model, Linger stores its workspace and memory on your computer and runs inference there. You choose connected apps; agents use the file and tool permissions of their runtime.</p>
+        <p><strong>Two kinds of memory.</strong> Your shared personal wiki is searchable by all your agents. Each agent also keeps a separate memory of its own conversations, preferences and lessons.</p>
+        <p><strong>From context to work.</strong> Your agents can use tools, run tasks and coordinate in Rooms, bringing the relevant context into the work.</p>
+        <p>Local mode does not mean every connection is offline. Connected apps, voice, and background work using a remote model can send data to external services.</p>
+        <div class="context-details__links">
+          <a href="https://docs.heylinger.com/models/local-inference" target="_blank" rel="noopener noreferrer">Local inference <svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></a>
+          <a href="https://docs.heylinger.com/concepts/memory-layers" target="_blank" rel="noopener noreferrer">Memory layers <svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></a>
+          <a href="https://docs.heylinger.com/developers/architecture" target="_blank" rel="noopener noreferrer">Architecture <svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></a>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+  <article class="engine-story" aria-labelledby="engine-title">
+    <header class="engine-heading">
+      <div>
+        <p class="technology-eyebrow">Local inference</p>
+        <h3 id="engine-title">A bigger model.<br>A smarter fit.</h3>
+      </div>
+      <p>Big models, shared across your GPU, RAM and SSD.</p>
+    </header>
+    <div class="engine-stage">
+      <div class="engine-explanation">
+        <div class="engine-scale">
+          <div><strong>125<span>B</span></strong><span>parameter model</span></div>
+          <i aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2 8h12m-4-4 4 4-4 4"></path></svg></i>
+          <div><strong>12<span>GB</span></strong><span>GPU memory</span></div>
+        </div>
+        <p class="engine-premise">With 64 GB of system memory.</p>
+      </div>
+      <div class="engine-diagram">
+        <p class="engine-diagram-label">Select a layer <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M13 3 3 13M3 3v10h10"></path></svg></span></p>
+        <div class="memory-layers" role="tablist" aria-label="How PolyStrata uses your computer" aria-orientation="vertical">
+          <button class="memory-tier memory-tier--gpu" id="tier-gpu" type="button" role="tab" aria-selected="true" aria-controls="tier-panel-gpu">
+            <span class="tier-header"><span class="tier-name">GPU</span><span class="tier-capacity">12 GB</span><span class="tier-arrow" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></span>
+            <span class="expert-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </button>
+          <button class="memory-tier memory-tier--ram" id="tier-ram" type="button" role="tab" aria-selected="false" aria-controls="tier-panel-ram" tabindex="-1">
+            <span class="tier-header"><span class="tier-name">RAM</span><span class="tier-capacity">64 GB</span><span class="tier-arrow" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></span>
+            <span class="expert-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </button>
+          <button class="memory-tier memory-tier--ssd" id="tier-ssd" type="button" role="tab" aria-selected="false" aria-controls="tier-panel-ssd" tabindex="-1">
+            <span class="tier-header"><span class="tier-name">SSD</span><span class="tier-capacity">On disk</span><span class="tier-arrow" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></span>
+            <span class="expert-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </button>
+        </div>
+      </div>
+      <div class="engine-layer-copy">
+        <div id="tier-panel-gpu" role="tabpanel" aria-labelledby="tier-gpu" tabindex="0">
+          <p>The busiest parts stay in fast graphics memory.</p>
+        </div>
+        <div id="tier-panel-ram" role="tabpanel" aria-labelledby="tier-ram" tabindex="0" hidden>
+          <p>System memory holds more of the model, ready for the CPU.</p>
+        </div>
+        <div id="tier-panel-ssd" role="tabpanel" aria-labelledby="tier-ssd" tabindex="0" hidden>
+          <p>Storage holds the model files and large lookup tables.</p>
+        </div>
+      </div>
+    </div>
+    <div class="engine-demo-link"><a class="overview-link" href="./media/platform-inference.mp4" data-demo="inference"><span class="play-disc" aria-hidden="true"><i></i></span>See local inference in 13 seconds</a></div>
+    <details class="engine-details">
+      <summary>Technical details<span aria-hidden="true"></span></summary>
+      <div class="engine-details__body">
+        <p class="engine-model-detail"><strong>Qwen3.8-Flash-Next · IQ2_XS.</strong> This 125B mixture-of-experts model uses a few specialists at a time. PolyStrata shares the work across GPU and system memory, with model files and lookup tables on disk. The diagram is illustrative, not a memory allocation chart.</p>
+        <div class="engine-benchmark">
+          <div class="benchmark-number"><strong>45.5</strong><span>output tokens / second<small>Project-published benchmark</small></span></div>
+          <p>RTX 3060 · 12 GB VRAM + 64 GB RAM<br><span>Qwen3.8-Flash-Next · IQ2_XS · 4K prompt</span></p>
+          <a href="https://github.com/simplexai-labs/PolyStrata/blob/67dde645dd94190733cca8ad78d2faa68b930e2a/bench/results/2026-10-09-community-rtx-3060-0141/README.md#speed-sweep">See the benchmark <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+        </div>
+        <div class="engine-method">
+          <h4>Test conditions</h4>
+          <p>Median of three runs: Intel Core i7-12700, 64 GB DDR4-3200, Windows 11 and Strata 0.1.41. A 4,096-token prompt, 256 generated tokens, INT8 KV cache, temperature 0 and multi-token prediction enabled; loading and warm-up excluded. Performance varies with hardware, model and workload.</p>
+        </div>
+        <div class="engine-method">
+          <h4>Your choice of models</h4>
+          <p>PolyStrata supports 12 models, including Qwen, DeepSeek and Gemma. Model and platform support varies; the 11 models on PolyStrata’s own engine are experimental. Quick Install recommends a model that fits your hardware.</p>
+        </div>
+        <div class="technology-sources">
+          <a href="https://docs.heylinger.com/models/local-inference">Explore the inference engine <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+          <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Meet the model <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+        </div>
+      </div>
+    </details>
+  </article>
+</section>
+
+<section class="download-section" id="download" aria-labelledby="download-title">
+  <div class="download-frame" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="download-content">
+    <h2 id="download-title">Get Linger.</h2>
+    <p>Start with the desktop app. Or self-host the open-source platform and build your own agent workflows.</p>
+    <div class="download-options" aria-label="Desktop installers">
+      <a href="https://github.com/simplexai-labs/linger/releases/download/desktop-v0.1.1/Linger-0.1.1-macos-arm64.dmg">
+        <span>macOS</span><small>Apple silicon · DMG</small><b aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 2v12m-4-4 4 4 4-4"></path></svg></b>
+      </a>
+      <a href="https://github.com/simplexai-labs/linger/releases/download/desktop-v0.1.1/Linger-0.1.1-windows-x64-setup.exe">
+        <span>Windows</span><small>x64 · EXE</small><b aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 2v12m-4-4 4 4 4-4"></path></svg></b>
+      </a>
+      <a href="https://github.com/simplexai-labs/linger/releases/download/desktop-v0.1.1/Linger-0.1.1-linux-x64.tar.gz">
+        <span>Linux</span><small>x64 · TAR.GZ</small><b aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 2v12m-4-4 4 4 4-4"></path></svg></b>
+      </a>
+    </div>
+    <div class="download-links">
+      <a href="https://github.com/simplexai-labs/linger/releases">All releases <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+      <a href="https://docs.heylinger.com/quickstart">Install guide <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16"><path d="M3 13 13 3M3 3h10v10"/></svg></span></a>
+      <a href="https://docs.heylinger.com/install/docker-compose">Self-host <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+    </div>
+  </div>
+</section>
+<section class="faq-section" id="faq" aria-labelledby="faq-title">
+  <div class="faq-intro">
+    <h2 id="faq-title">Common questions.</h2>
+    <a class="guide-link" href="https://docs.heylinger.com">Browse the docs <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10"></path></svg></span></a>
+  </div>
+  <div class="faq-list">
+    <details name="linger-faq">
+      <summary>Is Linger an app or a platform?<i aria-hidden="true"></i></summary>
+      <p>Both. The desktop app is the easiest way to start; underneath is an open-source framework for personal agent teams. Use agent teams, <a href="https://docs.heylinger.com/agents/proactive">proactive follow-ups</a>, <a href="https://docs.heylinger.com/voice/meetings">voice and meetings</a>, <a href="https://docs.heylinger.com/computer/desktop-and-browser">browser and desktop tools</a>, and custom skills. Capabilities vary by platform; voice and connected apps use external services.</p>
+    </details>
+    <details name="linger-faq">
+      <summary>What stays on my computer?<i aria-hidden="true"></i></summary>
+      <p>With a local server and model, your data and memories are stored on your computer and inference runs there. Connected apps, voice and some background memory workflows use external services. Cloud models send requests to the provider you choose. <a href="https://docs.heylinger.com/security/data-and-privacy">See the data and privacy guide.</a></p>
+    </details>
+    <details name="linger-faq">
+      <summary>Does local AI have a per-token cost?<i aria-hidden="true"></i></summary>
+      <p>Local inference runs on your hardware without per-token cloud API fees. If you choose a cloud model or connect a paid service, that provider’s pricing still applies.</p>
+    </details>
+    <details name="linger-faq">
+      <summary>Which computers can run Linger?<i aria-hidden="true"></i></summary>
+      <p>The desktop app runs on Apple silicon Macs, Windows x64 and Linux x64 with glibc 2.35 or later. Intel Mac users can use Docker Compose. Local model support depends on your hardware and available memory.</p>
+    </details>
+    <details name="linger-faq">
+      <summary>How does a larger model fit on a PC?<i aria-hidden="true"></i></summary>
+      <p>For supported mixture-of-experts models, PolyStrata keeps frequently used parts of the model in GPU memory and places others in system memory or on disk. <a href="https://docs.heylinger.com/models/local-inference">Read about local inference.</a></p>
+    </details>
+    <details name="linger-faq">
+      <summary>Can several agents work on one task?<i aria-hidden="true"></i></summary>
+      <p>Yes. A Room brings agents together around a shared team.md plan, with defined roles and handoffs. Choose supported runtimes such as Claude Code, Codex or Pi; cloud runtimes use their own services. <a href="https://docs.heylinger.com/rooms/team-md">Explore agent teams.</a></p>
+    </details>
+    <details name="linger-faq">
+      <summary>Can I build on Linger?<i aria-hidden="true"></i></summary>
+      <p>Yes. Add skills, configure tools and connect supported runtimes to fit your workflows. Start with the <a href="https://docs.heylinger.com/developers/build-a-skill">skill development guide</a> or explore the <a href="https://docs.heylinger.com/developers/architecture">platform architecture</a>.</p>
+    </details>
+    <details name="linger-faq">
+      <summary>Where can I explore the source?<i aria-hidden="true"></i></summary>
+      <p>Explore the code and contribution guide in the <a href="https://github.com/simplexai-labs/linger">Linger repository</a>. Licensing terms are in <a href="https://github.com/simplexai-labs/linger/blob/main/LICENSE">LICENSE</a>.</p>
+    </details>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <a href="#top" aria-label="Linger home"><img src="./media/linger-wordmark.svg" alt="Linger" loading="lazy"></a>
+      <span>By SimplexAI</span>
+    </div>
+    <nav aria-label="Project resources">
+      <a href="https://github.com/simplexai-labs/linger">GitHub</a>
+      <a href="https://docs.heylinger.com">Documentation</a>
+      <a href="https://x.com/HeyLingerAI">Follow on X</a>
+      <a href="mailto:tonyzhang@simplexai.com">Contact</a>
+      <a href="https://github.com/simplexai-labs/linger/blob/main/LICENSE">License</a>
+    </nav>
+    <a href="#top" class="back-to-top" aria-label="Back to top"><svg class="ui-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 14V2M4 6l4-4 4 4"></path></svg></a>
+  </footer>
+</body>
+</html>

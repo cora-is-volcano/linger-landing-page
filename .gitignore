@@ -1,0 +1,24 @@
+# Local files and editor state
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+__pycache__/
+
+# Credentials, account state, and private deployment files
+.env
+.env.*
+*.pem
+*.key
+.aws/
+.aliyun/
+.ssh/
+.openai/
+.codex/
+.agents/
+deployment/
+preview-evidence/
+CNAME
+*.tfstate
+*.tfstate.*

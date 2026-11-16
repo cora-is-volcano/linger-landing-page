@@ -1,0 +1,21 @@
+/* A small amber field expands across the installer tile from its entry point. */
+.download-options a { position: relative; isolation: isolate; overflow: hidden; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .download-options a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--accent);
+    clip-path: circle(0 at var(--entry-x, 50%) var(--entry-y, 50%));
+    transition: clip-path .38s cubic-bezier(.23,.78,.22,1);
+  }
+  .download-options a:hover::before,
+  .download-options a:focus-visible::before {
+    clip-path: circle(157% at var(--entry-x, 50%) var(--entry-y, 50%));
+  }
+  .download-options a :is(span, small, b) { transition: color .16s, translate .24s; }
+  .download-options a:is(:hover, :focus-visible) :is(span, small, b) { color: #1c140b; }
+  .download-options a:is(:hover, :focus-visible) b { translate: 0 3px; }
+  .download-options a:focus-visible { outline-color: var(--accent); }
+}

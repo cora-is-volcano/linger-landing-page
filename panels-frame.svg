@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 440" fill="none" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="track" x1="0" y1="0" x2="0.28" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#fdae52" stop-opacity=".7"/><stop offset=".28" stop-color="#e5ba86" stop-opacity=".2"/>
+      <stop offset=".55" stop-color="#eeae65" stop-opacity=".09"/><stop offset=".74" stop-color="#e9bf89" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#ffae4b" stop-opacity=".68"/>
+    </linearGradient>
+    <linearGradient id="side"><stop stop-color="#ffb351" stop-opacity=".88"/><stop offset=".22" stop-color="#da8938" stop-opacity=".46"/><stop offset=".82" stop-color="#fba649" stop-opacity=".05"/><stop offset="1" stop-color="#d88b38" stop-opacity=".36"/></linearGradient>
+    <linearGradient id="rail" x2="0" y2="1"><stop stop-color="#f6a245" stop-opacity=".67"/><stop offset=".18" stop-color="#f4a44b" stop-opacity=".08"/><stop offset=".72" stop-color="#fd9c39" stop-opacity=".07"/><stop offset="1" stop-color="#f6a244" stop-opacity=".71"/></linearGradient>
+    <linearGradient id="pill" x1="0" y1="1" x2=".4" y2="0"><stop stop-color="#623815"/><stop offset=".27" stop-color="#dc8e3a"/><stop offset=".64" stop-color="#ffb653"/><stop offset="1" stop-color="#fdab4b"/></linearGradient>
+    <linearGradient id="quiet" x1="0" x2="1" y1="0" y2=".25"><stop stop-color="#dfa971" stop-opacity=".55"/><stop offset=".6" stop-color="#ffae50" stop-opacity=".1"/><stop offset="1" stop-color="#fdac4c" stop-opacity="0"/></linearGradient>
+    <linearGradient id="glint" x2="1" y2=".2"><stop stop-color="#f8a33d" stop-opacity=".01"/><stop offset=".17" stop-color="#fbb263" stop-opacity=".67"/><stop offset=".78" stop-color="#ed9d46" stop-opacity=".02"/><stop offset="1" stop-color="#eda148" stop-opacity="0"/></linearGradient>
+    <linearGradient id="trace" x2="1" y2="0"><stop stop-color="#faa64a" stop-opacity="0"/><stop offset=".67" stop-color="#fec98f"/><stop offset="1" stop-color="#fda947" stop-opacity="0"/></linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="bloom" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <clipPath id="left"><rect x="0" y="1" width="246" height="215" rx="56"/></clipPath>
+    <linearGradient id="bar-falloff"><stop stop-color="white"/><stop offset=".36" stop-color="#353535"/><stop offset=".52" stop-color="#292929"/><stop offset="1" stop-color="#aaa"/></linearGradient>
+    <mask id="bar-light"><rect x="251" y="0" width="539" height="114" fill="url(#bar-falloff)"/></mask>
+    <clipPath id="bar"><rect x="251" y="1" width="538" height="111" rx="55"/></clipPath>
+    <clipPath id="shaft"><rect x="669" y="122" width="120" height="232" rx="59"/></clipPath>
+    <clipPath id="echo"><rect x="669" y="177" width="120" height="231" rx="59"/></clipPath>
+    <style>
+      .run { stroke-dasharray: 10 90; animation: pass 10s cubic-bezier(.52,.18,.38,.85) infinite; }
+      .sheen { animation: shine 8s ease-in-out infinite alternate; }
+      @keyframes pass { 0%,20% { stroke-dashoffset: 45; opacity:0; } 32% { opacity:.59; } 80% { opacity:.5; } 97%,100% { stroke-dashoffset:-55; opacity:0; } }
+      @keyframes shine { to { opacity:.57; } }
+      @media(prefers-reduced-motion: reduce) { .run,.sheen { animation:none; } .run { display:none; } }
+    </style>
+  </defs>
+  <!-- Broad optical surfaces sit beneath the etched outlines. -->
+  <g clip-path="url(#bar)" mask="url(#bar-light)">
+    <rect x="251" y="1" width="538" height="111" rx="55" fill="url(#side)" opacity=".68"/>
+    <rect x="251" y="1" width="538" height="111" rx="55" fill="url(#rail)" opacity=".55"/>
+    <rect x="267" y="9" width="517" height="96" rx="44" fill="black" filter="url(#soft)"/>
+    <rect class="sheen" x="251" y="1" width="538" height="111" rx="55" stroke="url(#glint)" opacity=".7"/>
+  </g>
+  <g clip-path="url(#left)">
+    <rect x="0" y="1" width="246" height="215" rx="56" fill="url(#side)"/>
+    <rect x="0" y="1" width="246" height="215" rx="56" fill="url(#rail)"/>
+    <rect x="20" y="18" width="236" height="182" rx="37" fill="black" filter="url(#soft)"/>
+    <rect x=".5" y="1.5" width="245" height="214" rx="56" stroke="url(#glint)"/>
+  </g>
+  <path d="M-20 188Q-1 122 58 122h264" stroke="url(#glint)" stroke-width="9" opacity=".68" filter="url(#bloom)"/>
+  <path d="M-15 183q15-60 70-60h263" stroke="url(#glint)" stroke-width="1.8"/>
+  <path d="M450 124h411" stroke="url(#glint)" stroke-width="10" opacity=".52" transform="rotate(180 657 124)" filter="url(#bloom)"/>
+  <g stroke="url(#track)">
+    <rect x=".75" y="1.5" width="788.5" height="437" rx="58" opacity=".85"/>
+    <rect x="3.7" y="4" width="782" height="431" rx="59" opacity=".76"/>
+    <rect x="8.1" y="8" width="772" height="423" rx="56" opacity=".64"/>
+    <rect x="15.8" y="12.5" width="756" height="414" rx="54" opacity=".53"/>
+    <rect x="24.6" y="16" width="739" height="407" rx="52" opacity=".40"/>
+    <rect x="34" y="19.5" width="721.5" height="400" rx="50" opacity=".27"/>
+    <rect x="42.3" y="23" width="706" height="393" rx="47" opacity=".18"/>
+  </g>
+  <g stroke="url(#track)" stroke-width=".8">
+    <rect x="591" y="1" width="198" height="207" rx="55" opacity=".68"/>
+    <rect x="596" y="5.5" width="190" height="199" rx="55" opacity=".66"/>
+    <rect x="604" y="12" width="180" height="186" rx="53" opacity=".55"/>
+    <rect x="614" y="19" width="168" height="174" rx="51" opacity=".47"/>
+    <rect x="623" y="26" width="156" height="162" rx="49" opacity=".38"/>
+    <rect x="631" y="33" width="146" height="149" rx="47" opacity=".32"/>
+    <rect x="639" y="39" width="136" height="137" rx="46" opacity=".24"/>
+  </g>
+  <g stroke="url(#quiet)" stroke-width=".8">
+    <rect x="105" y="225" width="151" height="116" rx="37" opacity=".67"/>
+    <rect x="109" y="228" width="145" height="111" rx="35" opacity=".59"/>
+    <rect x="113" y="231" width="140" height="107" rx="34" opacity=".49"/>
+    <rect x="118" y="234" width="136" height="102" rx="34" opacity=".35"/>
+  </g>
+  <g clip-path="url(#echo)" opacity=".82">
+    <rect x="669" y="177" width="120" height="231" rx="59" fill="url(#rail)"/>
+    <rect x="681" y="190" width="100" height="197" rx="48" fill="black" filter="url(#soft)"/>
+  </g>
+  <g clip-path="url(#shaft)">
+    <rect x="669" y="122" width="120" height="232" rx="59" fill="url(#pill)"/>
+    <rect x="680" y="132" width="94" height="211" rx="46" fill="black" filter="url(#soft)"/>
+    <rect x="671" y="122" width="116" height="231" rx="58" stroke="url(#side)" stroke-width="2"/>
+  </g>
+  <rect class="run" x="2" y="2" width="785" height="434" rx="57" pathLength="100" stroke="#ffcea0" stroke-width="1.1"/>
+</svg>

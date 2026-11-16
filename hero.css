@@ -1,0 +1,357 @@
+.hero {
+  --title-left: 10%;
+  --title-top: clamp(140px, 11vw, 260px);
+  --title-size: clamp(56px, 7.3vw, 158px);
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: max(620px, calc(var(--title-top) + var(--title-size) * 3.64 + clamp(230px, 14.6vw, 286px)));
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  background: #030201;
+  color: #fda947;
+}
+
+.hero-art,
+.hero-type-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-type-clear {
+  clip-path: url(#hero-title-clear);
+}
+
+.hero-type-glass {
+  clip-path: url(#hero-title-glass);
+  user-select: none;
+}
+
+.hero-heading {
+  position: absolute;
+  top: var(--title-top);
+  left: var(--title-left);
+  margin: 0;
+  color: #fda947;
+  width: calc(var(--title-size) * 8.27);
+  font-size: var(--title-size);
+}
+
+.hero-title-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hero-letter-line {
+  display: block;
+  overflow: visible;
+  width: auto;
+  height: 1em;
+}
+
+.hero-letter-line + .hero-letter-line {
+  margin-top: .32em;
+}
+
+/* One reading axis joins all three lines to the supporting copy and CTA.
+   Unequal line lengths keep the composition open on the glass side. */
+.hero-letter-line-location,
+.hero-letter-line-computer {
+  margin-left: 0;
+}
+
+h1.hero-heading {
+  pointer-events: auto;
+}
+
+.hero-type-glass .hero-heading {
+  color: #ffcb8d;
+  translate: .026em -.006em;
+  filter: blur(.013em);
+}
+
+.hero-detail {
+  position: absolute;
+  z-index: 1;
+  left: var(--title-left);
+  top: calc(var(--title-top) + var(--title-size) * 3.64 + clamp(32px, 2.7vw, 60px));
+  max-width: min(72%, 39em);
+  color: #eae5de;
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.25vw, 24px);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.hero-detail p {
+  max-width: 54ch;
+  margin: 0;
+  text-wrap: pretty;
+  letter-spacing: .005em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px clamp(24px, 2.5vw, 48px);
+  margin-top: clamp(28px, 2.5vw, 44px);
+}
+
+.hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8em;
+  min-height: 44px;
+  font-size: clamp(13px, .97vw, 17px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-primary {
+  padding: 1.18em 1.75em;
+  border-radius: 999px;
+  background: #fda947;
+  color: #100b05;
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+
+.hero-primary span,
+.hero-secondary span {
+  transition: transform .22s ease;
+}
+
+.hero-secondary {
+  /* Real padding keeps the curve clear of letters and the arrow. Negative
+     margins preserve the existing text alignment and the space between CTAs. */
+  padding-inline: 16px;
+  margin-inline: -16px;
+  border-radius: 999px;
+  color: #fff2de;
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-primary:hover {
+    background: #ffbb6d;
+    box-shadow: inset 0 0 0 1px rgb(255 238 214 / .6), 0 0 18px rgb(253 169 71 / .14);
+  }
+  .hero-secondary:hover:not(:focus-visible) {
+    background: rgb(253 169 71 / .085);
+    box-shadow: inset 0 0 0 1.5px rgb(253 169 71 / .92), 0 0 16px rgb(253 169 71 / .12);
+  }
+}
+
+.hero-secondary span {
+  color: #fda947;
+}
+
+.hero-actions a:focus-visible {
+  outline: 2px solid #fff4db;
+  outline-offset: 5px;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-primary:hover span { transform: translateY(2px); }
+  .hero-secondary:hover span { transform: translate(2px, 2px); }
+}
+
+.hero-current path {
+  stroke-dasharray: 10 145;
+  stroke-dashoffset: 16;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+.hero-caustic { opacity: 0; }
+
+.hero-pointer-light { opacity: 0; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero-pointer-light {
+    translate: calc(var(--pointer-x, 0) * 600px) calc(var(--pointer-y, 0) * 300px);
+    transition: opacity .28s ease;
+  }
+
+  .hero.is-pointer-lit .hero-pointer-light { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-upper-rim { animation: hero-breathe 11s ease-in-out infinite; }
+  .hero-lower-rim { animation: hero-lower-drift 11s ease-in-out infinite; }
+  .hero-caustic { animation: hero-light-pass 11s cubic-bezier(.39,.03,.55,.96) infinite; }
+  .hero-current-top { animation: hero-wire-current 8.4s ease-in-out -1.6s infinite; }
+  .hero-current-bottom { animation: hero-wire-current 10.4s ease-in-out -3s infinite; }
+  /* Travel is the fraction of the hero that has crossed the top of the viewport. */
+  .hero {
+    --pane-rise: 118px;
+    --title-rise: min(6vw, 96px);
+  }
+
+  .hero-heading {
+    transform: translateY(calc(-1 * var(--hero-travel, 0) * var(--title-rise)));
+  }
+
+  .hero-upper-rim,
+  .hero-upper-light {
+    translate:
+      calc(var(--pointer-x, 0) * 18px + var(--hero-travel, 0) * 37px)
+      calc(var(--pointer-y, 0) * 12px - var(--hero-travel, 0) * var(--pane-rise));
+  }
+
+  .hero-lower-rim,
+  .hero-lower-light {
+    translate:
+      calc(var(--pointer-x, 0) * -6px - var(--hero-travel, 0) * 22px)
+      calc(var(--pointer-y, 0) * -5px + var(--hero-travel, 0) * 75px);
+  }
+
+  .hero-upper-trace {
+    translate: 0 calc(var(--hero-travel, 0) * 45px);
+  }
+
+  .hero-lower-trace {
+    translate: 0 calc(var(--hero-travel, 0) * -43px);
+  }
+}
+
+@keyframes hero-breathe {
+  0%, 100% { transform: translate(0,0); }
+  45% { transform: translate(-20px,10px) scale(1.012,1.014); }
+  73% { transform: translate(-6px,-6px); }
+}
+
+@keyframes hero-lower-drift {
+  0%, 100% { transform: translate(0,0); }
+  49% { transform: translate(12px,-9px); }
+}
+
+@keyframes hero-light-pass {
+  0%, 12% { opacity: 0; transform: translateX(260px); }
+  24% { opacity: .48; }
+  61% { opacity: .17; }
+  78%, 100% { opacity: 0; transform: translateX(1420px); }
+}
+
+@keyframes hero-wire-current {
+  0%, 26% { stroke-dashoffset: 14; opacity: 0; }
+  31% { opacity: .52; }
+  70% { opacity: .52; }
+  78%, 100% { stroke-dashoffset: -103; opacity: 0; }
+}
+
+
+/* The title grows continuously between the phone and desktop compositions. */
+@media (min-width: 551px) and (max-width: 1099px) {
+  .hero {
+    --title-left: clamp(34.65px, calc(13.7vw - 40.7px), 110px);
+    --title-top: 140px;
+    --title-size: clamp(57.2px, calc(34.1px + 4.2vw), 80.3px);
+    min-height: max(540px, calc(var(--title-top) + var(--title-size) * 3.64 + 230px));
+  }
+
+  .hero-art,
+  .hero-type-layer {
+    transform: translateY(clamp(-22px, calc(8.8vw - 70.4px), 0px));
+  }
+
+  .hero-type-layer .hero-heading {
+    margin-top: clamp(0px, calc(70.4px - 8.8vw), 22px);
+  }
+
+  .hero-detail {
+    max-width: min(85%, 39em);
+    font-size: clamp(16px, calc(15px + .182vw), 17px);
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero {
+    --title-left: 6.3%;
+    --title-top: clamp(119px, 25.5vw, 143px);
+    --title-size: 10.4vw;
+    --title-rise: 28px;
+    --pane-rise: 72px;
+    min-height: max(540px, calc(var(--title-top) + var(--title-size) * 3.64 + 230px));
+  }
+
+  .hero-art,
+  .hero-type-layer { transform: translateY(-22px); }
+  .hero-type-layer .hero-heading { margin-top: 22px; }
+
+  .hero-detail {
+    max-width: 85%;
+    top: calc(var(--title-top) + var(--title-size) * 3.64 + 32px);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    column-gap: 18px;
+    row-gap: 10px;
+    margin-top: 28px;
+  }
+
+  .hero-actions a { font-size: 13px; letter-spacing: .055em; }
+  .hero-primary { padding-inline: 1.4em; }
+
+  .hero-type-glass .hero-heading {
+    filter: blur(.008em);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-actions .hero-secondary:focus-visible { outline-offset: 2px; }
+  .hero-actions { column-gap: 15px; }
+  .hero-actions a { gap: .55em; }
+}
+
+/* Shallow screens keep the same three-line title beside its supporting copy. */
+@media (min-width: 640px) and (max-width: 1024px) and (max-height: 500px) {
+  .hero {
+    --title-left: 6%;
+    --title-top: 112px;
+    --title-size: clamp(36px, 5.15vw, 52px);
+    --title-rise: 24px;
+    --pane-rise: 72px;
+    min-height: max(390px, 100svh);
+    aspect-ratio: auto;
+  }
+
+  .hero-art,
+  .hero-type-layer { transform: none; }
+  .hero-type-layer .hero-heading { margin-top: 0; }
+
+  .hero-detail {
+    top: 126px;
+    left: 54%;
+    width: 40%;
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .hero-detail p { max-width: none; }
+  .hero-actions { gap: 10px 16px; margin-top: 18px; }
+}
+
+/* Let the amber glass settle into the next section instead of ending at a hard seam. */
+.hero::after {
+  content: ''; position: absolute; inset: auto 0 -1px; height: 64px;
+  pointer-events: none; background: linear-gradient(transparent, #050403);
+}

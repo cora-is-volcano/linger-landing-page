@@ -1,0 +1,127 @@
+.technology-section {
+  width: min(86%, 1720px);
+  margin: clamp(76px, 8.5vw, 170px) auto clamp(58px, 7vw, 130px);
+  color: var(--paper);
+  scroll-margin-top: 30px;
+}
+.technology-section .context-system { width: 100%; margin: 0; }
+.technology-heading, .engine-heading { display: grid; grid-template-columns: 1.1fr 1fr; gap: 8%; align-items: end; }
+.technology-heading { margin-bottom: clamp(45px, 5vw, 90px); }
+.technology-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 22px;
+  color: var(--accent);
+  font: 500 13px/1.4 var(--font-body);
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.technology-eyebrow > span { width: 6px; height: 6px; border: 1px solid var(--accent); border-radius: 50%; }
+.technology-heading h2, .engine-heading h3 {
+  margin: 0; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(40px, 4.25vw, 76px); letter-spacing: 0; line-height: 1.1; text-transform: none;
+}
+.technology-heading h2 em { color: var(--accent); font-style: normal; }
+.technology-heading > p, .engine-heading > p {
+  max-width: 43ch; margin: 0 0 3px;
+  color: #ccc3b6; font-size: clamp(17px, 1.3vw, 21px); line-height: 1.65;
+}
+.engine-story { margin-top: clamp(60px, 6vw, 110px); padding-top: clamp(45px, 4.5vw, 82px); border-top: 1px solid #493622; }
+.engine-heading h3 { font-size: clamp(34px, 3.5vw, 60px); }
+.engine-stage { display: grid; grid-template-columns: 1fr 1.17fr; grid-template-areas: "stats layers" "detail layers"; column-gap: 7%; align-items: center; margin-top: clamp(42px, 4.5vw, 80px); }
+.engine-explanation { grid-area: stats; align-self: end; }
+.engine-scale { display: flex; gap: clamp(17px, 2vw, 35px); align-items: center; }
+.engine-scale > div { display: flex; flex-direction: column; gap: 12px; }
+.engine-scale strong { color: var(--accent); font: 400 clamp(57px, 6.1vw, 104px)/1 var(--font-display); letter-spacing: -.015em; white-space: nowrap; }
+.engine-scale strong span { font-size: .49em; margin-left: .06em; letter-spacing: 0; }
+.engine-scale > i { color: #87613b; font-style: normal; font-size: 25px; margin-top: -20px; }
+.engine-scale div > span { color: #c9bdab; font-size: 16px; line-height: 1.4; }
+.engine-premise { margin: 23px 0 29px; color: #c9bdab; font-size: 17px; line-height: 1.5; }
+.engine-layer-copy { grid-area: detail; align-self: start; padding-left: 20px; border-left: 1px solid #8b5d2d; min-height: 3.4em; }
+.engine-layer-copy p { max-width: 39ch; margin: 0; color: #c9bfb1; font-size: 18px; line-height: 1.55; }
+.engine-diagram { grid-area: layers; min-width: 0; }
+.engine-diagram-label { display: flex; justify-content: space-between; margin: 0 0 22px; color: #c0b29f; font-size: 16px; letter-spacing: 0; }
+.engine-diagram-label > span { color: var(--accent); font-size: 20px; }
+.memory-layers { position: relative; display: flex; flex-direction: column; align-items: end; gap: 15px; }
+.memory-layers::before { content: ""; position: absolute; inset: 20px auto 20px 2%; width: 7%; border: 1px solid #53391f; border-right: 0; border-radius: 20px 0 0 20px; pointer-events: none; }
+.memory-tier {
+  --tile: #745028;
+  position: relative; display: block; width: 100%;
+  padding: 21px 22px; overflow: hidden; text-align: left;
+  border: 1px solid #51381e; border-radius: 19px;
+  background: #0e0c08; color: #d7c6af;
+  transition: border-color .22s, background-color .22s, color .22s, box-shadow .22s;
+}
+.memory-tier--gpu { width: 88%; --tile: #c58537; }
+.memory-tier--ram { width: 94%; --tile: #765532; }
+.memory-tier--ssd { --tile: #453625; }
+.memory-tier[aria-selected=true] { --tile: #FDA947; border-color: #bd803c; background: #241b10; color: #fff1dd; }
+.memory-tier:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.tier-header { display: flex; align-items: baseline; gap: 15px; }
+.tier-name { font: 500 clamp(23px, 1.8vw, 29px)/1.1 var(--font-display); letter-spacing: .035em; }
+.tier-capacity { margin-left: auto; font-size: 16px; color: #c0b098; }
+.tier-arrow { color: #9b7345; font-size: 15px; }
+.memory-tier[aria-selected=true] .tier-arrow { color: var(--accent); }
+.expert-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; margin: 18px 0 0; }
+.expert-grid i { display: block; height: clamp(16px, 1.7vw, 25px); border: 1px solid var(--tile); border-radius: 4px; background: color-mix(in srgb, var(--tile) 20%, transparent); }
+.memory-tier--gpu .expert-grid i:nth-child(3n+1), .memory-tier--gpu .expert-grid i:nth-child(4n+2) { background: var(--tile); }
+.memory-tier--ram .expert-grid i:nth-child(3n) { background: color-mix(in srgb, var(--tile) 55%, transparent); }
+.engine-benchmark { display: grid; grid-template-columns: 1fr 1.08fr auto; align-items: center; gap: 25px; margin-top: 28px; padding: 25px 0; border-block: 1px solid #493622; }
+.benchmark-number { display: flex; align-items: center; gap: 17px; }
+.benchmark-number > strong { color: var(--accent); font: 400 clamp(44px, 4.4vw, 68px)/1 var(--font-display); letter-spacing: .01em; }
+.benchmark-number > span { font-size: 16px; line-height: 1.4; }
+.benchmark-number small { display: block; margin-top: 5px; color: #b6a996; font-size: 14px; }
+.engine-benchmark > p { margin: 0; font-size: 16px; line-height: 1.7; color: #d5c5ae; }
+.engine-benchmark > p span { color: #b6a996; }
+.engine-benchmark > a { display: inline-flex; align-items: center; gap: .3em; min-height: 44px; color: var(--accent); font-size: 16px; white-space: nowrap; padding: 12px 0; }
+.engine-benchmark > a:hover, .technology-sources a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.engine-details { margin-top: clamp(30px, 3vw, 52px); padding-top: 8px; border-top: 1px solid #493622; }
+.engine-details > summary { display: flex; align-items: center; gap: 10px; width: max-content; max-width: 100%; min-height: 44px; padding: 5px 0; color: var(--accent); font-size: 16px; font-weight: 500; cursor: pointer; list-style: none; transition: color .18s ease; }
+.engine-details > summary:is(:hover, :focus-visible) { color: #ffd6a3; }
+.engine-details > summary::-webkit-details-marker { display: none; }
+.engine-details > summary span { width: 8px; height: 8px; margin: -3px 2px 0; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
+.engine-details[open] > summary span { transform: translateY(3px) rotate(225deg); }
+.engine-details__body { padding: 15px 0 22px; }
+.engine-model-detail { margin: 0; max-width: 79ch; color: #c9bdab; font-size: 17px; line-height: 1.65; }
+.engine-model-detail strong { color: var(--paper); font-weight: 500; }
+.engine-method { margin-top: 26px; max-width: 850px; }
+.engine-method h4 { margin: 0 0 10px; color: var(--paper); font-size: 18px; font-weight: 500; }
+.engine-method p { margin: 0; color: #c9bdab; font-size: 16px; line-height: 1.65; }
+.technology-sources { display: flex; flex-wrap: wrap; gap: 10px 25px; margin-top: 21px; font-size: 16px; line-height: 1.6; }
+.technology-sources a { display: inline-flex; align-items: center; min-height: 44px; color: #d0ac7a; }
+@media (hover:hover) {
+  .memory-tier:hover { border-color: #ffbd70; box-shadow: inset 0 0 0 .5px rgb(253 169 71 / .6), 0 0 18px rgb(253 169 71 / .08); }
+  .memory-tier:hover:not([aria-selected=true]) { background: #1b140b; }
+}
+@media (max-width: 1000px) {
+  .engine-benchmark { grid-template-columns: 1fr 1fr; }
+  .engine-benchmark > a { grid-column: 2; padding: 0; margin-top: -10px; }
+  .tier-header { gap: 10px; }
+}
+@media (max-width: 740px) {
+  .technology-section { width: 86%; margin-top: 66px; }
+  .technology-heading, .engine-heading { grid-template-columns: 1fr; gap: 25px; }
+  .technology-heading { margin-bottom: 42px; }
+  .technology-heading > p, .engine-heading > p { max-width: 48ch; }
+  .technology-eyebrow { margin-bottom: 16px; font-size: 12px; }
+  .engine-story { margin-top: 48px; padding-top: 37px; }
+  .engine-stage { grid-template-columns: 1fr; grid-template-areas: "stats" "layers" "detail"; gap: 33px; margin-top: 35px; }
+  .engine-scale strong { font-size: clamp(54px, 12vw, 92px); }
+  .engine-premise { margin: 20px 0 0; }
+  .engine-layer-copy { min-height: 3.4em; }
+  .engine-layer-copy p { font-size: 17px; }
+  .memory-tier { padding: 16px 18px; }
+  .expert-grid { gap: 5px; margin-block: 16px 0; }
+  .expert-grid i { height: 21px; }
+  .engine-benchmark { grid-template-columns: 1fr; gap: 18px; padding: 25px 0; }
+  .engine-benchmark > a { grid-column: 1; margin: 0; }
+  .benchmark-number > strong { font-size: 62px; }
+  .benchmark-number small { font-size: 14px; }
+  .technology-sources { gap: 10px 18px; }
+}
+@media (max-width: 420px) {
+  .technology-section { width: 87.4%; }
+  .technology-heading h2 { font-size: clamp(32px, 8.9vw, 37px); }
+  .engine-heading h3 { font-size: 33px; }
+  .memory-tier { padding: 14px 13px; }
+  .tier-capacity { font-size: 16px; }
+  .expert-grid { gap: 4px; }
+}
