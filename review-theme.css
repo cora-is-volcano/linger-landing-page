@@ -10,8 +10,8 @@
   --accent-hover:#94b7ed;
   --accent-soft:#e6eefc;
   --accent-ink:#284f88;
-  --action:#223f72;
-  --action-hover:#183058;
+  --action:#97c2ec;
+  --action-hover:#82b4e4;
   --sand:#e2e7ee;
   --sand-soft:var(--surface);
   --sand-ink:#485569;
@@ -66,28 +66,39 @@ main > .review-hero + .section-shell{margin-block-start:12px}
 .text-link{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--ink)}
 .text-link:hover .icon{transform:translateX(3px)}.text-link .icon{transition:transform .2s ease}
 .section-heading{font-size:clamp(32px,3.6vw,46px);font-weight:500;letter-spacing:-.045em;line-height:1.1}
+/* Keep the original landing composition independent of the product-section grid. */
 .review-hero {
+  --font-body:'Switzer','Helvetica Neue',Arial,sans-serif;
+  --ink:#1f1f1f;
   position:relative;
   isolation:isolate;
-  padding:clamp(58px,6vw,88px) 0 clamp(44px,5vw,72px);
-}
-.hero-copy {
   display:grid;
-  grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);
-  align-items:end;
-  gap:clamp(36px,4.5vw,72px);
+  place-items:center;
+  width:100%;
+  min-height:472px;
+  padding:64px 0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  text-align:center;
 }
-.review-hero h1 { font-size:clamp(46px,5.2vw,78px); line-height:1.01; font-weight:530; letter-spacing:-.048em; }
+.hero-copy { width:min(800px,calc(100% - 64px)); min-width:0; margin-inline:auto; }
+.review-hero h1 { margin:0; font-size:clamp(42px,4.6vw,66px); font-weight:500; line-height:1.08; letter-spacing:-.05em; }
 .review-hero h1 span { display:block; }
-.review-hero h1 span + span { color:#42536b; }
-.hero-intro p { max-width:38ch; font-size:clamp(17px,1.4vw,19px); line-height:1.48; color:var(--muted); text-wrap:pretty; }
-.hero-intro .btn { margin-top:20px; }
+.hero-phrase { position:relative; display:inline-block; font-style:normal; white-space:nowrap; }
+.hero-wave { position:absolute; left:0; bottom:-14px; width:100%; height:24px; overflow:visible; pointer-events:none; }
+.hero-wave path { fill:none; stroke:var(--action); stroke-width:3.8; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:0 .026; vector-effect:non-scaling-stroke; }
+.hero-copy > p { max-width:520px; margin:28px auto 0; color:#62676d; font-size:17px; line-height:1.65; text-wrap:pretty; }
+.review-hero__actions { display:flex; justify-content:center; align-items:center; margin-top:28px; }
+@media(min-width:1600px) {
+  .review-hero { min-height:516px; padding-block:76px; }
+}
+@media(min-width:761px) and (max-width:1000px) {
+  .review-hero { min-height:416px; padding-block:52px; }
+  .review-hero h1 { font-size:clamp(36px,4.6vw,46px); }
+  .hero-copy > p { max-width:440px; font-size:16px; }
+}
 .main-nav a { text-underline-offset:6px; }
 .main-nav a:is(:hover,:focus-visible) { color:var(--ink); text-decoration:underline; }
-@media(max-width:900px) {
-  .hero-copy { grid-template-columns:minmax(0,1fr); gap:20px; }
-  .hero-intro p { max-width:42ch; }
-}
 @media(hover:hover){
  .btn-primary:hover,.btn-secondary:hover{transform:none}
  .btn .icon{transition:transform 200ms ease}
@@ -107,34 +118,48 @@ dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background
  .main-nav.is-open{display:grid;gap:0}.main-nav a{font-size:16px;padding:13px 16px;border-radius:12px}.main-nav a:hover{background:var(--surface)}
  .menu-trigger{display:flex;width:44px;height:44px;padding:10px 7px;border:0;background:transparent;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:50%}
  .menu-trigger span{height:1.5px;width:21px;background:var(--ink);transition:transform .2s ease}.menu-trigger[aria-expanded=true] span:first-child{transform:translateY(3.75px) rotate(45deg)}.menu-trigger[aria-expanded=true] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
- .review-hero{padding:36px 0 32px}.review-hero h1{font-size:clamp(35px,8.8vw,56px)}
- .hero-intro p{font-size:16px}.hero-intro .btn{margin-top:16px}
+ .review-hero.section-shell{width:100%;min-height:0;padding:40px 0 44px}
+ .hero-copy{width:calc(100% - 40px)}
+ .review-hero h1{font-size:clamp(28px,7.4vw,48px);line-height:1.1}
+ .hero-copy > p{max-width:440px;font-size:16px;line-height:1.6}
+ .hero-wave{height:18px;bottom:-10px}
+ .review-hero__actions{margin-top:26px}
  .btn{font-size:15px}.section-heading{font-size:36px}
 }
 @media(max-width:440px),(min-width:761px) and (max-width:850px){.header-github__prefix{display:none}}
-@media(max-width:380px){.header-inner{gap:12px}.brand{width:94px}}
+@media(max-width:380px){.header-inner{gap:12px}.brand{width:94px}.review-hero h1{font-size:26px}.hero-copy > p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(forced-colors:active){.btn,.main-nav,.menu-trigger{border:1px solid ButtonText}.header-github .icon{fill:none}}
 
 /* A single field starts behind the navigation and fades down the hero. */
 .review-hero { overflow:clip visible; }
+.review-hero::after {
+  content:"";
+  position:absolute;
+  z-index:-2;
+  inset:calc(-1 * var(--header-height)) 0 0;
+  background:linear-gradient(to bottom,white calc(100% - 24px),var(--canvas));
+  pointer-events:none;
+}
 .review-hero::before {
   content:"";
   position:absolute;
-  inset:calc(-1 * var(--header-height)) 0 0;
+  inset:calc(-1 * var(--header-height)) 0 7%;
   z-index:-1;
   pointer-events:none;
   background:
-    radial-gradient(ellipse 55% 114% at 48% -35%, #a8bfe2 0%, #cfddf1 36%, transparent 86%),
-    radial-gradient(ellipse 39% 95% at 91% -20%, #e4ecf8, transparent 90%),
-    radial-gradient(ellipse 35% 70% at 1% 24%, #f4eee4, transparent 90%);
-  mask-image:linear-gradient(to bottom, black 32%, transparent 100%);
+    radial-gradient(ellipse 57% 74% at -8% 29%, #edcfaa59, transparent),
+    radial-gradient(ellipse 46% 42% at 24% -12%, #e9c8b33d, transparent),
+    radial-gradient(ellipse 64% 63% at 77% -16%, #bfcde457, transparent),
+    radial-gradient(ellipse 31% 82% at 107% 22%, #c5d9d34d, transparent),
+    linear-gradient(110deg, #faf7f3, #f6f6f5 58%, #f4f6f8);
+  mask-image:linear-gradient(to bottom, black, #000b 33%, #0003 66%, transparent 94%);
 }
 @media (max-width:760px) {
   .review-hero::before { opacity:.85; }
 }
 @media print, (forced-colors:active) {
-  .review-hero::before { display:none; }
+  .review-hero::before,.review-hero::after { display:none; }
 }
 .on-device__copy p { max-width: 37ch; margin-top: 18px; color: var(--muted); line-height: 1.55; }
 .review-newsletter .footer-waitlist { margin-top: 22px; }

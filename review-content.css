@@ -10,7 +10,7 @@
 .scene-gallery,.record-detail { min-width:0; }
 .record-carousel {
   --disc:clamp(172px,16vw,216px);
-  --step:calc(var(--disc) * .71);
+  --step:calc(var(--disc) * .75);
   position:relative;
   width:var(--disc);
   height:calc(var(--disc) + 2 * var(--step));
@@ -46,60 +46,77 @@
     conic-gradient(from 32deg,#151517,#37383a 9%,#141415 16%,#1c1d20 30%,#535457 40%,#1b1b1c 49%,#101012 64%,#464749 77%,#171719 85%,#151517);
   box-shadow:inset 0 0 0 1px #424245,inset 0 0 0 3px #222224;
 }
+/* A three-sleeve series: the names stay live, centered and readable as the discs move. */
 .vinyl-label {
   position:absolute;
-  inset:24%;
+  inset:22%;
   display:grid;
   place-items:center;
   overflow:hidden;
-  border:1px solid #19191b;
   border-radius:50%;
-  background-color:#bcd6ed;
-  color:#162b37;
+  background:var(--label-paper);
+  color:#172638;
   container-type:inline-size;
 }
 .record-caption {
-  position:relative;
-  width:82%;
+  width:85%;
   text-align:center;
   text-wrap:balance;
-  font-size:clamp(11px,18cqi,21px);
-  font-weight:630;
-  line-height:.98;
+  font-size:clamp(11px,16.5cqi,21px);
+  font-weight:610;
   letter-spacing:-.035em;
+  line-height:1.02;
 }
-.vinyl-label::before, .vinyl-label::after {
+.label-emblem {
+  position:absolute;
+  top:12%;
+  width:26%;
+  height:17%;
+  color:var(--label-print);
+}
+.label-emblem::before, .label-emblem::after {
   content:"";
   position:absolute;
-  inset:0;
-  pointer-events:none;
 }
-/* Printed motifs sit at the paper edges to keep the titles clear. */
-[data-carousel-record=followup] .vinyl-label::before {
-  background:repeating-radial-gradient(ellipse at 32% -20%, transparent 0 5%, #356476 5.6% 7%, transparent 7.6% 10%);
-  clip-path:polygon(0 0,100% 0,100% 10%,0 31%);
+.vinyl-label::after {
+  content:"";
+  position:absolute;
+  bottom:15%;
+  width:18%;
+  height:2px;
+  background:var(--label-print);
 }
-[data-carousel-record=followup] .vinyl-label::after {
-  background:#779ab9;
-  clip-path:polygon(0 95%,100% 77%,100% 100%,0 100%);
+
+/* Two offset speech shapes, a week of five columns and a magnifying lens. */
+[data-carousel-record=followup] { --label-paper:#b4d6f4; --label-print:#365f85; }
+[data-carousel-record=followup] .label-emblem::before,
+[data-carousel-record=followup] .label-emblem::after {
+  width:65%;
+  height:69%;
+  border-radius:22% 22% 22% 0;
+  background:currentColor;
 }
-[data-carousel-record=plan] .vinyl-label { background-color:#e7e7dd; color:#313632; }
-[data-carousel-record=plan] .vinyl-label::before {
-  background:repeating-linear-gradient(90deg, transparent 0 11%, #8d998e 11% 14%),repeating-linear-gradient(0deg, transparent 0 11%, #8d998e 11% 14%);
-  clip-path:polygon(0 0,100% 0,100% 24%,0 17%);
+[data-carousel-record=followup] .label-emblem::before { top:0; left:0; }
+[data-carousel-record=followup] .label-emblem::after { right:0; bottom:0; transform:scaleX(-1); background:#fff; }
+[data-carousel-record=plan] { --label-paper:#f1f4f7; --label-print:#668db3; }
+[data-carousel-record=plan] .label-emblem {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
 }
-[data-carousel-record=plan] .vinyl-label::after {
-  background:#95a098;
-  clip-path:polygon(0 85%,100% 85%,100% 91%,0 91%);
+[data-carousel-record=plan] .label-emblem i { width:14%; height:100%; border-radius:2px 2px 0 0; background:currentColor; }
+[data-carousel-record=plan] .label-emblem i:nth-child(2) { height:66%; }
+[data-carousel-record=plan] .label-emblem i:nth-child(3) { height:80%; }
+[data-carousel-record=plan] .label-emblem i:nth-child(4) { height:46%; }
+[data-carousel-record=plan] .label-emblem i:nth-child(5) { height:59%; }
+[data-carousel-record=research] { --label-paper:#d2dff3; --label-print:#48648c; }
+[data-carousel-record=research] .label-emblem::before {
+  width:49%; aspect-ratio:1; top:0; left:15%;
+  border:clamp(1px,2cqi,3px) solid currentColor; border-radius:50%;
 }
-[data-carousel-record=research] .vinyl-label { background-color:#d4d9f1; color:#2d3451; }
-[data-carousel-record=research] .vinyl-label::before {
-  background:repeating-radial-gradient(ellipse at 0% 100%,transparent 0 6%,#767fae 6.5% 8%,transparent 8.5% 12%);
-  clip-path:polygon(0 71%,100% 89%,100% 100%,0 100%);
-}
-[data-carousel-record=research] .vinyl-label::after {
-  background:#8e99c5;
-  clip-path:polygon(0 0,100% 0,100% 24%,0 6%);
+[data-carousel-record=research] .label-emblem::after {
+  width:31%; height:clamp(1px,2cqi,3px); top:59%; left:55%;
+  transform:rotate(44deg); transform-origin:left center; background:currentColor;
 }
 .record-panel h2 { margin:0 0 16px; font:500 clamp(24px,2.3vw,32px)/1.14 var(--font-body); letter-spacing:-.035em; }
 .scene-media { position:relative; overflow:hidden; width:100%; border-radius:12px; background:var(--paper); }

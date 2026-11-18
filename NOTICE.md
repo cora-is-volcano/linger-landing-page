@@ -14,4 +14,6 @@ Product walkthroughs and still frames come from the Linger project. Customer ava
 
 Instrument Sans is distributed under the SIL Open Font License 1.1. The bundled variable WOFF2 and its license are in `fonts/`. The font asset comes from Fontsource’s Instrument Sans package.
 
+The homepage hero uses Switzer from Indian Type Foundry. The project’s preparation script obtains the webfont from Fontshare for self-hosting under the ITF Free Font License in `fonts/Switzer-FFL.txt`.
+
 Third-party terms apply to their respective materials independently of the website's original layout and interaction code.

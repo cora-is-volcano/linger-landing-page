@@ -3,9 +3,15 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
 .home-link { padding: 12px 0; color: var(--muted); font-size: 14px; }
 .home-link:hover, .launch-card a:hover { color: var(--ink); text-decoration: underline; }
 .waitlist-layout { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1fr); gap: clamp(48px, 8vw, 112px); align-items: start; padding-block: 40px 84px; }
-.waitlist-intro { position: sticky; top: 32px; padding-block: 16px; }
+.waitlist-intro { padding-top: 12px; }
 .waitlist-intro h1 { max-width: 11ch; font-size: clamp(48px, 5.4vw,74px); font-weight: 540; letter-spacing: -.055em; line-height: 1.02; }
-.waitlist-intro p { font-size: 17px; line-height: 1.55; max-width: 33ch; margin-top: 22px; color: var(--muted); }
+.waitlist-art {
+  display: block;
+  width: min(100%, 400px);
+  height: auto;
+  margin-top: clamp(20px,3vw,36px);
+  border-radius: 16px;
+}
 .application { min-width:0; padding:clamp(20px,3vw,40px); border-radius:24px; background:var(--paper); }
 .application h2, .application-dialog h2 { font-size: 30px; letter-spacing: -.04em; line-height: 1.1; }
 .availability, .application-dialog p { color: var(--muted); margin-top: 12px; line-height: 1.5; }
@@ -27,7 +33,7 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
 .attestation { align-items: start; display: flex; gap: 10px; min-height: 44px; padding: 8px 0; font-size: 14px; }
 .attestation input { flex: none; width: 17px; height: 17px; margin: 2px 0; accent-color: var(--ink); }
 .attestation:has(input:disabled) { color: var(--muted); }
-.apply-button { min-height: 48px; padding: 11px 22px; border-radius: 100px; background: var(--action); color: #fff; border: 0; font-weight: 500; justify-self: start; }
+.apply-button { min-height: 48px; padding: 11px 22px; border-radius: 100px; background: var(--action); color: var(--ink); border: 0; font-weight: 500; justify-self: start; }
 .apply-button:hover:enabled { background: var(--action-hover); }
 .apply-button:disabled { background: var(--surface); color: #616561; }
 .form-status { color: #803d29; font-size: 14px; }
@@ -38,10 +44,9 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
 @media (max-width: 720px) {
   .waitlist-header { height: 66px; }
   .waitlist-layout { display: block; padding: 12px 0 56px; }
-  .waitlist-intro { position: relative; top: auto; padding: 24px 0; }
+  .waitlist-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(76px,28%); align-items: center; gap: 16px; padding: 12px 0 22px; }
   .waitlist-intro h1 { font-size: clamp(40px, 8vw, 58px); }
-  .waitlist-intro p { font-size: 15px; max-width: 38ch; margin-top: 16px; }
+  .waitlist-art { width: 100%; max-width: 140px; margin: 0; justify-self:end; border-radius: 10px; }
   .application { padding:clamp(16px,5vw,30px); }
 }
-@media (max-height: 680px) { .waitlist-intro { position: relative; top: auto; } }
 @media (forced-colors: active) { .apply-button { border: 1px solid ButtonText; } }

@@ -4,14 +4,14 @@ A standalone, responsive presentation site for Linger. Blue and white surfaces, 
 
 ## Run locally
 
-With Node.js 20 or later, verify the bundled font and start the preview:
+With Node.js 20 or later, prepare the site fonts and start the preview:
 
 ```sh
 node prepare-fonts.mjs
 python3 -m http.server 8080 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8080`. Instrument Sans is included under the SIL Open Font License in `fonts/Instrument-Sans-OFL.txt`.
+Open `http://127.0.0.1:8080`. Instrument Sans is included under the SIL Open Font License in `fonts/Instrument-Sans-OFL.txt`. The original centered hero uses Switzer. On a fresh checkout the preparation script downloads its verified WOFF2 directly from Fontshare.
 
 ## Deploy your own copy
 
@@ -22,7 +22,7 @@ node build-site.mjs
 
 Upload the contents of `_site/` to any static host. Paths are relative, so subdirectory hosting also works. No environment variables or private deployment settings are needed.
 
-For GitHub Pages, select **GitHub Actions** in the repository's Pages settings, then run **Publish Linger** or push to `main`. The included workflow verifies the bundled webfont, packages only the website assets listed in `site-files.json`, and publishes them.
+For GitHub Pages, select **GitHub Actions** in the repository's Pages settings, then run **Publish Linger** or push to `main`. The included workflow prepares the two webfonts, packages only the website assets listed in `site-files.json`, and publishes them.
 
 ## Edit
 
