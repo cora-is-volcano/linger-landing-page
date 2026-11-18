@@ -77,10 +77,22 @@
     if(focus)$(`#lx-tab-${key}`).focus({preventScroll:true});
     else restoreViewFocus(previous,panel);
   }
+  // Sample team members use the character artwork from the desktop app.
+  const agentFigures = new Map([['another-me', 'capybara'], ['research', 'penguin'], ['writer', 'cat']]);
+  function agentAvatar(id, label = '') {
+    const figure = agentFigures.get(id);
+    if (!figure) return null;
+    const image = el('img', 'lx-agent-avatar');
+    image.src = './media/agent-' + figure + '.svg';
+    image.alt = label;
+    image.width = 36;
+    image.height = 36;
+    return image;
+  }
   function messageNode(message){
     const n=el('article',`lx-message lx-message--${message.role}`);
     if(message.role==='user'){n.append(el('span','sr-only','You: '),el('p','lx-message-copy',message.text));return n;}
-    const image=el('img');image.src='./media/linger-mark.svg';image.alt='Another Me';image.width=25;image.height=25;
+    const image = agentAvatar('another-me', 'Another Me');
     const body=el('div');body.append(el('p','lx-message-copy',message.text));
     if(!message.stopped){
       body.append(button(cases[current].trace,()=>{sourceIndex=null;setInspector('sources',{focus:true,mobile:true});},'lx-source-link','book'));
@@ -101,7 +113,7 @@
     view=next;root.dataset.view=next;$('#lx-message-view').hidden=next!=='messages';$('#lx-explorer').hidden=next==='messages';
     syncAgentSelection();
     root.querySelectorAll('[data-open-view]').forEach(b=>{if(b.dataset.openView===next)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
-    const api={icon,announce,openView,openChat:(scene)=>openChat(scene),reducedMotion:()=>reduced.matches,...options,onAgentChange:syncAgentSelection,onRuntimeChange:label=>{$('#lx-runtime-label').textContent=label;}};
+    const api={icon,agentAvatar,announce,openView,openChat:(scene)=>openChat(scene),reducedMotion:()=>reduced.matches,...options,onAgentChange:syncAgentSelection,onRuntimeChange:label=>{$('#lx-runtime-label').textContent=label;}};
     if(next==='messages'){renderRoom();setPane('chat');}
     else if(next==='library')cleanup=window.LingerLibrary.render($('#lx-explorer'),api);
     else cleanup=window.LingerExplorer.render(next,$('#lx-explorer'),api);
@@ -160,8 +172,14 @@
   }
   function renderTeam(){
     panel.append(el('h3','lx-document-title','Acme launch team'));
-    const lead=el('div','lx-team-node');const mark=el('img');mark.src='./media/linger-mark.svg';mark.alt='';const copy=el('div');copy.append(el('strong','','Another Me'),el('small','','Coordinates & reports back'));lead.append(mark,copy);panel.append(lead);
-    const branches=el('div','lx-team-branches');[['Research','Find decisions & sources','R','sage'],['Writer','Turn findings into a draft','W','blue']].forEach(([name,role,letter,color])=>{const n=el('div','lx-team-node');n.append(el('span',`lx-avatar lx-avatar--${color}`,letter),el('strong','',name),el('small','',role));branches.append(n);});panel.append(branches);
+    const lead=el('div','lx-team-node');const mark=agentAvatar('another-me');const copy=el('div');copy.append(el('strong','','Another Me'),el('small','','Coordinates & reports back'));lead.append(mark,copy);panel.append(lead);
+    const branches = el('div', 'lx-team-branches');
+    for (const [name, role] of [['Research', 'Find decisions & sources'], ['Writer', 'Turn findings into a draft']]) {
+      const member = el('div', 'lx-team-node');
+      member.append(agentAvatar(name.toLowerCase()), el('strong', '', name), el('small', '', role));
+      branches.append(member);
+    }
+    panel.append(branches);
     panel.append(actions(button('Read team.md',()=>openView('library',{initialTab:'documents',initialDocument:'team'}),'lx-button','file'),button('Agent details',()=>openView('agents'),'lx-button','agent')));
   }
   function renderInspector(){
@@ -183,7 +201,7 @@
     if(r.history.length===2&&r.history[0].text===value)r.history=[];
     r.canceled=false;if(current==='followup')r.approval='none';const user={role:'user',text:value};r.history.push(user);if(!preserveDraft&&key===origin)r.draft='';input.value=r.draft;
     const token=++runId;pending={room:current,message:user};busy=true;r.step=0;renderMessages();sync();setPane('chat');
-    const response=el('article','lx-message lx-message--assistant'),mark=el('img');mark.src='./media/linger-mark.svg';mark.alt='Another Me';const body=el('div'),copy=el('p','lx-message-copy');body.append(copy);response.append(mark,body);messages.append(response);messages.scrollTop=messages.scrollHeight;
+    const response=el('article','lx-message lx-message--assistant'),mark=agentAvatar('another-me', 'Another Me');const body=el('div'),copy=el('p','lx-message-copy');body.append(copy);response.append(mark,body);messages.append(response);messages.scrollTop=messages.scrollHeight;
     const reply=matched?c.reply:c.fallback;
     const later=(fn,ms)=>{timers.push(setTimeout(()=>{if(token===runId)fn();},ms));};
     const stage=index=>{r.step=index;$('#lx-run-status').hidden=false;$('#lx-run-label').textContent=c.steps[Math.min(index,2)][0];copy.textContent=index===0?'Working on it…':'';if(inspector==='activity')renderInspector();};

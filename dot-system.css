@@ -1,22 +1,14 @@
 /* Dot-matrix audio: one language for record grooves, waveforms and feedback.
    Content, photography and hit areas remain clean; no full-page grid. */
 :root{--dot-ink:var(--ink);--dot-accent:var(--accent);--dot-base:var(--accent);--dot-label:var(--sand);--dot-active:var(--accent-ink);--dot-paper:var(--sand-soft)}
-.review-hero{--record-size:clamp(380px,37.5vw,600px);display:grid;place-items:center;width:100%;min-height:530px;text-align:center;padding:86px 0 92px;isolation:isolate}
-.hero-copy{position:relative;z-index:1;min-width:0;width:min(800px,calc(100% - var(--record-size)));margin-inline:auto}
+.review-hero{display:grid;place-items:center;width:100%;min-height:530px;text-align:center;padding:86px 0 92px;isolation:isolate}
+.hero-copy{position:relative;z-index:1;min-width:0;width:min(800px,calc(100% - 64px));margin-inline:auto}
 .review-hero h1{font-size:clamp(42px,4.6vw,66px);line-height:1.08;letter-spacing:-.05em;margin:0;max-width:none}
 .hero-copy>p{font-size:17px;line-height:1.65;color:var(--muted);max-width:520px;margin:28px auto 0;text-wrap:pretty}
 .hero-copy .hero-break{display:none}
 .review-hero__actions{justify-content:center;margin-top:28px}
 .hero-wave{height:24px;bottom:-14px}
 .hero-wave path{stroke-dasharray:0 .026;stroke-width:3.8;stroke-linecap:round;animation:none!important}
-.dot-record-art{position:absolute;top:50%;width:calc(var(--record-size) * .5);height:calc(var(--record-size) * .884615);transform:translateY(-50%);overflow:hidden;isolation:isolate;touch-action:pan-y pinch-zoom}
-.dot-record-art--left{left:0}.dot-record-art--right{right:0}
-.dot-record-canvas,.dot-record-poster{position:absolute;top:0;width:var(--record-size);max-width:none;height:calc(var(--record-size) * .884615);object-fit:contain;pointer-events:none}
-/* Keep each record centre on the screen edge; crop without mirroring pointer coordinates. */
-.dot-record-art--left :is(canvas,img){left:calc(var(--record-size) * -.532692)}
-.dot-record-art--right :is(canvas,img){right:calc(var(--record-size) * -.467308)}
-.dot-record-canvas{opacity:0}.dot-record-art.is-ready .dot-record-canvas{opacity:1}.dot-record-art.is-ready .dot-record-poster{visibility:hidden}
-
 /* Tiny matrices read like the LEDs of an audio deck, with stable round samples. */
 .nav-signal{height:12px;bottom:-1px;gap:3px;left:calc(50% - 10px)}
 .nav-signal i{width:3px;height:12px;border-radius:0;background:radial-gradient(circle,currentColor 1.2px,transparent 1.4px) center/3px 4px;color:var(--dot-accent);transform:none!important}
@@ -45,25 +37,6 @@
 @keyframes dot-sample{0%,100%{clip-path:inset(30% 0);opacity:.5}50%{clip-path:inset(0);opacity:1}}
 #agent-demo :is(.ad-primary-button,#ad-artifact-action,.ad-draft-actions button:first-child){background:var(--accent-soft);color:var(--accent-ink);border-radius:999px}
 
-/* The record stays a record. Dotted groove highlights replace the heavy shine. */
-.record-grooves{background:repeating-radial-gradient(circle,#252a2c 0 2px,#363c3e 2.4px 3px,#252a2c 3.5px 7px);box-shadow:none}
-.record-grooves::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle,var(--sand) 1px,transparent 1.2px) 0 0/6px 6px;opacity:.35;mask-image:radial-gradient(circle,transparent 47%,#000 49% 62%,transparent 67%)}
-.record-grooves::after{opacity:.45}
-.carousel-record.is-selected .record-grooves::before{background-image:radial-gradient(circle,var(--accent) 1px,transparent 1.2px);opacity:.6}
-.record-frequency{height:24px;gap:4px;color:var(--dot-accent)}
-.record-frequency i{width:3px;height:24px;border-radius:0;background:radial-gradient(circle,currentColor 1.3px,transparent 1.5px) center/3px 5px;transform:none!important;animation:dot-note 700ms var(--delay,0ms) ease-out 1}
-.record-frequency i:nth-child(1),.record-frequency i:nth-child(5){height:6px}.record-frequency i:nth-child(2),.record-frequency i:nth-child(4){height:16px}
-.memory-fragment__signal i{width:3px;background:radial-gradient(circle,var(--accent) 1.2px,transparent 1.4px) center/3px 4px;border-radius:0}
-.memory-photo__stamp{border-radius:2px}
-.memory-photo.is-preview .memory-photo__stamp{outline:3px dotted #fff;outline-offset:2px}
-
-/* A small sampled circuit, not a pattern behind the technical explanation. */
-.device-boundary{background:var(--dot-paper)}
-.device-connection{height:3px;background:radial-gradient(circle,var(--accent) 1.2px,transparent 1.4px) center/6px 3px}
-.device-connection i{display:none}
-.device-context__icon{background:#fff}
-.device-agent__mark{position:relative;background:#fff}
-.device-agent__mark::after{content:'';position:absolute;inset:-7px;border:2px dotted var(--sand);border-radius:26px;pointer-events:none}
 .review-faq__list details,.review-platform{background:var(--dot-paper)}
 .review-faq__list summary>span::before,.review-faq__list summary>span::after{height:3px;top:6px;background:radial-gradient(circle,currentColor 1.2px,transparent 1.4px) center/4px 3px}
 .review-platform{position:relative;isolation:isolate;overflow:hidden}
@@ -71,27 +44,27 @@
 .review-platform:hover::before{background-image:radial-gradient(circle,var(--accent-ink) 1.2px,transparent 1.4px)}
 
 @media(min-width:1600px){.review-hero{min-height:580px;padding-block:100px}}
-@media(max-width:1000px) and (min-width:761px){.review-hero{--record-size:clamp(240px,30vw,320px);min-height:460px;padding-block:72px}.review-hero h1{font-size:clamp(36px,4.6vw,46px)}.hero-copy>p{font-size:16px;max-width:440px}.review-hero__actions .btn{min-width:0;padding-inline:24px;font-size:14px}}
+@media(max-width:1000px) and (min-width:761px){.review-hero{min-height:460px;padding-block:72px}.review-hero h1{font-size:clamp(36px,4.6vw,46px)}.hero-copy>p{font-size:16px;max-width:440px}.review-hero__actions .btn{min-width:0;padding-inline:24px;font-size:14px}}
 @media(max-width:760px){
- .review-hero{--record-size:clamp(120px,32vw,220px);min-height:0;padding-block:54px 58px}
+ .review-hero{min-height:0;padding-block:54px 58px}
  .hero-copy{width:calc(100% - 40px)}
- .review-hero h1{font-size:clamp(28px,7.4vw,48px);line-height:1.1;width:calc(100vw - var(--record-size));margin-inline:auto}
+ .review-hero h1{font-size:clamp(28px,7.4vw,48px);line-height:1.1;margin-inline:auto}
  .hero-copy>p{font-size:16px;line-height:1.6;max-width:440px;margin:28px auto 0}
  .hero-wave{height:18px;bottom:-10px}
  .review-hero__actions{justify-content:center;margin-top:26px}
- .dot-record-art{top:calc(54px + clamp(28px,7.4vw,48px) * 1.1)}
+
  .main-nav .nav-signal{bottom:calc(50% - 6px);left:auto}
  #agent-demo.workspace{padding:5px;border-radius:23px}
  #agent-demo .ad-appbar{padding:10px 9px 15px}
  .review-platform::before{width:54px;height:28px;right:60px;top:22px;opacity:.5}
 }
 @media(max-width:640px){#agent-demo .ad-conversation{border-radius:18px 18px 0 0}#agent-demo .ad-artifact{border-radius:0 0 18px 18px}#agent-demo .ad-output-tabs{background:var(--sand-soft)}}
-@media(max-width:380px){.review-hero{--record-size:90px}.review-hero h1{font-size:26px}.hero-copy>p{font-size:15px}.dot-record-art{top:83px}}
+@media(max-width:380px){.review-hero h1{font-size:26px}.hero-copy>p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.nav-signal i,.record-frequency i,#agent-demo .ad-signal i{animation:none!important}}
 @media(forced-colors:active){
- .dot-record-art{display:none}.review-platform::before,.record-grooves::before,.device-agent__mark::after{display:none}
+.review-platform::before,.record-grooves::before{display:none}
  #agent-demo.workspace{border:1px solid CanvasText}#agent-demo .ad-input-shell{border:1px solid CanvasText}
  #agent-demo .ad-input-shell:focus-within{outline:2px solid Highlight;outline-offset:2px}
  .review-faq__list details,.review-platform{background:Canvas}.review-faq__list summary>span::before,.review-faq__list summary>span::after{background:CanvasText}
- .device-connection,.record-frequency i,.nav-signal i{background:CanvasText}
+ .record-frequency i,.nav-signal i{background:CanvasText}
 }

@@ -6,13 +6,64 @@
     const records = [...player.querySelectorAll('[data-carousel-record]')];
     const panels = [...player.querySelectorAll('[data-record-panel]')];
     const status = player.querySelector('#record-selection-status');
+    const films = panels.map(panel => panel.querySelector('video'));
     let selected = 0;
+    let inView = false;
+    let manualPlayback = null;
+
+    function syncPlayback() {
+      const shouldPlay = manualPlayback ?? (!reducedMotion.matches && !navigator.connection?.saveData);
+      films.forEach((film, index) => {
+        if (index !== selected || !inView || document.hidden || !shouldPlay) {
+          film.pause();
+        } else if (film.paused) {
+          // Browsers can restrict autoplay. The same control also starts playback on demand.
+          film.play().catch(() => {});
+        }
+      });
+    }
+
+    films.forEach((film, index) => {
+      const control = panels[index].querySelector('.scene-playback');
+      const playIcon = control.querySelector('[data-play-icon]');
+      const pauseIcon = control.querySelector('[data-pause-icon]');
+      const updateControl = () => {
+        control.setAttribute('aria-label', film.paused ? 'Play video' : 'Pause video');
+        playIcon.toggleAttribute('hidden', !film.paused);
+        pauseIcon.toggleAttribute('hidden', film.paused);
+      };
+      film.controls = false;
+      control.hidden = false;
+      control.addEventListener('click', () => {
+        manualPlayback = film.paused;
+        syncPlayback();
+      });
+      film.addEventListener('play', updateControl);
+      film.addEventListener('pause', updateControl);
+      updateControl();
+    });
+
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      syncPlayback();
+    }).observe(player.querySelector('.record-detail'));
+
+    reducedMotion.addEventListener('change', () => {
+      manualPlayback = null;
+      syncPlayback();
+    });
+    document.addEventListener('visibilitychange', syncPlayback);
     let gesture = null;
     let suppressPointerClick = false;
 
     function select(index, focus = false, announce = true) {
       const target = (index + records.length) % records.length;
       const changed = target !== selected;
+      if (changed) {
+        films[selected].pause();
+        manualPlayback = null;
+        films[target].currentTime = 0;
+      }
       selected = target;
       const key = records[selected].dataset.carouselRecord;
       player.dataset.scene = key;
@@ -24,6 +75,7 @@
         record.tabIndex = active ? 0 : -1;
       });
       panels.forEach(panel => { panel.hidden = panel.dataset.recordPanel !== key; });
+      syncPlayback();
       if (focus) records[selected].focus({preventScroll:true});
       if (announce && changed && status) status.textContent = records[selected].getAttribute('aria-label');
     }
@@ -35,7 +87,7 @@
         select(index);
       });
       record.addEventListener('keydown', event => {
-        const destination = {ArrowLeft:selected - 1, ArrowRight:selected + 1, Home:0, End:records.length - 1}[event.key];
+        const destination = {ArrowUp:selected - 1, ArrowDown:selected + 1, Home:0, End:records.length - 1}[event.key];
         if (destination === undefined) return;
         event.preventDefault();
         select(destination, true);
@@ -47,7 +99,6 @@
       gesture = null;
       carousel.classList.remove('is-dragging');
       carousel.style.removeProperty('--drag');
-      carousel.style.removeProperty('--drag-turn');
       if (record.hasPointerCapture(id)) record.releasePointerCapture(id);
     }
     function cancelGesture(event) {
@@ -59,30 +110,29 @@
       const record = event.target.closest('[data-carousel-record]');
       if (!record || gesture || !event.isPrimary || event.button !== 0) return;
       suppressPointerClick = false;
-      gesture = {id:event.pointerId, record, x:event.clientX, y:event.clientY, dx:0, horizontal:false};
+      gesture = {id:event.pointerId, record, x:event.clientX, y:event.clientY, dy:0, vertical:false};
       record.setPointerCapture(event.pointerId);
     });
     carousel.addEventListener('pointermove', event => {
       if (!gesture || gesture.id !== event.pointerId) return;
       const dx = event.clientX - gesture.x;
       const dy = event.clientY - gesture.y;
-      if (!gesture.horizontal) {
-        if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { suppressPointerClick = true; resetGesture(); return; }
-        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
-        gesture.horizontal = true;
+      if (!gesture.vertical) {
+        if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) { suppressPointerClick = true; resetGesture(); return; }
+        if (Math.abs(dy) < 10 || Math.abs(dy) < Math.abs(dx) * 1.2) return;
+        gesture.vertical = true;
         carousel.classList.add('is-dragging');
       }
-      gesture.dx = dx;
-      const offset = Math.max(-18, Math.min(18, dx * .12));
+      gesture.dy = dy;
+      const offset = Math.max(-18, Math.min(18, dy * .12));
       carousel.style.setProperty('--drag', `${offset}px`);
-      carousel.style.setProperty('--drag-turn', `${offset * .5}deg`);
     }, {passive:true});
     carousel.addEventListener('pointerup', event => {
       if (!gesture || gesture.id !== event.pointerId) return;
-      const {dx, horizontal} = gesture;
-      suppressPointerClick = horizontal;
+      const {dy, vertical} = gesture;
+      suppressPointerClick = vertical;
       resetGesture();
-      if (horizontal && Math.abs(dx) >= Math.min(48, carousel.clientWidth * .15)) select(selected + (dx < 0 ? 1 : -1));
+      if (vertical && Math.abs(dy) >= Math.min(48, carousel.clientHeight * .15)) select(selected + (dy < 0 ? 1 : -1));
     });
     carousel.addEventListener('pointercancel', cancelGesture);
     carousel.addEventListener('lostpointercapture', cancelGesture);

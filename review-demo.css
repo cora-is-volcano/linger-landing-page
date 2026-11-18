@@ -1,5 +1,5 @@
 /* Source-grounded local workspace: charcoal selection, light sky accents and neutral document surfaces. */
-#try-linger{width:100%;scroll-margin-top:16px}
+#try-linger{scroll-margin-top:16px}
 #try-linger .workspace-caption{display:flex;justify-content:space-between;align-items:center;margin:0 0 20px;gap:12px}
 #try-linger .workspace-caption h2{font-size:16px;letter-spacing:-.02em}
 #try-linger .info-note{font-size:13px;line-height:1.6}#try-linger .info-note a{text-decoration:underline;text-underline-offset:3px}
@@ -113,3 +113,133 @@
 @media(max-width:380px){.lx-inspector-tabs{padding-inline:10px}.lx-inspector-tabs button{font-size:11px;padding-inline:9px}.lx-page{padding-inline:16px}.lx-message-copy{font-size:13px}.lx-message--assistant{gap:8px;grid-template-columns:23px 1fr}.lx-messages{padding-inline:15px}.lx-chat-header{padding-inline:16px}.lx-scenes{padding-inline:14px}.lx-scenes button{font-size:10px}.lx-demo-badge{font-size:8px}.lx-appbar{gap:6px}.lx-page-head{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.lx-workspace *,.lx-workspace *::after,.lx-workspace *::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media(forced-colors:active){.lx-workspace{background:Canvas;color:CanvasText;border:1px solid CanvasText}.lx-workspace :is(button,input,textarea,select){border:1px solid ButtonText}.lx-workspace button[aria-current=page],.lx-workspace button[aria-selected=true]{outline:2px solid Highlight}.lx-compose-field:focus-within{outline:2px solid Highlight}.lx-signal i{background:CanvasText}}
+
+/* The desktop app uses its own type, neutral surfaces and 12px chat bubbles. */
+.lx-workspace {
+  --ink: hsl(60 8% 9.4%);
+  --muted: hsl(55 6% 40%);
+  --surface: hsl(60 16% 95%);
+  --line: hsl(72 9% 92%);
+  --selected-tint: hsl(60 16% 95%);
+  --app-sidebar: hsl(75 23% 96.5%);
+  font-family: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--app-sidebar);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.lx-workspace .lx-appbar { gap: 10px; padding-bottom: 6px; }
+.lx-workspace .lx-brand { min-width: auto; }
+.lx-demo-badge i { display: none; }
+.lx-workspace .lx-stage {
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 5%), 0 2px 8px rgb(0 0 0 / 6%);
+}
+.lx-chat-header {
+  position: relative;
+  justify-content: center;
+  min-height: 57px;
+  padding: 8px 52px;
+}
+.lx-chat-header .lx-icon-button { position: absolute; right: 6px; }
+.lx-workspace .lx-message--user {
+  width: fit-content;
+  padding: 8px 12px;
+  color: #fff;
+  background: var(--ink);
+  border-radius: 12px;
+}
+.lx-message--assistant { grid-template-columns: 32px minmax(0, 1fr); gap: 6px; }
+.lx-message--assistant > img {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border-radius: 8px;
+}
+.lx-workspace .lx-message--assistant .lx-message-copy {
+  width: fit-content;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: hsl(60 16% 95% / .7);
+}
+.lx-message--assistant .lx-message-copy:empty { display: none; }
+.lx-compose-field {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+}
+.lx-workspace .lx-send:not(:disabled),
+.lx-workspace .lx-send:not(:disabled):hover {
+  color: #fff!important;
+  background: var(--ink)!important;
+}
+.lx-inspector { background: #fff; }
+.lx-agent-copy { min-width: 0; }
+.lx-agent-copy strong, .lx-agent-copy small { display: block; }
+.lx-agent-copy strong { font-size: 13px; font-weight: 580; }
+.lx-agent-copy small { font-size: 11px; line-height: 1.4; }
+.lx-sidebar-heading { margin-top: 15px; }
+.lx-agent-avatar { border-radius: 8px; }
+.lx-team-branches .lx-agent-avatar { margin: 0 auto 6px; }
+#lx-another-me {
+  padding: 6px;
+  background: #fff;
+  border-radius: 8px;
+  gap: 8px;
+}
+#lx-another-me.is-current { background: #865658; color: white!important; }
+#lx-another-me img { width: 40px; height: 40px; }
+
+@media (min-width: 901px) {
+  .lx-workspace {
+    grid-template-columns: clamp(200px, 19vw, 260px) minmax(0, 1fr);
+    grid-template-rows: 46px minmax(0, 1fr);
+  }
+  .lx-sidebar {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 0 8px;
+    padding: 0 10px 4px 0;
+  }
+  .lx-primary-nav, .lx-sidebar-bottom {
+    grid-column: 1;
+    justify-items: center;
+    gap: 8px;
+  }
+  .lx-primary-nav { grid-row: 1; }
+  .lx-sidebar-bottom { grid-row: 2; align-self: end; }
+  .lx-primary-nav > button, .lx-sidebar-bottom > button {
+    position: relative;
+    justify-content: center;
+    width: 38px;
+    min-height: 38px;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  .lx-sidebar .lx-nav-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .lx-sidebar .icon { width: 20px; height: 20px; }
+  .lx-sidebar-agents { grid-column: 2; grid-row: 1 / -1; margin: 0; }
+  .lx-sidebar-heading .icon { width: 15px; height: 15px; }
+  .lx-agent-link img { width: 28px; height: 28px; }
+  #lx-another-me { min-height: 60px; }
+  .lx-inspector { border-left: 1px solid var(--line); }
+  .lx-workspace:not([data-view=messages]):not([data-view=agents]) { grid-template-columns: 56px minmax(0, 1fr); }
+  .lx-workspace:not([data-view=messages]):not([data-view=agents]) .lx-sidebar-agents { display: none; }
+}
+
+@media (max-width: 900px) and (min-width: 701px) {
+  #lx-another-me img { width: 28px; height: 28px; }
+  .lx-agent-copy small { font-size: 10px; }
+}
+
+@media (forced-colors: active) {
+  #lx-another-me.is-current { background: Highlight; color: HighlightText!important; }
+  .lx-workspace .lx-message--user { background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
+}

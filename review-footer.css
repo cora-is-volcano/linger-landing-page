@@ -180,3 +180,9 @@
 .review-subscribe input:disabled { color:var(--muted); opacity:1; cursor:default; }
 .review-subscribe button:disabled { background:var(--sand); color:var(--sand-ink); box-shadow:none; cursor:default; transform:none; }
 .review-social-circle[hidden] { display:none; }
+
+@media (max-width:520px) {
+  .review-footer__bottom { grid-template-columns:1fr; gap:14px; }
+  .review-socials { grid-column:1; grid-row:2; }
+  .review-footer__copyright { grid-column:1; grid-row:3; }
+}

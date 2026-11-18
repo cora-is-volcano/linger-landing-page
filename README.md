@@ -30,10 +30,11 @@ For GitHub Pages, select **GitHub Actions** in the repository's Pages settings, 
 - `review-theme.css` and `typography.css`: shared color and typography system.
 - `review-demo.css`, `workspace-*.js`: local workspace demo.
 - `product-*.css` / `product-*.js`: context, routines, and voice scenes.
-- `dot-system.*` / `dot-pointer.*`: vinyl artwork and persistent mouse dots.
-- `media/`: artwork and textures.
+- `dot-system.css` and `review-content.css`: waveform accents and the vinyl video selector.
+- `media/`: product videos, artwork and textures.
+- `waitlist.html` and `waitlist-config.js`: tester applications and launch settings.
 
-CSS and JavaScript references include cache-version query strings; update them when changing assets. Voice scenes loop within the selected tab, and demo replies are presets. Customer stories and avatars are labeled fictional. The waitlist entry awaits its destination.
+CSS and JavaScript references include cache-version query strings; update them when changing assets. Voice scenes loop within the selected tab, and demo replies are presets. Customer stories and avatars are labeled fictional. The waitlist page opens from the homepage. Applications open when the launch post and collection endpoint are configured.
 
 This repository is the presentation website. For the agent application, see [simplexai-labs/linger](https://github.com/simplexai-labs/linger).
 

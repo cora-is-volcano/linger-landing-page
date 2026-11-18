@@ -14,7 +14,7 @@
   pointer-events: none;
 }
 
-/* Light falls behind the diagram; labels and controls stay fully opaque. */
+/* Pale paper around the local workspace example. */
 .device-boundary {
   position: relative;
   isolation: isolate;

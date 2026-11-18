@@ -324,7 +324,7 @@
         state.agents.forEach(agent => list.append(listButton(agent.name,agent.role,agent.id === selected,() => { selected = agent.id; tab = 'Profile'; draw(); },'agent',agent.id)));
         const agent = state.agents.find(item => item.id === selected) || state.agents[0];
         api.onAgentChange?.(agent.id);
-        const title = el('div','lx-row'); title.append(el('span','lx-agent-avatar',agent.initial),el('h4','',agent.name)); detail.append(title);
+        const title = el('div','lx-row'); title.append(api.agentAvatar(agent.id) || el('span','lx-agent-avatar',agent.initial),el('h4','',agent.name)); detail.append(title);
         detail.append(choose(['Profile','Memory'],tab,value => { tab = value; draw(); },`${agent.name} profile tabs`));
         if (tab === 'Profile') {
           detail.append(textBlock('Instructions',agent.instructions));

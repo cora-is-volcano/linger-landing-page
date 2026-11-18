@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Linger Tester Waitlist</title>
+  <meta name="description" content="Apply to try Linger’s hosted personal agent workspace.">
+  <link rel="icon" href="./media/linger-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./typography.css">
+  <link rel="stylesheet" href="./review-theme.css">
+  <link rel="stylesheet" href="./waitlist.css">
+  <script defer src="./waitlist-config.js"></script>
+  <script defer src="./waitlist.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#application">Skip to application</a>
+  <header class="waitlist-header section-shell">
+    <a class="brand" href="./" aria-label="Linger home"><img src="./media/linger-wordmark-dark.svg" alt="Linger" width="1218" height="378"></a>
+    <a class="home-link" href="./">Back to Linger</a>
+  </header>
+  <main class="waitlist-layout section-shell">
+    <section class="waitlist-intro" aria-labelledby="waitlist-title">
+      <h1 id="waitlist-title">Linger Tester<br>Waitlist</h1>
+      <p>Get early access to Linger’s hosted workspace. We’ll email selected testers with an invitation and instructions for claiming test credits on Discord.</p>
+      <div class="record-sleeve" aria-hidden="true"><div class="sleeve-record"><i></i></div></div>
+    </section>
+    <section class="application" id="application" aria-labelledby="application-title" tabindex="-1">
+      <h2 id="application-title">Your application</h2>
+      <p id="availability" class="availability" role="status">Applications open with the launch announcement.</p>
+      <noscript><p>Enable JavaScript to use the application form.</p></noscript>
+      <form id="waitlist-form">
+        <label class="field" for="app-email">Email address<input id="app-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="254"></label>
+        <label class="field" for="app-github">GitHub profile<input id="app-github" name="github" type="url" placeholder="https://github.com/username" spellcheck="false" autocapitalize="none" autocomplete="url" required maxlength="150"></label>
+        <fieldset class="launch-step">
+          <legend>Follow Linger and repost the launch</legend>
+          <div class="launch-card" id="launch-card">
+            <div class="launch-card-head"><img src="./media/linger-mark.svg" width="34" height="34" alt=""><div><strong>Linger</strong><a href="https://x.com/HeyLingerAI" target="_blank" rel="noopener noreferrer">@HeyLingerAI</a></div></div>
+            <p id="post-pending">The launch post will appear here when it’s live.</p>
+          </div>
+          <label class="attestation"><input id="app-social" name="socialConfirmed" type="checkbox" disabled required><span>I follow Linger on X and have reposted the launch post.</span></label>
+        </fieldset>
+        <label class="field" for="app-note">Anything you’d like to tell Linger? <span class="optional">Optional</span><textarea id="app-note" name="note" rows="3" maxlength="2000"></textarea></label>
+        <p class="form-status" role="status" id="form-status"></p>
+        <button class="apply-button" id="apply-button" type="submit" disabled>Applications opening soon</button>
+      </form>
+    </section>
+  </main>
+  <dialog class="application-dialog" aria-labelledby="result-title" aria-describedby="result-description">
+    <h2 id="result-title"></h2>
+    <p id="result-description"></p>
+    <form method="dialog"><button class="apply-button" type="submit" autofocus>Done</button></form>
+  </dialog>
+</body>
+</html>

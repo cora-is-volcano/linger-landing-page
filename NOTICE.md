@@ -8,7 +8,7 @@ The Linger marks and product names identify [SimplexAI's Linger project](https:/
 
 ## Website imagery
 
-Scene imagery, customer avatars, dot artwork, and textures are presentation assets supplied or created for this website. Customer stories and avatars are fictional and labeled on the page. They are not endorsements by real customers.
+Product walkthroughs and still frames come from the Linger project. Customer avatars, dot artwork, and textures are presentation assets supplied or created for this website. Customer stories and avatars are fictional and labeled on the page. They are not endorsements by real customers.
 
 ## Typography
 

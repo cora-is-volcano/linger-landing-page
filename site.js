@@ -1,4 +1,10 @@
 (() => {
+  const header = document.querySelector('.site-header');
+  if (header && document.querySelector('.review-hero')) {
+    const updateHeader = () => header.classList.toggle('at-page-top', window.scrollY <= 4);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  }
   const notes = [...document.querySelectorAll('.context-info')];
   document.addEventListener('click', event => {
     notes.forEach(note => { if (!note.contains(event.target)) note.open = false; });

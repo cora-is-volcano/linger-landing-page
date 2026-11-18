@@ -22,17 +22,16 @@ h1,h2,h3,h4{font-weight:500;text-wrap:balance}
 .icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .skip-link{position:fixed;left:20px;top:12px;z-index:1000;background:var(--ink);color:white;padding:12px 18px;border-radius:30px;transform:translateY(-150%)}
 .skip-link:focus{transform:none}
+:root{--header-height:80px}
 .site-header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.header-inner{height:80px;display:flex;align-items:center;gap:32px;position:relative}
+.site-header.at-page-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.header-inner{height:var(--header-height);display:flex;align-items:center;gap:32px;position:relative}
 .brand{display:flex;align-items:center;min-height:44px;flex-shrink:0;width:110px}
 .brand img{width:100%;height:auto}
 .main-nav{display:flex;align-items:center;justify-content:center;gap:30px;margin-inline:auto}
 .main-nav a{font-size:14px;font-weight:500;letter-spacing:0;padding-block:12px;color:var(--muted);transition:color .18s ease}
 .main-nav a:hover{color:var(--ink)}
-.header-github{display:flex;min-height:44px;align-items:center;gap:9px;font-size:13px;font-weight:500;padding:10px 0;white-space:nowrap}
-.header-github .icon{width:17px;height:17px}
-.header-github:hover .icon:first-child{fill:var(--accent);stroke:var(--accent-ink)}
-.header-github__arrow{transition:transform .2s ease}.header-github:hover .header-github__arrow{transform:translate(2px,-2px)}
+.header-github{flex-shrink:0}
 .menu-trigger{display:none}
 .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:22px;border:0;border-radius:999px;padding:12px 24px;font-size:15px;font-weight:500;line-height:1.35;transition:background .2s ease,transform .2s ease,color .2s ease}
 .btn-primary{background:var(--accent);color:var(--ink)}.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
@@ -77,10 +76,10 @@ h1,h2,h3,h4{font-weight:500;text-wrap:balance}
 .info-note{position:absolute;z-index:20;top:calc(100% + 8px);right:0;width:min(300px,calc(100vw - 48px));background:#fff;box-shadow:0 12px 48px #17212d22;padding:18px 20px;border-radius:16px;font-size:13px;line-height:1.55;color:var(--muted)}
 dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background:#17191d55;backdrop-filter:blur(4px)}
 @media(min-width:1600px){.review-hero{padding-top:104px;padding-bottom:84px}}
-@media(max-width:1000px){.header-inner{gap:20px}.main-nav{gap:20px}.main-nav a{font-size:13px}.header-github{font-size:12px;gap:6px}.header-github__arrow{display:none}.brand{width:110px}}
+@media(max-width:1000px){.header-inner{gap:20px}.main-nav{gap:20px}.main-nav a{font-size:13px}.brand{width:110px}}
 @media(max-width:760px){
  :root{scroll-padding-top:86px}.section-shell{width:calc(100% - 40px)}
- .header-inner{height:80px;gap:18px}.brand{width:106px}.header-github{margin-left:auto;font-size:12px}.header-github .icon{width:16px;height:16px}
+ .header-inner{gap:18px}.brand{width:106px}.header-github{margin-left:auto}
  .main-nav{display:none;position:absolute;top:72px;left:0;right:0;margin:0;padding:18px;background:#fff;border-radius:20px;box-shadow:0 16px 50px #17212d1c;z-index:32}
  .main-nav.is-open{display:grid;gap:0}.main-nav a{font-size:16px;padding:13px 16px;border-radius:12px}.main-nav a:hover{background:var(--surface)}
  .menu-trigger{display:flex;width:44px;height:44px;padding:10px 7px;border:0;background:transparent;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:50%}
@@ -92,6 +91,33 @@ dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background
  .review-hero__actions{gap:10px;margin-top:28px}.review-hero__actions .btn{min-width:0;min-height:52px;padding:14px 22px;font-size:14px;gap:14px}
  .review-product{padding-bottom:24px}.btn{font-size:15px}.section-heading{font-size:36px}
 }
-@media(max-width:380px){.header-inner{gap:12px}.brand{width:94px}.header-github{font-size:11px;gap:5px}.header-github .icon{width:14px;height:14px}.review-hero{padding-top:44px}.review-hero h1{font-size:36px}.review-hero>p{font-size:16px}.review-hero__actions .btn{padding:13px 18px;gap:9px;font-size:13px}.review-hero__actions .icon{width:17px;height:17px}}
+@media(max-width:440px){.header-github__prefix{display:none}}
+@media(max-width:380px){.header-inner{gap:12px}.brand{width:94px}.review-hero{padding-top:44px}.review-hero h1{font-size:36px}.review-hero>p{font-size:16px}.review-hero__actions .btn{padding:13px 18px;gap:9px;font-size:13px}.review-hero__actions .icon{width:17px;height:17px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(forced-colors:active){.btn,.main-nav,.menu-trigger{border:1px solid ButtonText}.header-github .icon{fill:none}}
+
+/* A single field starts behind the navigation and fades down the hero. */
+.review-hero { overflow:clip visible; }
+.review-hero::before {
+  content:"";
+  position:absolute;
+  inset:calc(-1 * var(--header-height)) 0 7%;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 57% 74% at -8% 29%, #edcfaa59, transparent),
+    radial-gradient(ellipse 46% 42% at 24% -12%, #e9c8b33d, transparent),
+    radial-gradient(ellipse 64% 63% at 77% -16%, #bfcde457, transparent),
+    radial-gradient(ellipse 31% 82% at 107% 22%, #c5d9d34d, transparent),
+    linear-gradient(110deg, #faf7f3, #f6f6f5 58%, #f4f6f8);
+  mask-image:linear-gradient(to bottom, black, #000b 33%, #0003 66%, transparent 94%);
+}
+@media (max-width:760px) {
+  .review-hero::before { opacity:.85; }
+}
+@media print, (forced-colors:active) {
+  .review-hero::before { display:none; }
+}
+.on-device__copy p { max-width: 37ch; margin-top: 18px; color: var(--muted); line-height: 1.55; }
+.review-newsletter .footer-waitlist { margin-top: 22px; }
+.review-faq__list p a { text-decoration: underline; text-underline-offset: .18em; }
