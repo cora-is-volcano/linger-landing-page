@@ -50,8 +50,22 @@ main > .review-hero + .section-shell{margin-block-start:12px}
 .skip-link{position:fixed;left:20px;top:12px;z-index:1000;background:var(--ink);color:white;padding:12px 18px;border-radius:30px;transform:translateY(-150%)}
 .skip-link:focus{transform:none}
 :root{--header-height:80px}
-.site-header{position:sticky;top:0;z-index:30;background:var(--canvas);box-shadow:0 1px var(--line)}
-.site-header.at-page-top{background:transparent;box-shadow:none}
+.site-header{position:sticky;top:0;z-index:30;background:var(--canvas)}
+.site-header.at-page-top{background:transparent}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
+  .site-header:not(.at-page-top) {
+    background:rgb(246 247 249 / 80%);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+  }
+}
+@media (prefers-reduced-transparency:reduce), (forced-colors:active) {
+  .site-header:not(.at-page-top) {
+    background:var(--canvas);
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+}
 .header-inner{height:var(--header-height);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:32px;position:relative}
 .brand{display:flex;align-items:center;min-height:44px;flex-shrink:0;width:110px}
 .brand img{width:100%;height:auto}

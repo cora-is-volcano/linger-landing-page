@@ -10,7 +10,7 @@
 
 .review-faq { display: grid; grid-template-columns: .9fr 1.3fr; gap: clamp(40px,6vw,80px); }
 .review-faq__heading h2 { margin: 0 0 23px; font-size: clamp(30px,3.1vw,40px); font-weight: 500; line-height: 1.12; letter-spacing: -.045em; }
-.review-faq__list details { border: 0; border-bottom: 1px solid var(--line); padding: 0; margin: 0; background: transparent; }
+.review-faq__list details { border: 0; padding: 0; margin: 0; background: transparent; }
 .review-faq__list summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 64px; padding: 16px 2px; font-size: 16px; line-height: 1.4; font-weight: 500; cursor: pointer; list-style: none; border-radius: inherit; }
 .review-faq__list summary::-webkit-details-marker { display: none; }
 .review-faq__list summary > span { width: 15px; height: 15px; flex: none; position: relative; }
@@ -58,7 +58,7 @@
 .review-newsletter { min-width: 0; scroll-margin-top: 120px; }
 .review-newsletter h2 { margin: 0; color: var(--ink); font-size: clamp(28px,2.3vw,32px); font-weight: 500; line-height: 1.25; letter-spacing: -.045em; }
 
-.review-subscribe { margin-top:26px; display: flex; align-items: center; gap: 10px; width: 100%; max-width: 500px; padding: 6px; border: 1px solid var(--line); border-radius: 999px; background: #ffffffa6; }
+.review-subscribe { margin-top:26px; display: flex; align-items: center; gap: 10px; width: 100%; max-width: 500px; padding: 6px; border: 0; border-radius: 999px; background: var(--surface); }
 .review-subscribe input { flex: 1; min-width: 0; width: 100%; padding: 12px 17px; border: 0; border-radius: 999px; color: var(--ink); background: transparent; font: 400 16px/1.4 var(--font-body); outline: none; }
 .review-subscribe input::placeholder { color: var(--muted); opacity: 1; }
 .review-subscribe:focus-within { border-color: var(--focus); }
@@ -71,13 +71,13 @@
 .review-footer__column { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .review-footer__column h3 { margin: 0 0 15px; font-size: 16px; font-weight: 500; letter-spacing: -.025em; line-height: 1.4; }
 .review-footer__column :is(a,button) { display: inline-flex; align-items: center; min-height: 38px; padding: 4px 0; color: var(--muted); background: transparent; border: 0; border-radius: 3px; font: 400 15px/1.5 var(--font-body); text-decoration: none; cursor: pointer; transition: color 150ms ease; }
-.review-footer__bottom { display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 24px; padding-top: 30px; border-top: 1px solid var(--line); }
+.review-footer__bottom { display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 24px; padding-top: 30px; }
 .review-footer__brand { display: inline-flex; align-items: center; width: fit-content; min-height: 44px; border-radius: 6px; }
 .review-footer__brand img { display: block; width: 104px; height: auto; }
 .review-footer__copyright { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 0; }
 .review-footer__legal { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 13px; }
 .review-socials { display: flex; align-items: center; gap: 9px; }
-.review-social-circle { display: inline-grid; place-items: center; width: 43px; height: 43px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: #ffffff60; transition: color 180ms ease,background 180ms ease; }
+.review-social-circle { display: inline-grid; place-items: center; width: 43px; height: 43px; border: 0; border-radius: 50%; color: var(--ink); background: var(--surface); transition: color 180ms ease,background 180ms ease; }
 .review-socials .icon { width: 18px; height: 18px; }
 .review-form-status { margin: 12px 0 0; min-height: 21px; font-size: 13px; color: var(--muted); line-height: 1.55; }
 .review-form-status.is-message { color: var(--accent-ink); }
@@ -183,7 +183,7 @@
 }
 @media (forced-colors:active) {
  .review-footer::before { display: none; }
- .review-subscribe,.review-social-circle { border-color: CanvasText; }
+ .review-subscribe,.review-social-circle { border: 1px solid CanvasText; }
 }
 
 /* Do not present unavailable destinations as active controls. */

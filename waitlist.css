@@ -17,7 +17,7 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
 .availability, .application-dialog p { color: var(--muted); margin-top: 12px; line-height: 1.5; }
 #waitlist-form { display: grid; gap: 24px; margin-top: 28px; }
 .field, .launch-step legend { font-size: 15px; font-weight: 550; }
-.field input, .field textarea { display: block; width: 100%; margin-top: 7px; border-radius: 12px; background: var(--canvas); border: 1px solid var(--line); padding: 12px 14px; font-size: 16px; font-weight: 400; }
+.field input, .field textarea { display: block; width: 100%; margin-top: 7px; border-radius: 12px; background: var(--surface); border: 0; padding: 12px 14px; font-size: 16px; font-weight: 400; }
 .field textarea { resize: vertical; min-height: 84px; }
 .field input::placeholder { color: #686d70; }
 .optional { margin-left: 5px; font-size: 13px; color: var(--muted); font-weight: 400; }
@@ -49,4 +49,4 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
   .waitlist-art { width: 100%; max-width: 140px; margin: 0; justify-self:end; border-radius: 10px; }
   .application { padding:clamp(16px,5vw,30px); }
 }
-@media (forced-colors: active) { .apply-button { border: 1px solid ButtonText; } }
+@media (forced-colors: active) { .apply-button, .field input, .field textarea { border: 1px solid ButtonText; } }

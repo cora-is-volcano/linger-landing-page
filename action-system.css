@@ -22,7 +22,7 @@
   text-decoration: none;
   transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease);
 }
-.btn-secondary,.review-button--secondary,.review-hero__actions .btn-secondary { background: var(--paper); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn-secondary,.review-button--secondary,.review-hero__actions .btn-secondary { background: var(--surface); color: var(--ink); }
 .review-hero__actions { flex-wrap: wrap; }
 .review-subscribe button { flex-shrink: 0; }
 .btn .icon,.review-button .icon {
@@ -120,7 +120,7 @@
 
 @media (hover:hover) {
   .btn:not(:disabled):hover,.review-button:not(:disabled):hover,.review-subscribe button:not(:disabled):hover { background: var(--action-hover); color: var(--ink); }
-  .btn-secondary:not(:disabled):hover,.review-button--secondary:not(:disabled):hover { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+  .btn-secondary:not(:disabled):hover,.review-button--secondary:not(:disabled):hover { background: var(--sand); color: var(--ink); }
   .btn:not(:disabled):hover .icon,.review-button:not(:disabled):hover .icon { transform: translateX(2px); }
   .btn[href="#download"]:hover .icon,.review-button[data-waitlist-download]:hover .icon { transform: translateY(2px); }
   .btn[href^="http"]:hover .icon,.review-button[href^="http"]:hover .icon { transform: translate(2px,-2px); }
