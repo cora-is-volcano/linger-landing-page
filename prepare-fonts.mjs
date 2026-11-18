@@ -1,15 +1,10 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 
-// Obtain the unmodified official webfont. It is not redistributed in source.
-const css = await fetch('https://api.fontshare.com/v2/css?f[]=switzer@1&display=swap');
-if (!css.ok) throw new Error(`Fontshare stylesheet: ${css.status}`);
-const match = (await css.text()).match(/url\(['"]?(\/\/cdn\.fontshare\.com\/[^)'"\s]+\.woff2)/);
-if (!match) throw new Error('Official Switzer WOFF2 URL was not found.');
-const font = await fetch(`https:${match[1]}`);
-if (!font.ok) throw new Error(`Fontshare webfont: ${font.status}`);
-const bytes = Buffer.from(await font.arrayBuffer());
-if (bytes.subarray(0,4).toString() !== 'wOF2') throw new Error('Invalid WOFF2 response.');
-const output = new URL('./fonts/Switzer-Variable.woff2', import.meta.url);
-await mkdir(new URL('./fonts/', import.meta.url), { recursive: true });
-await writeFile(output, bytes);
-console.log('Official Switzer webfont is ready.');
+// Verify the bundled Latin variable font before packaging the site.
+const bytes = await readFile(new URL('./fonts/instrument-sans-latin.woff2', import.meta.url));
+const digest = createHash('sha256').update(bytes).digest('hex');
+if (digest !== '2ee17598a98d8a59e4df8152d015bec9ab8e4d5672cc0ab42bef806b568e3971') {
+  throw new Error('The bundled Instrument Sans webfont is missing or has changed.');
+}
+console.log('Instrument Sans is ready.');

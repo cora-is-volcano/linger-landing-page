@@ -12,6 +12,6 @@ Product walkthroughs and still frames come from the Linger project. Customer ava
 
 ## Typography
 
-Switzer is provided by Indian Type Foundry through Fontshare under the ITF Free Font License. Its license is included in `fonts/Switzer-FFL.txt`. The font binary is excluded from Git; `prepare-fonts.mjs` obtains an unmodified official copy directly from Fontshare for local use and website deployment.
+Instrument Sans is distributed under the SIL Open Font License 1.1. The bundled variable WOFF2 and its license are in `fonts/`. The font asset comes from Fontsource’s Instrument Sans package.
 
 Third-party terms apply to their respective materials independently of the website's original layout and interaction code.

@@ -1,13 +1,13 @@
-/* One family; three roles. Switzer stays neutral while scale carries hierarchy. */
+/* One family; three roles. Instrument Sans stays neutral while scale carries hierarchy. */
 @font-face {
-  font-family: 'Switzer';
-  src: url('./fonts/Switzer-Variable.woff2') format('woff2');
-  font-weight: 100 900;
+  font-family: 'Instrument Sans';
+  src: url('./fonts/instrument-sans-latin.woff2') format('woff2');
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
 :root {
-  --font-body: 'Switzer', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-display: var(--font-body);
   --weight-display: 400;
   --weight-text: 400;

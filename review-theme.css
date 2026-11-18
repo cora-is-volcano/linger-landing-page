@@ -1,7 +1,31 @@
 /* November review: neutral surfaces; music is a signature, not the layout. */
-:root{--paper:#fff;--surface:#f5f5f3;--ink:#1f1f1f;--muted:#62676d;--accent:#97c2ec;--accent-hover:#82b4e4;--accent-soft:#e8f1fa;--accent-ink:#345d82;--sand:#d6d0c2;--sand-soft:#f3f1eb;--sand-ink:#57544d;--focus:#345d82;--line:#e4e3de;--page-width:1080px;--font-body:'Switzer','Helvetica Neue',Arial,sans-serif;--font-display:var(--font-body);color-scheme:light;scroll-behavior:smooth;scroll-padding-top:94px}
+/* Blue daylight, neutral paper and a single high-contrast action color. */
+:root {
+  --paper:#fff;
+  --canvas:#f6f7f9;
+  --surface:#eef1f5;
+  --ink:#151b24;
+  --muted:#525e70;
+  --accent:#abc8f4;
+  --accent-hover:#94b7ed;
+  --accent-soft:#e6eefc;
+  --accent-ink:#284f88;
+  --action:#223f72;
+  --action-hover:#183058;
+  --sand:#e2e7ee;
+  --sand-soft:var(--surface);
+  --sand-ink:#485569;
+  --focus:#315c9c;
+  --line:#dce2e9;
+  --page-width:1120px;
+  --font-display:var(--font-body);
+  --section-title:clamp(30px,3.2vw,44px);
+  color-scheme:light;
+  scroll-behavior:smooth;
+  scroll-padding-top:92px;
+}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
 body:has(dialog[open]){overflow:hidden}
 button,input,select,textarea{font:inherit;color:inherit}
 button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
@@ -14,7 +38,7 @@ svg{display:block;flex-shrink:0}
 h1,h2,h3,h4,p{margin:0}
 h1,h2,h3,h4{font-weight:500;text-wrap:balance}
 /* Charcoal selection echoes the vinyl; sky remains a light content and dot accent. */
-:root{--selected-bg:var(--ink);--selected-ink:#fff;--selected-hover:#373734;--selected-tint:#dedbd4;--control-hover:#eeede9}
+:root{--selected-bg:var(--ink);--selected-ink:#fff;--selected-hover:#313b48;--selected-tint:#dce7f7;--control-hover:#e9edf3}
 ::selection{background:var(--accent);color:var(--ink)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:5px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -26,8 +50,8 @@ main > .review-hero + .section-shell{margin-block-start:12px}
 .skip-link{position:fixed;left:20px;top:12px;z-index:1000;background:var(--ink);color:white;padding:12px 18px;border-radius:30px;transform:translateY(-150%)}
 .skip-link:focus{transform:none}
 :root{--header-height:80px}
-.site-header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.site-header.at-page-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.site-header{position:sticky;top:0;z-index:30;background:var(--canvas);box-shadow:0 1px var(--line)}
+.site-header.at-page-top{background:transparent;box-shadow:none}
 .header-inner{height:var(--header-height);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:32px;position:relative}
 .brand{display:flex;align-items:center;min-height:44px;flex-shrink:0;width:110px}
 .brand img{width:100%;height:auto}
@@ -42,42 +66,39 @@ main > .review-hero + .section-shell{margin-block-start:12px}
 .text-link{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--ink)}
 .text-link:hover .icon{transform:translateX(3px)}.text-link .icon{transition:transform .2s ease}
 .section-heading{font-size:clamp(32px,3.6vw,46px);font-weight:500;letter-spacing:-.045em;line-height:1.1}
-.review-hero{padding:84px 0 72px;text-align:center;position:relative}
-.review-hero h1{font-size:clamp(56px,6.5vw,88px);line-height:1.04;font-weight:500;letter-spacing:-.055em;max-width:1000px;margin-inline:auto}
-.review-hero h1 span{display:block}
-.hero-phrase{position:relative;display:inline-block;font-style:normal;white-space:nowrap}
-.hero-wave{position:absolute;left:0;bottom:-13px;width:100%;height:26px;overflow:visible;pointer-events:none}
-.hero-wave path{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:0}
-/* A short visual signature, never an audio control or an idle animation. */
-.main-nav a{position:relative}
-.nav-signal{position:absolute;bottom:1px;left:calc(50% - 8px);height:8px;display:flex;align-items:center;gap:2px;opacity:0;transition:opacity 160ms ease;pointer-events:none}
-.nav-signal i{display:block;width:2px;height:8px;border-radius:2px;background:var(--accent-ink);transform:scaleY(.35)}
-.nav-signal i:nth-child(2){--note-delay:80ms;transform:scaleY(.9)}
-.nav-signal i:nth-child(3){--note-delay:160ms;transform:scaleY(.6)}
-.nav-signal i:nth-child(4){--note-delay:40ms;transform:scaleY(.4)}
-.main-nav a:focus-visible .nav-signal{opacity:1}
-.main-nav a:focus-visible .nav-signal i{animation:nav-note 440ms var(--note-delay,0ms) ease-in-out 2}
-.btn:active{transform:scale(.98)}
+.review-hero {
+  position:relative;
+  isolation:isolate;
+  padding:clamp(58px,6vw,88px) 0 clamp(44px,5vw,72px);
+}
+.hero-copy {
+  display:grid;
+  grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);
+  align-items:end;
+  gap:clamp(36px,4.5vw,72px);
+}
+.review-hero h1 { font-size:clamp(46px,5.2vw,78px); line-height:1.01; font-weight:530; letter-spacing:-.048em; }
+.review-hero h1 span { display:block; }
+.review-hero h1 span + span { color:#42536b; }
+.hero-intro p { max-width:38ch; font-size:clamp(17px,1.4vw,19px); line-height:1.48; color:var(--muted); text-wrap:pretty; }
+.hero-intro .btn { margin-top:20px; }
+.main-nav a { text-underline-offset:6px; }
+.main-nav a:is(:hover,:focus-visible) { color:var(--ink); text-decoration:underline; }
+@media(max-width:900px) {
+  .hero-copy { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .hero-intro p { max-width:42ch; }
+}
 @media(hover:hover){
- .review-hero:hover .hero-wave path{animation:hero-voice 900ms cubic-bezier(.2,.65,.25,1) both}
- .main-nav a:hover .nav-signal{opacity:1}
- .main-nav a:hover .nav-signal i{animation:nav-note 440ms var(--note-delay,0ms) ease-in-out 2}
  .btn-primary:hover,.btn-secondary:hover{transform:none}
  .btn .icon{transition:transform 200ms ease}
  .btn-primary:hover .icon{transform:translateX(3px)}
  .btn-secondary:hover .icon{transform:translateY(3px)}
 }
-@keyframes nav-note{50%{transform:scaleY(.25)}85%{transform:scaleY(1)}}
-@keyframes hero-voice{from{stroke-dashoffset:1;opacity:.35}to{stroke-dashoffset:0;opacity:1}}
-.review-hero>p{font-size:20px;color:var(--muted);line-height:1.6;letter-spacing:-.015em;max-width:720px;margin:28px auto 0;text-wrap:pretty}
-.review-hero__actions{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:32px}
-.review-hero__actions .btn{min-width:160px}
 .context-info{position:relative}.context-info>summary{list-style:none;display:grid;place-items:center;cursor:pointer;width:34px;height:34px;border-radius:50%;color:var(--muted)}
 .context-info>summary::-webkit-details-marker{display:none}.context-info>summary:hover{background:var(--surface)}
 .context-info summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}.context-info .info-dot{fill:currentColor;stroke:none}
 .info-note{position:absolute;z-index:20;top:calc(100% + 8px);right:0;width:min(300px,calc(100vw - 48px));background:#fff;box-shadow:0 12px 48px #17212d22;padding:18px 20px;border-radius:16px;font-size:13px;line-height:1.55;color:var(--muted)}
 dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background:#17191d55;backdrop-filter:blur(4px)}
-@media(min-width:1600px){.review-hero{padding-top:104px;padding-bottom:84px}}
 @media(max-width:1000px){.header-inner{gap:20px}.main-nav{gap:20px}.main-nav a{font-size:13px}.brand{width:110px}}
 @media(max-width:760px){
  :root{scroll-padding-top:86px}.section-shell{width:calc(100% - 40px)}
@@ -86,15 +107,12 @@ dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background
  .main-nav.is-open{display:grid;gap:0}.main-nav a{font-size:16px;padding:13px 16px;border-radius:12px}.main-nav a:hover{background:var(--surface)}
  .menu-trigger{display:flex;width:44px;height:44px;padding:10px 7px;border:0;background:transparent;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:50%}
  .menu-trigger span{height:1.5px;width:21px;background:var(--ink);transition:transform .2s ease}.menu-trigger[aria-expanded=true] span:first-child{transform:translateY(3.75px) rotate(45deg)}.menu-trigger[aria-expanded=true] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
- .review-hero{padding:60px 0 48px}.review-hero h1{font-size:clamp(40px,8vw,60px);line-height:1.08;letter-spacing:-.055em}
- .review-hero>p{font-size:17px;line-height:1.6;max-width:480px;margin-top:24px}.hero-break{display:none}
- .hero-wave{height:18px;bottom:-11px}.hero-wave path{stroke-width:2}
- .main-nav .nav-signal{bottom:calc(50% - 4px);left:auto;right:18px}
- .review-hero__actions{gap:10px;margin-top:28px}.review-hero__actions .btn{min-width:0;min-height:52px;padding:14px 22px;font-size:14px;gap:14px}
+ .review-hero{padding:36px 0 32px}.review-hero h1{font-size:clamp(35px,8.8vw,56px)}
+ .hero-intro p{font-size:16px}.hero-intro .btn{margin-top:16px}
  .btn{font-size:15px}.section-heading{font-size:36px}
 }
 @media(max-width:440px),(min-width:761px) and (max-width:850px){.header-github__prefix{display:none}}
-@media(max-width:380px){.header-inner{gap:12px}.brand{width:94px}.review-hero{padding-top:44px}.review-hero h1{font-size:36px}.review-hero>p{font-size:16px}.review-hero__actions .btn{padding:13px 18px;gap:9px;font-size:13px}.review-hero__actions .icon{width:17px;height:17px}}
+@media(max-width:380px){.header-inner{gap:12px}.brand{width:94px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(forced-colors:active){.btn,.main-nav,.menu-trigger{border:1px solid ButtonText}.header-github .icon{fill:none}}
 
@@ -103,16 +121,14 @@ dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background
 .review-hero::before {
   content:"";
   position:absolute;
-  inset:calc(-1 * var(--header-height)) 0 7%;
+  inset:calc(-1 * var(--header-height)) 0 0;
   z-index:-1;
   pointer-events:none;
   background:
-    radial-gradient(ellipse 57% 74% at -8% 29%, #edcfaa59, transparent),
-    radial-gradient(ellipse 46% 42% at 24% -12%, #e9c8b33d, transparent),
-    radial-gradient(ellipse 64% 63% at 77% -16%, #bfcde457, transparent),
-    radial-gradient(ellipse 31% 82% at 107% 22%, #c5d9d34d, transparent),
-    linear-gradient(110deg, #faf7f3, #f6f6f5 58%, #f4f6f8);
-  mask-image:linear-gradient(to bottom, black, #000b 33%, #0003 66%, transparent 94%);
+    radial-gradient(ellipse 55% 114% at 48% -35%, #a8bfe2 0%, #cfddf1 36%, transparent 86%),
+    radial-gradient(ellipse 39% 95% at 91% -20%, #e4ecf8, transparent 90%),
+    radial-gradient(ellipse 35% 70% at 1% 24%, #f4eee4, transparent 90%);
+  mask-image:linear-gradient(to bottom, black 32%, transparent 100%);
 }
 @media (max-width:760px) {
   .review-hero::before { opacity:.85; }

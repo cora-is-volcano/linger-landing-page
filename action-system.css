@@ -16,13 +16,13 @@
   letter-spacing: 0;
   white-space: normal;
   overflow-wrap: anywhere;
-  color: var(--ink);
-  background: var(--accent);
+  color: white;
+  background: var(--action);
   box-shadow: none;
   text-decoration: none;
   transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease);
 }
-.btn-secondary,.review-button--secondary,.review-hero__actions .btn-secondary { background: var(--sand); }
+.btn-secondary,.review-button--secondary,.review-hero__actions .btn-secondary { background: var(--paper); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
 .review-hero__actions { flex-wrap: wrap; }
 .review-subscribe button { flex-shrink: 0; }
 .btn .icon,.review-button .icon {
@@ -95,7 +95,7 @@
 }
 .lx-workspace :is(.lx-actions,.lx-toolbar,.lx-library-actions) { min-width: 0; }
 .lx-workspace .lx-button { align-items: center; gap: 8px; background: var(--sand-soft)!important; color: var(--ink)!important; }
-.lx-workspace .lx-button--primary { background: var(--accent)!important; }
+.lx-workspace .lx-button--primary { background: var(--action)!important; color: white!important; }
 /* Tab choices keep their selected state when they share the button primitive. */
 .lx-workspace .lx-tabs .lx-button { background: transparent!important; color: var(--muted)!important; }
 .lx-workspace .lx-tabs .lx-button[aria-pressed="true"] { background: var(--selected-bg)!important; color: var(--selected-ink)!important; }
@@ -119,8 +119,8 @@
 .review-subscribe button:disabled,.review-subscribe button:disabled:hover { background: var(--sand); color: var(--sand-ink); opacity: 1; }
 
 @media (hover:hover) {
-  .btn:not(:disabled):hover,.review-button:not(:disabled):hover,.review-subscribe button:not(:disabled):hover { background: var(--accent-hover); color: var(--ink); }
-  .btn-secondary:not(:disabled):hover,.review-button--secondary:not(:disabled):hover { background: #c9c3b5; }
+  .btn:not(:disabled):hover,.review-button:not(:disabled):hover,.review-subscribe button:not(:disabled):hover { background: var(--action-hover); color: white; }
+  .btn-secondary:not(:disabled):hover,.review-button--secondary:not(:disabled):hover { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
   .btn:not(:disabled):hover .icon,.review-button:not(:disabled):hover .icon { transform: translateX(2px); }
   .btn[href="#download"]:hover .icon,.review-button[data-waitlist-download]:hover .icon { transform: translateY(2px); }
   .btn[href^="http"]:hover .icon,.review-button[href^="http"]:hover .icon { transform: translate(2px,-2px); }
@@ -140,7 +140,7 @@
   .main-nav a:hover,.review-footer__column :is(a,button):hover,.review-footer__legal a:hover,.review-contact-address:hover { color: var(--accent-ink); }
   .menu-trigger:hover,.review-dialog-close:hover,.context-info > summary:hover { color: var(--accent-ink); background: var(--accent-soft); }
   .lx-workspace .lx-button:not(:disabled):hover { background: var(--sand)!important; color: var(--ink)!important; }
-  .lx-workspace .lx-button--primary:not(:disabled):hover,.lx-workspace .lx-send:not(:disabled):hover { background: var(--accent-hover)!important; color: var(--ink)!important; }
+  .lx-workspace .lx-button--primary:not(:disabled):hover,.lx-workspace .lx-send:not(:disabled):hover { background: var(--action-hover)!important; color: white!important; }
   .lx-workspace .lx-tabs .lx-button[aria-pressed="true"]:hover { background: var(--selected-hover)!important; color: var(--selected-ink)!important; }
   .lx-workspace :is(.lx-icon-button,.lx-runtime):not(:disabled):hover { background: var(--accent-soft); color: var(--accent-ink)!important; }
 }

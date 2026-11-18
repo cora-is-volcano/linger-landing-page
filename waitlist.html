@@ -7,11 +7,12 @@
   <title>Linger Tester Waitlist</title>
   <meta name="description" content="Apply to try Linger’s hosted personal agent workspace.">
   <link rel="icon" href="./media/linger-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./typography.css">
-  <link rel="stylesheet" href="./review-theme.css">
-  <link rel="stylesheet" href="./waitlist.css">
-  <script defer src="./waitlist-config.js"></script>
-  <script defer src="./waitlist.js"></script>
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/instrument-sans-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="./typography.css?v=115bb1b890eb">
+  <link rel="stylesheet" href="./review-theme.css?v=ab9638398999">
+  <link rel="stylesheet" href="./waitlist.css?v=8d7f543fca98">
+  <script defer src="./waitlist-config.js?v=f1a83e27840a"></script>
+  <script defer src="./waitlist.js?v=a4ee8f75b1c1"></script>
 </head>
 <body>
   <a class="skip-link" href="#application">Skip to application</a>
@@ -21,9 +22,8 @@
   </header>
   <main class="waitlist-layout section-shell">
     <section class="waitlist-intro" aria-labelledby="waitlist-title">
-      <h1 id="waitlist-title">Linger Tester<br>Waitlist</h1>
-      <p>Get early access to Linger’s hosted workspace. We’ll email selected testers with an invitation and instructions for claiming test credits on Discord.</p>
-      <div class="record-sleeve" aria-hidden="true"><div class="sleeve-record"><i></i></div></div>
+      <h1 id="waitlist-title">Join the tester waitlist.</h1>
+      <p>Try the hosted workspace. Selected testers receive an email invitation and instructions for claiming credits on Discord.</p>
     </section>
     <section class="application" id="application" aria-labelledby="application-title" tabindex="-1">
       <h2 id="application-title">Your application</h2>
@@ -42,7 +42,7 @@
         </fieldset>
         <label class="field" for="app-note">Anything you’d like to tell Linger? <span class="optional">Optional</span><textarea id="app-note" name="note" rows="3" maxlength="2000"></textarea></label>
         <p class="form-status" role="status" id="form-status"></p>
-        <button class="apply-button" id="apply-button" type="submit" disabled>Applications opening soon</button>
+        <button class="apply-button" id="apply-button" type="submit" disabled>Apply to join</button>
       </form>
     </section>
   </main>
