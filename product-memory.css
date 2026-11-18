@@ -2,7 +2,7 @@
 .product-memory h2 { margin:0 0 22px; max-width:32ch; font:530 var(--section-title)/1.12 var(--font-body); letter-spacing:-.045em; }
 .memory-workspace {
   --sheet-inset:clamp(16px,2.2vw,28px);
-  --marker:color-mix(in srgb, var(--action) 55%, white);
+  --marker:color-mix(in srgb, var(--sky) 55%, white);
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:10px;

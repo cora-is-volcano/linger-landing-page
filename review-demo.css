@@ -176,7 +176,7 @@
   border-radius: 8px;
   gap: 8px;
 }
-#lx-another-me.is-current { background: var(--action); color: var(--ink)!important; }
+#lx-another-me.is-current { background: var(--sky); color: var(--ink)!important; }
 #lx-another-me img { width: 40px; height: 40px; }
 
 @media (min-width: 901px) {
