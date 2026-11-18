@@ -22,6 +22,7 @@ body { background: var(--paper); }
 }
 .waitlist-header a { pointer-events: auto; }
 .waitlist-header .brand { width: clamp(80px, 7vw, 104px); }
+.waitlist-header .brand img { width: 92%; }
 .waitlist-header .brand:focus-visible { outline-color: white; }
 .home-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding-inline: 4px; color: var(--muted); font-size: 14px; }
 .home-link:hover, .launch-card a:hover { color: var(--ink); text-decoration: underline; }
