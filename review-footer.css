@@ -33,12 +33,13 @@
 .review-download__help { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 17px; }
 .review-download__help p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
 .review-download__help p a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.review-contact { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+/* Split the section gap across the gray contact area and the white footer. */
+.review-contact { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-block-end: calc(var(--section-gap) / 2); }
 .review-contact h2 { margin: 0; font-size: clamp(26px,2.6vw,32px); line-height: 1.2; font-weight: 500; letter-spacing: -.04em; }
 
 /* Footer: a spacious invitation, three columns and one quiet utility line. */
 .review-footer { position: relative; overflow: hidden; background: #fff; isolation: isolate; }
-.review-footer__inner { padding-top: var(--section-gap); padding-bottom: 28px; }
+.review-footer__inner { padding-block-start: calc(var(--section-gap) / 2); padding-block-end: 28px; }
 .review-footer__top { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: clamp(44px,6vw,80px); padding-bottom: 54px; }
 .review-newsletter { min-width: 0; scroll-margin-top: 120px; }
 .review-newsletter h2 { margin: 0; color: var(--ink); font-size: clamp(28px,2.3vw,32px); font-weight: 500; line-height: 1.25; letter-spacing: -.045em; }
