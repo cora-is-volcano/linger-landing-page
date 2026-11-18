@@ -39,6 +39,20 @@
 
 /* Footer: a spacious invitation, three columns and one quiet utility line. */
 .review-footer { position: relative; overflow: hidden; background: #fff; isolation: isolate; }
+@media screen and (forced-colors: none) {
+  .review-footer::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: 0 auto auto 0;
+    width: min(66%, 900px);
+    height: min(100%, 360px);
+    background: url('./media/pearl-light.webp') no-repeat 50% 57% / cover;
+    mask-image: radial-gradient(ellipse 53% 51% at 48% 50%, black 35%, transparent 91%);
+    opacity: .46;
+  }
+}
 .review-footer__inner { padding-block-start: calc(var(--section-gap) / 2); padding-block-end: 28px; }
 .review-footer__top { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: clamp(44px,6vw,80px); padding-bottom: 54px; }
 .review-newsletter { min-width: 0; scroll-margin-top: 120px; }
@@ -140,6 +154,7 @@
  .review-subscribe button { min-width: 112px; padding-inline: 17px; }
 }
 @media (max-width:760px) {
+ .review-footer::before { width: 100%; height: 215px; opacity: .34; }
  .review-footer__top { grid-template-columns: 1fr; gap: 37px; padding-bottom: 33px; }
  .review-newsletter h2 { font-size: clamp(28px,6.5vw,37px); max-width: 500px; }
  
