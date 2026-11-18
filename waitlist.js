@@ -57,7 +57,8 @@
     postLink.rel = 'noopener noreferrer';
     postLink.className = 'launch-link';
     postLink.textContent = 'Open the launch post on X';
-    document.querySelector('#post-pending').replaceWith(postLink, preview);
+    document.querySelector('#launch-card').append(postLink, preview);
+    document.querySelector('#post-pending').remove();
     attestation.disabled = false;
     button.disabled = false;
     button.textContent = endpoint ? 'Apply to join' : 'Check application';
