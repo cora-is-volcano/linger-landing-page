@@ -48,7 +48,7 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, transparent 15%, rgb(21 27 36 / 54%) 45%, rgb(21 27 36 / 54%) 55%, transparent 85%);
+  background: linear-gradient(180deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 57%) 32%, rgb(0 0 0 / 57%) 68%, rgb(0 0 0 / 30%));
 }
 .waitlist-intro h1 {
   max-width: 11ch;
