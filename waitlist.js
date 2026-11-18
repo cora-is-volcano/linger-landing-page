@@ -40,19 +40,24 @@
 
   if (post) {
     // The fallback remains a usable link when embeds are blocked.
+    const preview = document.createElement('details');
+    preview.className = 'launch-preview';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Preview launch post';
     const embed = document.createElement('iframe');
     const tweetId = post.pathname.split('/').filter(Boolean).pop();
     embed.src = `https://platform.twitter.com/embed/Tweet.html?id=${tweetId}&dnt=true`;
     embed.title = 'Linger’s launch announcement on X';
     embed.loading = 'lazy';
     embed.referrerPolicy = 'no-referrer';
+    preview.append(summary, embed);
     const postLink = document.createElement('a');
     postLink.href = post.origin + post.pathname;
     postLink.target = '_blank';
     postLink.rel = 'noopener noreferrer';
     postLink.className = 'launch-link';
     postLink.textContent = 'Open the launch post on X';
-    document.querySelector('#post-pending').replaceWith(embed, postLink);
+    document.querySelector('#post-pending').replaceWith(postLink, preview);
     attestation.disabled = false;
     button.disabled = false;
     button.textContent = endpoint ? 'Apply to join' : 'Check application';

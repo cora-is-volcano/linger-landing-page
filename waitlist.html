@@ -10,41 +10,49 @@
   <link rel="preload" as="font" type="font/woff2" href="./fonts/instrument-sans-latin.woff2" crossorigin>
   <link rel="stylesheet" href="./typography.css?v=728f502668b2">
   <link rel="stylesheet" href="./review-theme.css?v=5e63226b8c09">
-  <link rel="stylesheet" href="./waitlist.css?v=92f4b816dbd1">
+  <link rel="stylesheet" href="./waitlist.css?v=c1487aa24fd6">
   <script defer src="./press-feedback.js?v=05a7fda0bf9a"></script>
   <script defer src="./waitlist-config.js?v=f1a83e27840a"></script>
-  <script defer src="./waitlist.js?v=a4ee8f75b1c1"></script>
+  <script defer src="./waitlist.js?v=685e42cb45c8"></script>
 </head>
 <body>
   <a class="skip-link" href="#application">Skip to application</a>
   <main class="waitlist-layout">
     <nav class="waitlist-header" aria-label="Site navigation">
-      <a class="brand" href="./" aria-label="Linger home"><img src="./media/linger-wordmark-dark.svg" alt="Linger" width="1218" height="378"></a>
-      <a class="home-link" href="./">Back to Linger</a>
+      <a class="brand" href="./" aria-label="Linger home"><img src="./media/linger-wordmark.svg" alt="Linger" width="1218" height="378"></a>
+      <a class="home-link" href="./"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to Linger</a>
     </nav>
     <section class="waitlist-intro" aria-labelledby="waitlist-title">
       <h1 id="waitlist-title">Join the tester waitlist.</h1>
       <img class="waitlist-art" src="./media/waitlist-gold-record.webp" width="1086" height="1448" alt="">
     </section>
     <section class="application" id="application" aria-labelledby="application-title" tabindex="-1">
-      <h2 id="application-title">Your application</h2>
-      <p id="availability" class="availability" role="status">Applications open with the launch announcement.</p>
-      <noscript><p>Enable JavaScript to use the application form.</p></noscript>
-      <form id="waitlist-form">
-        <label class="field" for="app-email">Email address<input id="app-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="254"></label>
-        <label class="field" for="app-github">GitHub profile<input id="app-github" name="github" type="url" placeholder="https://github.com/username" spellcheck="false" autocapitalize="none" autocomplete="url" required maxlength="150"></label>
-        <fieldset class="launch-step">
-          <legend>Follow Linger and repost the launch</legend>
-          <div class="launch-card" id="launch-card">
-            <div class="launch-card-head"><img src="./media/linger-mark.svg" width="34" height="34" alt=""><div><strong>Linger</strong><a href="https://x.com/HeyLingerAI" target="_blank" rel="noopener noreferrer">@HeyLingerAI</a></div></div>
-            <p id="post-pending">The launch post will appear here when it’s live.</p>
+      <div class="application-content">
+        <h2 id="application-title">Your application</h2>
+        <p id="availability" class="availability" role="status">Applications open with the launch announcement.</p>
+        <noscript><p>Enable JavaScript to use the application form.</p></noscript>
+        <form id="waitlist-form">
+          <div class="contact-fields">
+            <label class="field" for="app-email">Email address<input id="app-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="254"></label>
+            <label class="field" for="app-github">GitHub profile<input id="app-github" name="github" type="url" placeholder="https://github.com/username" spellcheck="false" autocapitalize="none" autocomplete="url" required maxlength="150"></label>
           </div>
-          <label class="attestation"><input id="app-social" name="socialConfirmed" type="checkbox" disabled required><span>I follow Linger on X and have reposted the launch post.</span></label>
-        </fieldset>
-        <label class="field" for="app-note">Anything you’d like to tell Linger? <span class="optional">Optional</span><textarea id="app-note" name="note" rows="3" maxlength="2000"></textarea></label>
-        <p class="form-status" role="status" id="form-status"></p>
-        <button class="apply-button" id="apply-button" type="submit" disabled>Apply to join</button>
-      </form>
+          <fieldset class="launch-step">
+            <legend>Follow Linger and repost the launch</legend>
+            <div class="launch-card" id="launch-card">
+              <img class="launch-avatar" src="./media/linger-mark.svg" width="32" height="32" alt="">
+              <div class="launch-account"><strong>Linger</strong><a href="https://x.com/HeyLingerAI" target="_blank" rel="noopener noreferrer">@HeyLingerAI</a></div>
+              <p id="post-pending">The launch post will appear here when it’s live.</p>
+            </div>
+            <label class="attestation"><input id="app-social" name="socialConfirmed" type="checkbox" disabled required><span>I follow Linger on X and have reposted the launch post.</span></label>
+          </fieldset>
+          <details class="application-note">
+            <summary>Add a note <span class="optional">Optional</span></summary>
+            <label class="field" for="app-note"><span class="sr-only">Anything you’d like to tell Linger?</span><textarea id="app-note" name="note" rows="2" maxlength="2000"></textarea></label>
+          </details>
+          <p class="form-status" role="status" id="form-status"></p>
+          <button class="apply-button" id="apply-button" type="submit" disabled>Apply to join</button>
+        </form>
+      </div>
     </section>
   </main>
   <dialog class="application-dialog" aria-labelledby="result-title" aria-describedby="result-description">
