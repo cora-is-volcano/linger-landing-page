@@ -1,49 +1,40 @@
 # Linger landing page
 
-A responsive, English-language landing page for Linger, with a black and amber design, animated typography, pointer lighting, interactive diagrams, and product videos.
-
-This is a standalone static website built with readable HTML, CSS, and vanilla JavaScript. It has no build step, package dependencies, backend, API keys, or required hosting account. Fonts and media are included locally.
+A standalone, responsive presentation site for Linger. Light surfaces, vinyl and dot-matrix graphics, and an interactive workspace demonstrate the product with fixed local data. No AI backend, microphone access, account connections, or API keys are required.
 
 ## Run locally
 
-From this folder, start any static HTTP server. For example, with Python 3:
+With Node.js 20 or later, obtain the unmodified Switzer webfont directly from Fontshare:
 
 ```sh
+node prepare-fonts.mjs
 python3 -m http.server 8080 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8080` in a browser. Use an HTTP server rather than opening the HTML as a local file.
+Open `http://127.0.0.1:8080`. The webfont is excluded from the source repository; its license is in `fonts/Switzer-FFL.txt`.
 
 ## Deploy your own copy
 
-Upload the contents of this repository to any static web host, preserving the folder structure. The entry point is `index.html`.
+```sh
+node prepare-fonts.mjs
+node build-site.mjs
+```
 
-- Build command: none.
-- Publish directory: the repository root (`.`).
-- Runtime environment variables: none.
-- Custom domain: configure your own domain in your hosting provider.
+Upload the contents of `_site/` to any static host. Paths are relative, so subdirectory hosting also works. No environment variables or private deployment settings are needed.
 
-Local asset paths are relative, so the page also works when served from a subdirectory. No domain binding, server address, hosting credentials, or deployment automation is included.
+For GitHub Pages, select **GitHub Actions** in the repository's Pages settings, then run **Publish Linger** or push to `main`. The included workflow downloads the official webfont, packages only the website assets listed in `site-files.json`, and publishes them.
 
-## Edit the site
+## Edit
 
-| Files | Purpose |
-| --- | --- |
-| `index.html` | Page copy, sections, navigation, and inline illustrations |
-| `base.css` | Colors, typography, and shared styles |
-| Other `*.css` files | Section layouts, responsive rules, and animation styles |
-| `main.js`, `product.js` | Navigation, tabs, dialogs, and product interactions |
-| `cursor.js` | Desktop pointer trail and local lighting effects |
-| `tech-context.js`, `tech-engine.js` | Interactive technical diagrams |
-| `media/` | Brand artwork, avatars, posters, and videos |
-| `fonts/` | Locally hosted fonts and their licenses |
+- `index.html`: page structure and copy.
+- `review-theme.css` and `typography.css`: shared color and typography system.
+- `review-demo.css`, `workspace-*.js`: local workspace demo.
+- `product-*.css` / `product-*.js`: context, routines, and voice scenes.
+- `dot-system.*` / `dot-pointer.*`: vinyl artwork and persistent mouse dots.
+- `media/`: artwork and textures.
 
-The accent color is `#FDA947`. Touch devices use their own interaction styles, and animation respects the reduced-motion preference.
+CSS and JavaScript references include cache-version query strings; update them when changing assets. Voice scenes loop within the selected tab, and demo replies are presets. Customer stories and avatars are labeled fictional. The waitlist entry awaits its destination.
 
-CSS and JavaScript references in `index.html` include cache-version query strings. After editing a file, update its `?v=` value or remove the query string while developing.
+This repository is the presentation website. For the agent application, see [simplexai-labs/linger](https://github.com/simplexai-labs/linger).
 
-Product, documentation, and download links lead to Linger's public resources. This repository contains the presentation website, not the Linger agent application. See the [Linger project](https://github.com/simplexai-labs/linger) for the product itself.
-
-## Asset credits
-
-See [NOTICE.md](NOTICE.md) for the bundled product assets and font terms. Keep those notices with redistributed copies.
+See [NOTICE.md](NOTICE.md) for asset notices.

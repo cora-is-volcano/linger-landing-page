@@ -1,0 +1,32 @@
+/* A quiet cue sheet: one selected routine, no implied live scheduler. */
+.product-routines{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:clamp(44px,6vw,80px);padding-block:64px 92px;color:var(--ink)}
+.product-routines__copy h2{font-size:clamp(34px,3.8vw,48px);line-height:1.1;letter-spacing:-.045em;font-weight:500}
+
+.routine-cues{padding:26px;border-radius:30px;background:var(--sand-soft);min-width:0}
+
+.routine-cues__choices{display:grid;gap:6px}
+.routine-cue{display:flex;align-items:center;gap:16px;width:100%;min-height:46px;padding:10px 14px;border:0;border-radius:16px;background:transparent;color:var(--muted);text-align:left;font-size:15px;font-weight:500;transition:background 160ms ease,color 160ms ease}
+
+.routine-cue svg{margin-left:auto;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:translateX(-4px);transition:transform 180ms ease,opacity 180ms ease}
+.routine-cue:hover{background:var(--control-hover);color:var(--ink)}
+.routine-cue.is-selected{background:var(--selected-bg);color:var(--selected-ink)}
+.routine-cue.is-selected:hover{background:var(--selected-hover)}
+.routine-cue.is-selected svg{opacity:1;transform:none}
+.routine-cue:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.routine-cues__output{margin:18px 6px 0;padding-top:20px;min-height:148px}
+.routine-example{animation:cue-arrive 220ms ease-out}
+.routine-example__trigger{display:flex;align-items:center;gap:8px;font-size:12px;line-height:1.5;color:var(--muted)}
+.routine-example__trigger svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.routine-example__message{margin-top:16px;max-width:35ch;font-size:20px;line-height:1.4;letter-spacing:-.025em;font-weight:400;color:var(--ink);text-wrap:pretty}
+.routine-signature{display:block;width:84px;height:36px;margin-top:28px;pointer-events:none}
+.routine-dot-column{fill:var(--sand-ink);stroke:none}
+.routine-signature .routine-dot-column:nth-child(3),.routine-signature .routine-dot-column:nth-child(4){fill:var(--accent)}
+.product-routines:focus-within .routine-signature .routine-dot-column{animation:routine-dot-pulse 520ms var(--dot-delay,0ms) ease-out both}
+@media(hover:hover){.product-routines__copy:hover .routine-signature .routine-dot-column{animation:routine-dot-pulse 520ms var(--dot-delay,0ms) ease-out both}}
+@keyframes routine-dot-pulse{0%{opacity:.25}45%{opacity:1;fill:var(--accent-ink)}100%{opacity:1}}
+@keyframes cue-arrive{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(max-width:1020px){.product-routines{gap:44px;grid-template-columns:1.1fr .9fr}.routine-cues{padding:24px}.routine-example__message{font-size:21px}}
+@media(max-width:760px){.product-routines{grid-template-columns:1fr;gap:32px;padding-block:48px 72px}.product-routines__copy{grid-row:1}.product-routines__copy h2{font-size:36px}.routine-signature{display:none}.routine-cues{padding:24px;border-radius:26px}.routine-cues__output{min-height:147px}.routine-example__message{max-width:36ch;font-size:22px}}
+@media(max-width:380px){.routine-cues{padding:20px 16px}.routine-cue{padding-inline:12px;gap:12px;font-size:14px}.routine-cues__output{margin-inline:4px;min-height:167px}.routine-example__message{font-size:21px}.routine-example__trigger{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.routine-example{animation:none}.routine-cue,.routine-cue svg{transition:none}.product-routines .routine-dot-column{animation:none!important}}
+@media(forced-colors:active){.routine-cues{border:1px solid CanvasText}.routine-cue.is-selected{outline:1px solid Highlight;color:Highlight}.routine-dot-column,.routine-signature .routine-dot-column{fill:CanvasText;animation:none!important}}

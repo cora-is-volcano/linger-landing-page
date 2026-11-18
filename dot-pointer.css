@@ -1,0 +1,16 @@
+/* A persistent sampled halo above page content. Native cursor and hit targets stay intact. */
+.dot-pointer {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: 128px;
+  height: 128px;
+  max-width: none;
+  z-index: 90;
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+}
+@media (prefers-reduced-motion:reduce),(forced-colors:active),(any-hover:none) {
+  .dot-pointer { display: none; }
+}
+@media print { .dot-pointer { display: none; } }

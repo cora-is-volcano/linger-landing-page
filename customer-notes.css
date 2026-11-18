@@ -1,0 +1,27 @@
+/* A quiet single-row interlude. These local stories are explicitly fictional. */
+.customer-notes{padding-block:12px 16px;scroll-margin-top:105px}
+.customer-notes__heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px 24px;margin-bottom:22px}
+.customer-notes__heading h2{font-size:26px;line-height:1.2;letter-spacing:-.035em;font-weight:500}
+.customer-notes__heading p{font-size:12px;line-height:1.5;color:var(--muted)}
+.customer-notes__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-radius:24px}
+.customer-notes__row:focus-visible{outline:2px solid var(--focus);outline-offset:5px}
+.customer-note{margin:0;min-width:0;display:flex;flex-direction:column;gap:28px;padding:25px;border-radius:24px;background:var(--surface)}
+.customer-note:nth-child(2){background:#edf4fa}
+.customer-note:nth-child(3){background:var(--sand-soft)}
+.customer-note blockquote{margin:0;font-size:17px;font-weight:400;line-height:1.55;letter-spacing:-.015em;overflow-wrap:anywhere}
+.customer-note figcaption{display:flex;align-items:center;gap:11px;margin-top:auto}
+.customer-note figcaption img{width:44px;height:44px;flex:none;object-fit:cover;border-radius:50%}
+.customer-note figcaption>span{min-width:0}
+.customer-note figcaption strong{display:block;font-size:13px;line-height:1.5;font-weight:500}
+.customer-note figcaption span span{display:block;margin-top:2px;font-size:12px;line-height:1.4;color:var(--muted)}
+@media(max-width:900px){.customer-note{padding:21px;gap:24px}.customer-note blockquote{font-size:16px}}
+@media(max-width:760px){
+ .customer-notes{padding-block:0 6px}
+ .customer-notes__heading{display:block;margin-bottom:18px}
+ .customer-notes__heading h2{font-size:24px}
+ .customer-notes__heading p{margin-top:8px}
+ .customer-notes__row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(82%,320px);gap:12px;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--sand) transparent;padding-bottom:10px;border-radius:0}
+ .customer-note{scroll-snap-align:start;border-radius:22px;padding:23px;gap:24px}
+}
+@media(forced-colors:active){.customer-note{background:Canvas;border:1px solid CanvasText}}
+@media print{.customer-notes__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}}

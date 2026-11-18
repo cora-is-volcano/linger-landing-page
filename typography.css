@@ -1,0 +1,129 @@
+/* One family; three roles. Switzer stays neutral while scale carries hierarchy. */
+@font-face {
+  font-family: 'Switzer';
+  src: url('./fonts/Switzer-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-body: 'Switzer', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-body);
+  --weight-display: 400;
+  --weight-text: 400;
+  --weight-ui: 500;
+  font-family: var(--font-body);
+  font-weight: var(--weight-text);
+  font-kerning: normal;
+}
+body, button, input, select, textarea { font-family: var(--font-body); }
+body { font-size: 16px; letter-spacing: 0; }
+
+/* Display: uncondensed forms, measured tracking and room between lines. */
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(58px, 6vw, 84px);
+  font-weight: var(--weight-display);
+  letter-spacing: -.035em;
+  line-height: 1.04;
+  max-width: none;
+}
+.section-heading,
+.product-story .section-heading,
+.local-machine .section-heading,
+.download-chapter .section-heading,
+.faq-heading .section-heading,
+.contact-chapter .section-heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  font-size: clamp(36px, 4vw, 54px);
+  letter-spacing: -.035em;
+  line-height: 1.12;
+}
+.overview-strip h2 { font-size: 32px; line-height: 1.15; letter-spacing: -.025em; font-weight: 400; }
+.story-capability h3 { font-size: clamp(27px, 2.5vw, 34px); letter-spacing: -.025em; line-height: 1.18; font-weight: 400; }
+.workspace-artifact h2, .machine-profile-copy h3, .dialog-heading h2 { font-size: 29px; line-height: 1.16; letter-spacing: -.025em; font-weight: 400; }
+.team-plan>strong { font-size: 23px; line-height: 1.3; letter-spacing: -.015em; font-weight: 500; }
+.team-flow__lead strong { font-weight: 500; letter-spacing: -.015em; }
+
+/* Text: regular weight, open leading, sentence case where it helps reading. */
+.hero-summary>p:first-child { font-size: 16px; line-height: 1.55; letter-spacing: 0; text-transform: none; max-width: 220px; }
+.story-capability__copy>p, .machine-profile-copy p, .machine-details__body p,
+.faq-answer p, .download-selfhost p { font-size: 16px; line-height: 1.65; font-weight: 400; letter-spacing: 0; }
+.user-message, .agent-message p, .demo-result>p, .artifact-next p { font-size: 15px; line-height: 1.55; letter-spacing: 0; }
+.artifact-main li { font-size: 13px; line-height: 1.55; }
+.demo-task, .artifact-sources span, .agent-choice small { font-size: 12px; line-height: 1.5; }
+.demo-input-shell input { font-family: var(--font-body); font-size: 16px; font-weight: 400; letter-spacing: 0; }
+.info-note { font-size: 14px; line-height: 1.6; }
+
+/* UI: medium weight, quiet labels, stable numerals and readable small sizes. */
+.main-nav a { font-size: 12px; font-weight: 500; letter-spacing: .025em; }
+.nav-download { font-size: 12px; font-weight: 500; letter-spacing: .015em; }
+.btn, .text-link, .overview-play,
+.product-story .text-link, .capability-story .text-link,
+.download-chapter .text-link, .faq-chapter .text-link,
+.contact-chapter .text-link, .landing-footer .text-link,
+.machine-reveal, .machine-profiles button, .machine-details>summary,
+.workspace-artifact .demo-handoff { font-weight: var(--weight-ui); letter-spacing: 0; }
+.hero-actions>.text-link { font-size: 13px; }
+.hero-platform strong { font-size: 18px; font-weight: 500; letter-spacing: -.01em; }
+.hero-platform small { font-size: 12px; letter-spacing: 0; line-height: 1.4; }
+.download-platform__top strong { font-size: 25px; font-weight: 500; letter-spacing: -.015em; }
+.download-platform__hardware, .download-platform__action { font-size: 14px; line-height: 1.5; }
+.workspace-caption__title, .conversation-header strong, .agent-choice span { font-size: 14px; font-weight: 500; }
+.workspace-brand strong, .artifact-kicker, .artifact-next>span, .landing-footer__links h2 { font-size: 12px; font-weight: 500; letter-spacing: .045em; }
+.demo-composer-panel .demo-scenarios button { font-size: 13px; font-weight: 400; line-height: 1.45; }
+.demo-composer-panel .demo-scenarios [aria-selected=true] { font-weight: 500; }
+.faq-questions summary { font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: -.01em; }
+.landing-footer__links a { font-size: 15px; line-height: 1.5; }
+.machine-chip, .machine-ram, .machine-software__part strong { font-weight: 500; }
+.runtime-options, .download-platform__hardware, .download-release { font-variant-numeric: tabular-nums; }
+
+@media (max-width:1120px) and (min-width:761px) {
+  .hero h1 { font-size: clamp(48px, 5.7vw, 64px); }
+  .hero-platform { gap: 10px; padding-inline: 16px; }
+  .hero-platform strong { font-size: 17px; }
+  .hero-platform small { font-size: 12px; white-space: normal; }
+  .workspace { gap: 18px; grid-template-columns: minmax(150px,.85fr) minmax(0,1.8fr) minmax(200px,1fr); }
+  .workspace-artifact { padding-inline: 19px; }
+  .workspace-artifact h2 { font-size: 27px; }
+  .workspace-brand strong { font-size: 11px; }
+}
+@media (max-width:900px) and (min-width:761px) {
+  .header-inner { gap: 16px; }
+  .main-nav { gap: 17px; }
+  .main-nav a { font-size: 11px; letter-spacing: .01em; }
+  .workspace { grid-template-columns: 130px minmax(0,1.65fr) minmax(190px,1fr); gap: 14px; }
+  .workspace-sidebar { padding-inline: 9px; }
+  .workspace-brand { gap: 6px; }
+  .agent-choice { gap: 7px; }
+  .agent-choice span { font-size: 12px; }
+  .agent-choice small { font-size: 11px; }
+  .hero-summary>p:first-child { font-size: 14px; }
+}
+@media (max-width:760px) {
+  .hero h1 { font-size: clamp(39px, 8.7vw, 64px); line-height: 1.06; letter-spacing: -.04em; }
+  .hero-summary>p:first-child { font-size: 16px; line-height: 1.6; max-width: 320px; }
+  .main-nav a { font-size: 16px; letter-spacing: .02em; }
+  .nav-download { font-size: 11px; }
+  .section-heading, .product-story .section-heading, .local-machine .section-heading,
+  .download-chapter .section-heading, .faq-heading .section-heading, .contact-chapter .section-heading { font-size: clamp(32px, 6.9vw, 46px); letter-spacing: -.03em; line-height: 1.14; }
+  .overview-strip h2 { font-size: 29px; }
+  .story-capability h3 { font-size: 27px; }
+  .workspace-artifact h2 { font-size: 29px; }
+  .artifact-kicker { font-size: 11px; }
+  .faq-questions summary { font-size: 17px; }
+  .team-flow__members strong { font-size: 14px; }
+  .team-plan>strong { font-size: 21px; }
+}
+@media (max-width:380px) {
+  .hero h1 { font-size: 35px; letter-spacing: -.045em; }
+  .hero-summary>p:first-child { font-size: 15px; }
+  .workspace-artifact h2 { font-size: 26px; }
+  .story-capability h3 { font-size: 25px; }
+  .hero-platform strong { font-size: 17px; }
+  .hero-platform small { font-size: 12px; }
+  .nav-download { font-size: 10px; padding-inline: 12px; }
+  .machine-profiles button { font-size: 14px; padding-inline: 13px; }
+  .landing-footer__links a { font-size: 14px; }
+}

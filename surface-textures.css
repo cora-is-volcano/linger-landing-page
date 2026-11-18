@@ -1,0 +1,65 @@
+/* Three quiet material cues, from the supplied references. Keep other sections white. */
+.voice-workbench {
+  isolation: isolate;
+  background: #f7f7f5;
+}
+.voice-workbench::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: url('./media/texture-graph-paper.png') center / 640px 1136px repeat;
+  opacity: .48;
+  pointer-events: none;
+}
+
+/* Light falls behind the diagram; labels and controls stay fully opaque. */
+.device-boundary {
+  position: relative;
+  isolation: isolate;
+  background: #f5f9fb;
+}
+.device-boundary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: url('./media/texture-blue-paper.png') center 72% / cover no-repeat;
+  opacity: .65;
+  pointer-events: none;
+}
+
+/* A fixed-scale window shadow fades into the page rather than making a new band. */
+.review-footer::before {
+  left: auto;
+  width: min(800px,100%);
+  background: url('./media/texture-window-light.png') right 44% / 100% auto no-repeat;
+  opacity: .46;
+  mask-image: linear-gradient(180deg,transparent,#000 24%,#000 72%,transparent),linear-gradient(90deg,transparent,#000 72%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(180deg,transparent,#000 24%,#000 72%,transparent),linear-gradient(90deg,transparent,#000 72%);
+  -webkit-mask-composite: source-in;
+}
+
+@media (max-width:760px) {
+  .voice-workbench::before { opacity: .38; }
+  .device-boundary::before { opacity: .65; }
+  .review-footer::before {
+    background-size: 416px auto;
+    background-position: right top;
+    opacity: .28;
+    mask-image: linear-gradient(180deg,transparent,#000 16%,transparent 65%);
+    -webkit-mask-image: linear-gradient(180deg,transparent,#000 16%,transparent 65%);
+  }
+}
+
+@media (forced-colors:active) {
+  .voice-workbench,.device-boundary { background: Canvas; }
+  .voice-workbench::before,.device-boundary::before,.review-footer::before { display: none; }
+}
+
+@media print {
+  .voice-workbench::before,.device-boundary::before,.review-footer::before { display: none; }
+}

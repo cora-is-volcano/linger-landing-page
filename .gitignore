@@ -22,3 +22,7 @@ preview-evidence/
 CNAME
 *.tfstate
 *.tfstate.*
+
+# Generated webfont and publish output
+fonts/Switzer-Variable.woff2
+_site/

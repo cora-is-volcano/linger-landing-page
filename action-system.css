@@ -1,0 +1,189 @@
+/* Shared action rhythm. Targets stay still; only directional glyphs move. */
+:root { --action-duration: 160ms; --action-ease: cubic-bezier(.2,.7,.3,1); }
+
+.btn,.review-button,.review-subscribe button,.review-hero__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 999px;
+  font: 500 14px/1.4 var(--font-body);
+  letter-spacing: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  background: var(--accent);
+  box-shadow: none;
+  text-decoration: none;
+  transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease);
+}
+.btn-secondary,.review-button--secondary,.review-hero__actions .btn-secondary { background: var(--sand); }
+.review-hero__actions { flex-wrap: wrap; }
+.review-subscribe button { flex-shrink: 0; }
+.btn .icon,.review-button .icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  transition: transform var(--action-duration) var(--action-ease);
+}
+.btn:hover,.btn:active,.review-button:hover,.review-button:active,.review-subscribe button:active,.review-platform:hover,.review-platform:active { transform: none; box-shadow: none; }
+
+/* Section links are text first, with a quiet, fixed arrow well. */
+:is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link) {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding-block: 4px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--ink);
+  font: 500 14px/1.45 var(--font-body);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  transition: color var(--action-duration) var(--action-ease);
+}
+.record-panel__action > svg,.product-memory__link > svg,.on-device__link > svg,.review-inline-link > .icon,.review-platform__action > .icon {
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  flex: 0 0 32px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease);
+}
+:is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):is(:hover,:focus-visible) > svg,.review-platform:hover .review-platform__action > .icon { transform: none; }
+:is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link,.review-platform__action) > svg :is(path,use) {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: translate(var(--action-x,0px),var(--action-y,0px)) rotate(var(--action-rotation,0deg));
+  transition: transform var(--action-duration) var(--action-ease);
+}
+/* Already-diagonal glyphs keep their geometry; only right arrows rotate. */
+.on-device__link[href^="http"] > svg path[d^="M5 12"],.review-inline-link[href^="http"] > svg path[d^="M5 12"] { --action-rotation: -45deg; }
+.review-platform__action { min-width: 0; gap: 12px; }
+.review-platform { transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease); }
+
+/* Quiet navigation and utility controls, without adding action chrome. */
+.main-nav a,.header-github,.review-footer__column :is(a,button),.review-footer__legal a,.review-contact-address {
+  transition: color var(--action-duration) var(--action-ease);
+}
+.menu-trigger,.review-dialog-close,.context-info > summary { transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease); }
+.routine-cue.is-selected > svg { opacity: 1; transform: none; }
+.routine-cue,.voice-modes button { min-width: 0; overflow-wrap: anywhere; }
+
+/* The app remains compact on desktop, with the same action hierarchy. */
+.lx-workspace button { min-width: 0; max-width: 100%; }
+.lx-workspace :is(.lx-button,.lx-source-link,.lx-task-summary,.lx-list-button,.lx-runtime,.lx-voice-input) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.lx-workspace :is(.lx-actions,.lx-toolbar,.lx-library-actions) { min-width: 0; }
+.lx-workspace .lx-button { align-items: center; gap: 8px; background: var(--sand-soft)!important; color: var(--ink)!important; }
+.lx-workspace .lx-button--primary { background: var(--accent)!important; }
+/* Tab choices keep their selected state when they share the button primitive. */
+.lx-workspace .lx-tabs .lx-button { background: transparent!important; color: var(--muted)!important; }
+.lx-workspace .lx-tabs .lx-button[aria-pressed="true"] { background: var(--selected-bg)!important; color: var(--selected-ink)!important; }
+.lx-list-button[aria-pressed="true"] .lx-unsaved-dot { background: var(--ink); }
+.lx-workspace :is(.lx-button,.lx-source-link,.lx-task-summary,.lx-list-button) > .icon { flex: none; }
+.lx-workspace :is(.lx-icon-button,.lx-send) { padding: 0; flex-shrink: 0; }
+.lx-workspace :is(.lx-button,.lx-icon-button,.lx-send,.lx-list-button,.lx-runtime,.lx-scenes button,.lx-tabs button,.lx-inspector-tabs button) {
+  transition: background var(--action-duration) var(--action-ease),color var(--action-duration) var(--action-ease),opacity var(--action-duration) var(--action-ease);
+}
+.lx-workspace button:disabled,.btn:disabled,.review-button:disabled,.review-subscribe button:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+  transform: none;
+  box-shadow: none;
+}
+.lx-workspace .lx-button:disabled,.lx-workspace .lx-send:disabled {
+  background: var(--surface)!important;
+  color: var(--muted)!important;
+  opacity: .55!important;
+}
+.review-subscribe button:disabled,.review-subscribe button:disabled:hover { background: var(--sand); color: var(--sand-ink); opacity: 1; }
+
+@media (hover:hover) {
+  .btn:not(:disabled):hover,.review-button:not(:disabled):hover,.review-subscribe button:not(:disabled):hover { background: var(--accent-hover); color: var(--ink); }
+  .btn-secondary:not(:disabled):hover,.review-button--secondary:not(:disabled):hover { background: #c9c3b5; }
+  .btn:not(:disabled):hover .icon,.review-button:not(:disabled):hover .icon { transform: translateX(2px); }
+  .btn[href="#download"]:hover .icon,.review-button[data-waitlist-download]:hover .icon { transform: translateY(2px); }
+  .btn[href^="http"]:hover .icon,.review-button[href^="http"]:hover .icon { transform: translate(2px,-2px); }
+  :is(.btn,.review-button):not(:disabled):hover > svg:has(use[href$="#arrow-down"]) { transform: translateY(2px); }
+  :is(.btn,.review-button):not(:disabled):hover > svg:has(use[href$="#arrow-up-right"]) { transform: translate(2px,-2px); }
+  :is(.btn,.review-button):not(:disabled):hover > svg[data-arrow="down"] { transform: translateY(2px); }
+  :is(.btn,.review-button):not(:disabled):hover > svg[data-arrow="external"] { transform: translate(2px,-2px); }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):hover { --action-x: 2px; color: var(--accent-ink); }
+  :is(.on-device__link,.review-inline-link)[href^="http"]:hover { --action-y: -2px; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):hover > svg,.review-platform:hover .review-platform__action > .icon { background: var(--accent); }
+  .review-platform:hover { background: var(--sand-soft); }
+  .review-platform:hover .review-platform__action { --action-y: 2px; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):hover > svg:has(use[href$="#arrow-down"]) { --action-x: 0px; --action-y: 2px; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):hover > svg:has(use[href$="#arrow-up-right"]) { --action-x: 2px; --action-y: -2px; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):hover > svg[data-arrow="down"] { --action-x: 0px; --action-y: 2px; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link):hover > svg[data-arrow="external"] { --action-x: 2px; --action-y: -2px; }
+  .main-nav a:hover,.header-github:hover,.review-footer__column :is(a,button):hover,.review-footer__legal a:hover,.review-contact-address:hover { color: var(--accent-ink); }
+  .menu-trigger:hover,.review-dialog-close:hover,.context-info > summary:hover { color: var(--accent-ink); background: var(--accent-soft); }
+  .lx-workspace .lx-button:not(:disabled):hover { background: var(--sand)!important; color: var(--ink)!important; }
+  .lx-workspace .lx-button--primary:not(:disabled):hover,.lx-workspace .lx-send:not(:disabled):hover { background: var(--accent-hover)!important; color: var(--ink)!important; }
+  .lx-workspace .lx-tabs .lx-button[aria-pressed="true"]:hover { background: var(--selected-hover)!important; color: var(--selected-ink)!important; }
+  .lx-workspace :is(.lx-icon-button,.lx-runtime):not(:disabled):hover { background: var(--accent-soft); color: var(--accent-ink)!important; }
+}
+
+:is(.btn,.review-button,.review-subscribe button,.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link,.review-platform,.header-github,.menu-trigger,.review-dialog-close,.review-social-circle):focus-visible,
+.main-nav a:focus-visible,.review-footer :is(a,button):focus-visible,.context-info > summary:focus-visible,
+.lx-workspace :is(button,summary):focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.lx-workspace :is(.lx-primary-nav,.lx-sidebar-bottom) > button:focus-visible { outline-offset: -2px; }
+
+@media (pointer:coarse),(max-width:700px) {
+  .context-info > summary { width: 44px; height: 44px; }
+  .review-footer__column :is(a,button),.review-footer__legal a { min-height: 44px; }
+  .review-social-circle { width: 44px; height: 44px; }
+  .lx-workspace button,.lx-workspace .lx-activity-item summary { min-height: 44px; }
+  .lx-workspace :is(.lx-icon-button,.lx-send) { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
+  .lx-workspace .lx-appbar { padding-block: 4px; }
+  .lx-workspace :is(.lx-primary-nav,.lx-sidebar-bottom) > button { flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+  .lx-workspace label.lx-row:has(input[type="checkbox"]) { min-height: 44px; }
+}
+
+@media (max-width:380px) {
+  .review-hero__actions { flex-direction: column; }
+  .review-hero__actions .btn { width: 160px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  :is(.btn,.review-button,.review-platform,.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link) svg { --action-x: 0px!important; --action-y: 0px!important; }
+  :is(.btn,.review-button,.review-platform,.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link) { --action-x: 0px!important; --action-y: 0px!important; }
+  :is(.btn,.review-button):hover .icon,.header-github:hover .header-github__arrow { transform: none!important; }
+  :is(.btn,.review-button,.review-platform,.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link) svg,
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link,.review-platform__action) > svg :is(path,use),
+  .review-subscribe button,.main-nav a,.review-footer :is(a,button),.lx-workspace button { transition: none; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link,.review-platform__action) > svg :is(path,use) { transform: rotate(var(--action-rotation,0deg)); }
+}
+
+@media (forced-colors:active) {
+  .btn,.review-button,.review-subscribe button,.review-platform,.lx-workspace button { border: 1px solid ButtonText; }
+  :is(.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link,.review-platform__action) > svg { background: Canvas!important; color: LinkText; }
+  .lx-workspace .lx-button,.lx-workspace .lx-send { background: ButtonFace!important; color: ButtonText!important; }
+  .lx-workspace button:disabled { color: GrayText!important; opacity: 1!important; }
+  .lx-workspace button:is([aria-current="page"],[aria-selected="true"],[aria-pressed="true"]),.routine-cue.is-selected,.voice-modes button[aria-selected="true"] { background: Highlight!important; color: HighlightText!important; outline: 2px solid Highlight; outline-offset: 2px; }
+  .lx-workspace button:is([aria-current="page"],[aria-pressed="true"]) :is(small,.icon),.voice-modes button[aria-selected="true"] .voice-mode-icon { color: HighlightText!important; }
+  .lx-workspace .lx-tabs .lx-button[aria-pressed="true"],.lx-workspace .lx-tabs .lx-button[aria-pressed="true"]:hover { background: Highlight!important; color: HighlightText!important; }
+  .lx-list-button[aria-pressed="true"] .lx-unsaved-dot { background: HighlightText; }
+  :is(.btn,.review-button,.record-panel__action,.product-memory__link,.on-device__link,.review-inline-link,.review-platform):focus-visible,.lx-workspace :is(button,summary):focus-visible { outline-color: Highlight; }
+}
