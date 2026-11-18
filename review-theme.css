@@ -77,6 +77,28 @@ main > .review-hero + .section-shell{margin-block-start:12px}
 .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:22px;border:0;border-radius:999px;padding:12px 24px;font-size:15px;font-weight:500;line-height:1.35;transition:background .2s ease,transform .2s ease,color .2s ease}
 .btn-primary{background:var(--accent);color:var(--ink)}.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
 .btn-secondary{background:var(--sand);color:var(--ink)}.btn-secondary:hover{background:#c9c3b5;transform:translateY(-2px)}
+/* A short wash inside the capsule acknowledges a press from mouse, touch or keyboard. */
+:is(.btn,.review-button,.apply-button) { position:relative; }
+:is(.btn,.review-button,.apply-button)::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:currentColor;
+  pointer-events:none;
+  opacity:0;
+}
+:is(.btn,.review-button,.apply-button):not(:disabled):is(:active,[data-touch-pressed])::after { opacity:.10; }
+@media (prefers-reduced-motion:no-preference) and (forced-colors:none) {
+  :is(.btn,.review-button,.apply-button)::after {
+    transform:scale(.9,.92);
+    transition:opacity 140ms ease-out,transform 140ms cubic-bezier(.2,.7,.3,1);
+  }
+  :is(.btn,.review-button,.apply-button):not(:disabled):is(:active,[data-touch-pressed])::after {
+    transform:scale(1);
+    transition-duration:65ms,110ms;
+  }
+}
 .text-link{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--ink)}
 .text-link:hover .icon{transform:translateX(3px)}.text-link .icon{transition:transform .2s ease}
 .section-heading{font-size:clamp(32px,3.6vw,46px);font-weight:500;letter-spacing:-.045em;line-height:1.1}

@@ -46,6 +46,13 @@
     conic-gradient(from 32deg,#151517,#37383a 9%,#141415 16%,#1c1d20 30%,#535457 40%,#1b1b1c 49%,#101012 64%,#464749 77%,#171719 85%,#151517);
   box-shadow:inset 0 0 0 1px #424245,inset 0 0 0 3px #222224;
 }
+@media (prefers-reduced-motion:no-preference) and (forced-colors:none) {
+  .record-grooves { transition:transform 220ms ease-out; }
+  .carousel-record.is-selected .record-grooves {
+    transform:rotate(32deg);
+    transition-duration:360ms;
+  }
+}
 /* A three-sleeve series: the names stay live, centered and readable as the discs move. */
 .vinyl-label {
   position:absolute;
