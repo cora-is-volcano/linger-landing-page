@@ -1,21 +1,77 @@
 body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, transparent 98%), var(--canvas); }
-.waitlist-header { height: 84px; display: flex; align-items: center; justify-content: space-between; }
-.home-link { padding: 12px 0; color: var(--muted); font-size: 14px; }
-.home-link:hover, .launch-card a:hover { color: var(--ink); text-decoration: underline; }
-.waitlist-layout { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1fr); gap: clamp(48px, 8vw, 112px); align-items: start; padding-block: 40px 84px; }
-.waitlist-intro { padding-top: 12px; }
-.waitlist-intro h1 { max-width: 11ch; font-size: clamp(48px, 5.4vw,74px); font-weight: 540; letter-spacing: -.055em; line-height: 1.02; }
-.waitlist-art {
-  display: block;
-  width: min(100%, 400px);
-  height: auto;
-  margin-top: clamp(20px,3vw,36px);
+.waitlist-layout {
+  --outer-gap: clamp(8px, 1vw, 16px);
+  --inner-gap: clamp(14px, 1.6vw, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-rows: auto 1fr;
+  column-gap: var(--inner-gap);
+  margin: var(--outer-gap);
+  padding: var(--inner-gap);
+  min-height: calc(100svh - 2 * var(--outer-gap));
+  background: var(--paper);
   border-radius: 16px;
 }
-.application { min-width:0; padding:clamp(20px,3vw,40px); border-radius:24px; background:var(--paper); }
+.waitlist-header {
+  grid-area: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-inline: clamp(0px, 1vw, 16px);
+}
+.home-link { padding: 12px 0; color: var(--muted); font-size: 14px; }
+.home-link:hover, .launch-card a:hover { color: var(--ink); text-decoration: underline; }
+.waitlist-intro {
+  grid-area: 1 / 1 / 3;
+  position: sticky;
+  top: var(--inner-gap);
+  align-self: start;
+  display: grid;
+  place-items: center;
+  height: calc(100svh - 2 * (var(--outer-gap) + var(--inner-gap)));
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 24px;
+  background: var(--ink);
+}
+.waitlist-art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.waitlist-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 15%, rgb(21 27 36 / 54%) 45%, rgb(21 27 36 / 54%) 55%, transparent 85%);
+}
+.waitlist-intro h1 {
+  max-width: 11ch;
+  margin: 20px;
+  color: white;
+  text-align: center;
+  font-size: clamp(34px, 3.4vw, 56px);
+  font-weight: 540;
+  letter-spacing: -.055em;
+  line-height: 1.02;
+}
+.application {
+  grid-area: 2 / 2;
+  place-self: center;
+  width: min(440px, calc(100% - 32px));
+  min-width: 0;
+  padding-block: clamp(16px, 2.5vh, 32px);
+}
+.application > h2, .availability { text-align: center; }
 .application h2, .application-dialog h2 { font-size: 30px; letter-spacing: -.04em; line-height: 1.1; }
 .availability, .application-dialog p { color: var(--muted); margin-top: 12px; line-height: 1.5; }
-#waitlist-form { display: grid; gap: 24px; margin-top: 28px; }
+#waitlist-form { display: grid; gap: clamp(14px, 1.9vh, 22px); margin-top: 22px; }
+#waitlist-form .apply-button { justify-self: stretch; }
 .field, .launch-step legend { font-size: 15px; font-weight: 550; }
 .field input, .field textarea { display: block; width: 100%; margin-top: 7px; border-radius: 12px; background: var(--surface); border: 0; padding: 12px 14px; font-size: 16px; font-weight: 400; }
 .field textarea { resize: vertical; min-height: 84px; }
@@ -41,12 +97,18 @@ body { background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, tra
 .application-dialog { width: min(420px, calc(100% - 36px)); padding: 32px; border-radius: 20px; border: 0; color: var(--ink); }
 .application-dialog::backdrop { background: #1f1f1f60; }
 .application-dialog button { margin-top: 24px; }
+@media (min-width: 721px) and (max-height: 820px) {
+  .application { padding-block: 10px; }
+  .availability { margin-top: 8px; }
+  #waitlist-form { gap: 12px; margin-top: 16px; }
+  .field textarea { height: 72px; min-height: 72px; }
+}
 @media (max-width: 720px) {
-  .waitlist-header { height: 66px; }
-  .waitlist-layout { display: block; padding: 12px 0 56px; }
-  .waitlist-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(76px,28%); align-items: center; gap: 16px; padding: 12px 0 22px; }
-  .waitlist-intro h1 { font-size: clamp(40px, 8vw, 58px); }
-  .waitlist-art { width: 100%; max-width: 140px; margin: 0; justify-self:end; border-radius: 10px; }
-  .application { padding:clamp(16px,5vw,30px); }
+  .waitlist-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; row-gap: 16px; }
+  .waitlist-header, .waitlist-intro, .application { grid-area: auto; }
+  .waitlist-header { padding: 0; }
+  .waitlist-intro { position: relative; top: auto; height: clamp(156px, 40vw, 230px); border-radius: 16px; }
+  .waitlist-art { object-position: center 47%; }
+  .application { width: min(100%, 440px); padding-block: 12px 24px; }
 }
 @media (forced-colors: active) { .apply-button, .field input, .field textarea { border: 1px solid ButtonText; } }
