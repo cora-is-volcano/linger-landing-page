@@ -1,7 +1,7 @@
 /* Dot-matrix audio: one language for record grooves, waveforms and feedback.
    Content, photography and hit areas remain clean; no full-page grid. */
 :root{--dot-ink:var(--ink);--dot-accent:var(--accent);--dot-base:var(--accent);--dot-label:var(--sand);--dot-active:var(--accent-ink);--dot-paper:var(--sand-soft)}
-.review-hero{display:grid;place-items:center;width:100%;min-height:530px;text-align:center;padding:86px 0 92px;isolation:isolate}
+.review-hero{display:grid;place-items:center;width:100%;min-height:472px;text-align:center;padding:64px 0;isolation:isolate}
 .hero-copy{position:relative;z-index:1;min-width:0;width:min(800px,calc(100% - 64px));margin-inline:auto}
 .review-hero h1{font-size:clamp(42px,4.6vw,66px);line-height:1.08;letter-spacing:-.05em;margin:0;max-width:none}
 .hero-copy>p{font-size:17px;line-height:1.65;color:var(--muted);max-width:520px;margin:28px auto 0;text-wrap:pretty}
@@ -43,10 +43,10 @@
 .review-platform::before{content:'';position:absolute;width:76px;height:52px;right:24px;top:24px;background:radial-gradient(circle,var(--sand) 1.2px,transparent 1.4px) 0 0/6px 6px;mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none;z-index:-1}
 .review-platform:hover::before{background-image:radial-gradient(circle,var(--accent-ink) 1.2px,transparent 1.4px)}
 
-@media(min-width:1600px){.review-hero{min-height:580px;padding-block:100px}}
-@media(max-width:1000px) and (min-width:761px){.review-hero{min-height:460px;padding-block:72px}.review-hero h1{font-size:clamp(36px,4.6vw,46px)}.hero-copy>p{font-size:16px;max-width:440px}.review-hero__actions .btn{min-width:0;padding-inline:24px;font-size:14px}}
+@media(min-width:1600px){.review-hero{min-height:516px;padding-block:76px}}
+@media(max-width:1000px) and (min-width:761px){.review-hero{min-height:416px;padding-block:52px}.review-hero h1{font-size:clamp(36px,4.6vw,46px)}.hero-copy>p{font-size:16px;max-width:440px}.review-hero__actions .btn{min-width:0;padding-inline:24px;font-size:14px}}
 @media(max-width:760px){
- .review-hero{min-height:0;padding-block:54px 58px}
+ .review-hero{min-height:0;padding-block:40px 44px}
  .hero-copy{width:calc(100% - 40px)}
  .review-hero h1{font-size:clamp(28px,7.4vw,48px);line-height:1.1;margin-inline:auto}
  .hero-copy>p{font-size:16px;line-height:1.6;max-width:440px;margin:28px auto 0}

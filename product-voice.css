@@ -1,5 +1,5 @@
 /* Concrete voice workflows: the product is the explanation. */
-.product-voice{padding-block:64px 80px;color:var(--ink)}
+.product-voice{color:var(--ink)}
 .product-voice__header{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-bottom:30px}
 .product-voice h2{font:500 clamp(30px,2.7vw,36px)/1.15 var(--font-body);letter-spacing:-.04em}
 .voice-modes{display:flex;align-items:stretch;gap:5px;padding:6px;border-radius:22px;background:var(--sand-soft)}
@@ -72,7 +72,7 @@
 
 @media(max-width:1000px){.voice-workbench{padding-inline:24px}.voice-scene{grid-template-columns:minmax(0,1fr) 40px minmax(0,1.1fr)}.voice-capture{padding:23px}.voice-paper{padding:21px}.voice-chat-heading,.voice-chat-content{padding-inline:21px}.voice-calendar-item{gap:9px;padding:13px 10px}.voice-spoken{font-size:20px}.voice-transcript-line p{font-size:15px}}
 @media(max-width:760px){
- .product-voice{padding-block:54px 64px}.product-voice__header{display:block;margin-bottom:24px}.product-voice h2{font-size:34px}.voice-modes{display:grid;grid-template-columns:1fr 1fr 1.35fr;margin-top:22px;gap:5px}.voice-modes button{justify-content:center;min-height:46px;padding:8px 6px;font-size:13px}
+ .product-voice__header{display:block;margin-bottom:24px}.product-voice h2{font-size:34px}.voice-modes{display:grid;grid-template-columns:1fr 1fr 1.35fr;margin-top:22px;gap:5px}.voice-modes button{justify-content:center;min-height:46px;padding:8px 6px;font-size:13px}
  .voice-workbench{padding:16px;border-radius:25px}.voice-scene{grid-template-columns:1fr;min-height:0}.voice-capture{min-height:305px;padding:23px;border-radius:21px}.voice-capture-heading h3{font-size:18px}.voice-capture-status{margin-top:20px}.voice-sample-wave{height:48px;margin-block:7px 15px}.voice-transcript{gap:19px}.voice-transcript-line p{font-size:16px}
  .voice-flow-link{height:42px;flex-direction:column}.voice-flow-link>span{width:3px;flex:1;height:auto;background:radial-gradient(circle,var(--sand) 1.2px,transparent 1.4px) center/3px 6px}.voice-flow-link .voice-icon{width:19px;height:19px;transform:rotate(90deg)}
  .voice-deliverables{grid-template-rows:auto;gap:12px}.voice-paper{padding:22px;border-radius:19px;min-height:170px}.voice-draft{min-height:193px}.voice-task strong{font-size:13px}.voice-draft p{font-size:15px;max-width:28ch}

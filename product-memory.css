@@ -1,4 +1,4 @@
-.product-memory { padding-block:62px 88px; color:var(--ink); }
+.product-memory { color:var(--ink); }
 .product-memory h2 { margin:0 auto 28px; max-width:26ch; text-align:center; font:500 clamp(30px,3.4vw,46px)/1.12 var(--font-body); letter-spacing:-.045em; }
 .memory-workspace {
   --marker:#f8e6bb;
@@ -43,7 +43,6 @@
 .memory-brief dd { margin:2px 0 0; font-size:16px; line-height:1.4; }
 .product-memory > .btn { display:flex; width:fit-content; margin:16px auto 0; }
 @media(max-width:760px) {
-  .product-memory { padding-block:38px 58px; }
   .product-memory h2 { margin-bottom:20px; }
   .memory-workspace { max-width:500px; grid-template-columns:minmax(0,1fr); gap:10px; padding:clamp(16px,4vw,24px); }
   .memory-input { gap:14px; }

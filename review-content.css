@@ -1,6 +1,5 @@
 /* The paper center carries each title. Leave every title exposed in the stack. */
 .everyday-scenes, .on-device { color:var(--ink); font-family:var(--font-body,'Switzer',sans-serif); }
-.everyday-scenes { padding-block:80px 88px; }
 .on-device h2 { margin:0; color:var(--ink); font:500 clamp(35px,3.8vw,48px)/1.1 var(--font-body); letter-spacing:-.045em; }
 .scene-player {
   display:grid;
@@ -125,7 +124,7 @@
   .carousel-record.is-selected .vinyl-label { outline:2px solid Highlight; outline-offset:2px; }
   .carousel-record:focus-visible .vinyl-label { outline:3px dashed Highlight; outline-offset:4px; }
 }
-.on-device { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 64px; padding-block: 72px 100px; }
+.on-device { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 64px; }
 
 .on-device__copy > .btn { margin-top:24px; }
 .on-device__copy p a { text-decoration: underline; text-decoration-color: #a0acb5; text-underline-offset: .16em; }
@@ -159,9 +158,8 @@
 }
 
 @media (max-width: 760px) {
-  .everyday-scenes { padding-block: 64px; }
   .everyday-scenes__heading { margin-bottom: 32px; }
-  .on-device { grid-template-columns: 1fr; gap: 32px; padding-block: 44px 76px; }
+  .on-device { grid-template-columns: 1fr; gap: 32px; }
   .device-boundary { padding: 15px; border-radius: 22px; }
   .local-source { margin-left: 0; }
 }
