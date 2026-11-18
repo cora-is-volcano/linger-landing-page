@@ -151,6 +151,7 @@ dialog{color:var(--ink);font-family:var(--font-body)}dialog::backdrop{background
  :root{scroll-padding-top:86px}.section-shell{width:calc(100% - 40px)}
  .header-inner{display:flex;gap:18px}.brand{width:106px}.header-github{margin-left:auto}
  .main-nav{display:none;position:absolute;top:72px;left:0;right:0;margin:0;padding:18px;background:#fff;border-radius:20px;box-shadow:0 16px 50px #17212d1c;z-index:32}
+ .main-nav{max-height:calc(100vh - 80px);max-height:calc(100dvh - 80px);overflow-y:auto;overscroll-behavior-y:contain}
  .main-nav.is-open{display:grid;gap:0}.main-nav a{font-size:16px;padding:13px 16px;border-radius:12px}.main-nav a:hover{background:var(--surface)}
  .menu-trigger{display:flex;width:44px;height:44px;padding:10px 7px;border:0;background:transparent;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:50%}
  .menu-trigger span{height:1.5px;width:21px;background:var(--ink);transition:transform .2s ease}.menu-trigger[aria-expanded=true] span:first-child{transform:translateY(3.75px) rotate(45deg)}.menu-trigger[aria-expanded=true] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}

@@ -202,7 +202,7 @@
 .local-source[open] .local-chevron { transform: rotate(180deg); }
 .local-source blockquote { margin: 4px 0 0; padding: 4px 12px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 14px; }
 
-.on-device :is(a, summary):focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; border-radius: 5px; }
+.on-device :is(a:not(.btn), summary):focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; border-radius: 5px; }
 
 @media (max-width: 1020px) {
   .on-device { grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); gap: 24px; }

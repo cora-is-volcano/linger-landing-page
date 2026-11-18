@@ -171,19 +171,18 @@
       Object.values(state.documents).forEach(item => {
         const button = action('', 'lx-list-button lx-library-file');
         button.setAttribute('aria-pressed', String(item.id === state.selected));
-        button.setAttribute('aria-label', item.title);
         button.dataset.documentId = item.id;
         const copy = node('span');
         copy.append(node('strong', '', item.title), node('small', 'lx-muted', item.kind));
         button.append(icon('file'), copy);
         const marker = node('span', 'lx-unsaved-dot');
-        marker.setAttribute('aria-label', 'Unsaved changes');
+        marker.append(node('span', 'sr-only', 'Unsaved changes'));
         marker.hidden = item.buffer === item.body;
         button.append(marker);
         button.addEventListener('click', () => {
           state.selected = item.id;
           draw();
-          content.querySelector(`[aria-label="${item.title}"]`)?.focus({ preventScroll: true });
+          content.querySelector(`[data-document-id="${item.id}"]`)?.focus({ preventScroll: true });
         });
         list.append(button);
       });

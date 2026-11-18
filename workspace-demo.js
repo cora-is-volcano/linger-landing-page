@@ -43,7 +43,7 @@
     if(!target.hasAttribute('tabindex'))target.tabIndex=-1;
     target.focus({preventScroll:true});
   }
-  function freshRooms(){return Object.fromEntries(Object.entries(cases).map(([key,c])=>[key,{draft:'',history:[{role:'user',text:c.prompt},{role:'assistant',text:c.reply}],approval:'none',approvalDraft:null,focusAdded:false,step:3,canceled:false,editBuffer:null}]));}
+  function freshRooms(){return Object.fromEntries(Object.entries(cases).map(([key,c])=>[key,{draft:'',history:[{role:'user',text:c.prompt},{role:'assistant',text:c.reply,initialReply:true}],approval:'none',approvalDraft:null,focusAdded:false,step:3,canceled:false,editBuffer:null}]));}
   function syncAgentSelection(key=view==='messages'?'another-me':null){
     root.querySelectorAll('.lx-agent-link').forEach(node=>{
       const selected=(node.id==='lx-another-me'?'another-me':node.dataset.profile?.toLowerCase())===key;
@@ -100,7 +100,11 @@
     }
     n.append(image,body);return n;
   }
-  function renderMessages(){messages.replaceChildren(...rooms[current].history.map(messageNode));messages.scrollTop=messages.scrollHeight;}
+  function renderMessages(){
+    const history=rooms[current].history;
+    messages.replaceChildren(...history.map(messageNode));
+    messages.scrollTop=history.at(-1)?.initialReply ? 0 : messages.scrollHeight;
+  }
   function renderRoom(){
     root.querySelectorAll('[data-room]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.room===current)));
     input.value=rooms[current].draft;renderMessages();setInspector(inspector);sync();

@@ -238,7 +238,7 @@
             if (busyRoutine === routine.id) { clearTimers(); draw(); announce('Routine example canceled.'); }
             else runRoutine(routine.id);
           }),`routine-run-${routine.id}`);
-          run.setAttribute('aria-label',`${running ? 'Cancel' : 'Run'} ${routine.name} example`);
+          run.setAttribute('aria-label',`${run.textContent} for ${routine.name}`);
           actions.append(run,edit); card.append(actions);
           if (running) card.append(pill('Preparing example…'));
           if (state.routineResults[routine.id]) {

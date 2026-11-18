@@ -45,7 +45,7 @@
       const href=a.getAttribute('href');
       const destination=href?.startsWith('#')?document.getElementById(href.slice(1)):null;
       if(destination){
-        const heading=destination.querySelector('h1,h2')||destination;
+        const heading=[...destination.querySelectorAll('h1,h2')].find(node=>node.getClientRects().length)||destination;
         // Native fragment navigation runs after this click handler and can reset focus.
         requestAnimationFrame(()=>{heading.tabIndex=-1;heading.focus({preventScroll:true});});
       }
