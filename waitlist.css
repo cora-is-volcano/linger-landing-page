@@ -1,8 +1,4 @@
-body {
-  --outer-gap: clamp(8px, 1vw, 16px);
-  padding: var(--outer-gap);
-  background: radial-gradient(ellipse 65% 380px at 46% -160px, #bbcee9, transparent 98%), var(--canvas);
-}
+body { background: var(--paper); }
 .waitlist-layout {
   --inner-gap: clamp(14px, 1.6vw, 24px);
   display: grid;
@@ -10,10 +6,8 @@ body {
   grid-template-rows: auto minmax(0, 1fr);
   column-gap: var(--inner-gap);
   padding: var(--inner-gap);
-  height: calc(100vh - 2 * var(--outer-gap));
-  height: calc(100dvh - 2 * var(--outer-gap));
-  background: var(--paper);
-  border-radius: 16px;
+  height: 100vh;
+  height: 100dvh;
 }
 .waitlist-header {
   grid-area: 1 / 1 / 2 / -1;
@@ -127,7 +121,6 @@ body {
 .application-dialog::backdrop { background: #1f1f1f60; }
 .application-dialog button { margin-top: 24px; }
 @media (min-width: 721px) and (max-height: 700px) {
-  body { --outer-gap: 8px; }
   .waitlist-layout { --inner-gap: 12px; }
   .waitlist-header { padding-block-start: 6px; }
   .application { padding-block: 8px; }
@@ -135,7 +128,7 @@ body {
   .field textarea { height: 64px; }
 }
 @media (max-width: 720px) {
-  .waitlist-layout { height: auto; min-height: calc(100svh - 2 * var(--outer-gap)); grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; row-gap: 22px; }
+  .waitlist-layout { height: auto; min-height: 100svh; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; row-gap: 22px; }
   .waitlist-header, .waitlist-intro { grid-area: 1 / 1; }
   .waitlist-header { padding: 4px 14px 0; }
   .waitlist-header .brand { width: 74px; }
